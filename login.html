@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Didi Store</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="Login-page">
+    <div class="login-page__container">
+        <div class="login-page__box">
+            <div class="login-page__logo">
+                <img src="assets/imagenes/Group_3-removebg-preview.png" alt="Didi Store Logo" width="150">
+                <h1>Bienvenido</h1>
+            </div>
+            <form action="#">
+                <div class="login-page__input">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" placeholder="Ingresa tu usuario" required>
+                </div>
+                <div class="login-page__input">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" placeholder="*********" required>
+                </div>
+                <div class="login-page__input">
+                    <label for="role">Ingresar como:</label>
+                    <select id="role">
+                        <option value="admin">Administrador</option>
+                        <option value="empleado">Empleado</option>
+                        <option value="cliente">Cliente</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="login-page__btn">Iniciar Sesión</button>
+
+                <div class="login-page__footer">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                    <p>¿No tienes una cuenta? <a href="vistas/clientes/index.html">Regístrate</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

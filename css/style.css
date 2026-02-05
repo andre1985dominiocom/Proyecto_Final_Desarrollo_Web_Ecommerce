@@ -1,0 +1,39 @@
+@import url(style.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--fondo-color);
+    --primary-color: #F4CCE9;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.login-page {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.login-page__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-page__box {
+    margin-bottom: 15px;
+}
+
+.login-page__logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 100px;
+}
