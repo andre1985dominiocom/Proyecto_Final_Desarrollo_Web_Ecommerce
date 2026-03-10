@@ -1,0 +1,13 @@
+/* Base styles */
+
+/* Importación de los estilos base */
+@import 'reset.css';
+@import 'typography.css';
+@import 'custom.css';
+
+/* Base estilos para la entrada de la aplicación */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Inika', 'Inder', 'Joan', 'Arial', sans-serif;
+}

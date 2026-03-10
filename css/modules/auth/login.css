@@ -1,0 +1,72 @@
+/* Login styles */
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--background-color);
+}
+
+.login__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.login__label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.login__input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login__button {
+    padding: 0.5rem;
+    color: var(--background-color);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login__button:hover {
+    background-color: var(--background-color-dark);
+}
+
+.login__register {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.login__register a {
+    color: var(--primary-color);
+}
+
+.login__register a:hover {
+    text-decoration: underline;
+    color: var(--primary-color-dark);
+}
+
+.login__olvido {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.login__olvido a {
+    color: var(--primary-color);
+}
+
+.login__olvido a:hover {
+    text-decoration: underline;
+    color: var(--primary-color-dark);
+}
