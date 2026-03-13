@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Cuenta</title>
+    <link rel="stylesheet" href="../../css/modules/auth/register.css">
+</head>
+<body>
+    <div class="register">
+        <h2 class="register__title">Registrar Cuenta</h2>
+        <form class="register__form" action="#" method="post">
+            <label for="username" class="register__label">Nombre:</label>
+            <input type="text" id="username" name="username" class="register__input" required>
+
+            <label for="lastname" class="register__label">Apellido:</label>
+            <input type="text" id="lastname" name="lastname" class="register__input" required>
+            
+            <label for="type document" class="register__label">Tipo Documento:</label>
+            <select id="type document" name="type document" class="register__input" required>
+                <option value="">Selecciona un tipo de documento</option>
+                <option value="cc">CC</option>
+                <option value="foreign_id">Cédula de Extranjería</option>
+                <option value="card_id">Tarjeta de Identidad</option>
+                <option value="passport">Pasaporte</option>
+            </select>
+
+            <label for="document" class="register__label">Documento:</label>
+            <input type="text" id="document" name="document" class="register__input" required>
+
+
+            <label for="phone" class="register__label">Teléfono Principal:</label>
+            <input type="tel" id="phone" name="phone" class="register__input" required>
+
+            <label for="phone2" class="register__label">Teléfono Secundario:</label>
+            <input type="tel" id="phone2" name="phone2" class="register__input">
+            
+            <label for="phone3" class="register__label">Teléfono Trabajo:</label>
+            <input type="tel" id="phone3" name="phone3" class="register__input">
+
+            <label for="phone4" class="register__label">Teléfono Emergencia:</label>
+            <input type="tel" id="phone4" name="phone4" class="register__input">
+
+            <label for="extension" class="register__label">Extensión:</label>
+            <input type="text" id="extension" name="extension" class="register__input">
+
+            <label for="city" class="register__label">Ciudad:</label>
+            <select id="listcity" name="city" class="register__input" required>
+                <option value="">Selecciona una ciudad</option>
+                <option value="bogota">Bogotá</option>
+                <option value="medellin">Medellín</option>
+                <option value="cali">Cali</option>
+                <option value="barranquilla">Barranquilla</option>
+                <option value="cartagena">Cartagena</option>
+                <option value="cucuta">San José de Cúcuta</option>
+                <option value="santamarta">Santa Marta</option>
+                <option value="pereira">Pereira</option>
+                <option value="manizales">Manizales</option>
+                <option value="armenia">Armenia</option>
+                <option value="neiva">Neiva</option>
+                <option value="ibague">Ibagué</option>
+                <option value="villavicencio">Villavicencio</option>
+                <option value="popayan">Popayán</option>
+                <option value="sincelejo">Sincelejo</option>
+                <option value="monteria">Montería</option>
+                <option value="valledupar">Valledupar</option>
+                <option value="bucaramanga">Bucaramanga</option>
+                <option value="arauca">Arauca</option>
+                <option value="yopal">Yopal</option>
+                <option value="florencia">Florencia</option>
+                <option value="mitu">Mitú</option>
+                <option value="puerto_carreño">Puerto Carreño</option>
+                <option value="leticia">Leticia</option>
+                <option value="san_andres">San Andrés</option>
+                <option value="riohacha">Riohacha</option>
+                <option value="quibdo">Quibdó</option>
+                <option value="san_jose_guaviare">San José del Guaviare</option>
+                <option value="pasto">San Juan de Pasto</option>
+                <option value="sincelejo">Sincelejo</option>
+                <option value="ibague">Ibagué</option>
+                <option value="mitu">Mitú</option>
+            </select>
+
+            <label for="departament" class="register__label">Departamento:</label>
+            <select id="listdepart" name="departament" class="register__input" required>
+                <option value="">Selecciona un departamento</option>
+                <option value="amazonas">Amazonas</option>
+                <option value="antioquia">Antioquia</option>
+                <option value="arauca">Arauca</option>
+                <option value="atlantico">Atlántico</option>
+                <option value="bolivar">Bolívar</option>
+                <option value="boyaca">Boyacá</option>
+                <option value="caldas">Caldas</option>
+                <option value="caqueta">Caquetá</option>
+                <option value="casanare">Casanare</option>
+                <option value="cauca">Cauca</option>
+                <option value="cesar">Cesar</option>
+                <option value="choco">Chocó</option>
+                <option value="cordoba">Córdoba</option>
+                <option value="cundinamarca">Cundinamarca</option>
+                <option value="guainia">Guainía</option>
+                <option value="guaviare">Guaviare</option>
+                <option value="huila">Huila</option>
+                <option value="la_guajira">La Guajira</option>
+                <option value="magdalena">Magdalena</option>
+                <option value="meta">Meta</option>
+                <option value="nariño">Nariño</option>
+                <option value="norte_de_santander">Norte de Santander</option>
+                <option value="putumayo">Putumayo</option>
+                <option value="quindio">Quindío</option>
+                <option value="risaralda">Risaralda</option>
+                <option value="san_andres_y_providencia">San Andrés y Providencia</option>
+                <option value="santander">Santander</option>
+                <option value="sucre">Sucre</option>
+                <option value="tolima">Tolima</option>
+                <option value="valle_del_cauca">Valle del Cauca</option>
+                <option value="vaupes">Vaupés</option>
+                <option value="vichada">Vichada</option>
+            </select>
+
+            <label for="codepost" class="register__label">Código Postal:</label>
+            <input type="text" id="codepost" name="codepost" class="register__input">
+
+            <label for="address" class="register__label">Dirección:</label>
+            <input type="text" id="address" name="address" class="register__input" required>
+
+            <label for="es-principal" class="register__label">¿Es su dirección principal?</label>
+            <input type="checkbox" id="es-principal" name="es-principal" class="register__input">
+            <label for="es-principal" class="register__label">Sí</label>
+            <input type="checkbox" id="es-secundaria" name="es-secundaria" class="register__input">
+            <label for="es-secundaria" class="register__label">No</label>
+
+            <label for="neighbor" class="register__label">Barrio:</label>
+            <input type="text" id="neighbor" name="neighbor" class="register__input" required>
+
+            <label for="reference" class="register__label">Referencia</label>
+            <input type="text" id="reference" name="reference" class="register__input">
+
+            <label for="email" class="register__label">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" class="register__input" required>
+
+            <label for="password" class="register__label">Contraseña:</label>
+            <input type="password" id="password" name="password" class="register__input" required>
+
+            <button type="submit" class="register__button">Registrar</button>
+        </form>
+        <p class="register__login">¿Ya tienes una cuenta? <a href="../auth/login.html" class="register__login-link">Inicia sesión aquí</a></p>
+    </div>
+</body>
+</html>
