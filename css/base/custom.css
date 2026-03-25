@@ -6,4 +6,10 @@
     --text-color: #333;
     --background-color: #FFDFEF;
     --background-color-dark: #C97EC4;
+    --color-danger: #e74c3c;
+    --color-danger-dark: #c0392b;
+    --color-danger-text: #fff;
+    --color-neutral: #ccc;
+    --color-neutral-dark: #bbb;
+    --color-muted: #888;
 }

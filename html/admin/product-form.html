@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Producto - DidiStore Admin</title>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar__logo">DidiStore</div>
+            <nav class="admin-sidebar__nav">
+                <a href="dashboard.html" class="admin-sidebar__link">🏠 Dashboard</a>
+                <a href="products.html" class="admin-sidebar__link admin-sidebar__link--active">📦 Productos</a>
+                <a href="categories.html" class="admin-sidebar__link">🏷️ Categorías</a>
+                <a href="orders.html" class="admin-sidebar__link">🛒 Pedidos</a>
+                <a href="users.html" class="admin-sidebar__link">👥 Usuarios</a>
+                <a href="promotions.html" class="admin-sidebar__link">🎉 Promociones</a>
+            </nav>
+            <div class="admin-sidebar__logout">
+                <a href="../../html/auth/login.html" class="admin-sidebar__logout-link">⬅ Cerrar sesión</a>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <div class="admin-main">
+            <div class="admin-topbar">
+                <span class="admin-topbar__title">Formulario de Producto</span>
+                <span class="admin-topbar__user">Admin</span>
+            </div>
+
+            <div class="admin-content">
+                <h1 class="admin-page-title">Agregar / Editar Producto</h1>
+
+                <form class="admin-form" action="#" method="post">
+                    <div class="admin-form__row">
+                        <div class="admin-form__group">
+                            <label for="product-name" class="admin-form__label">Nombre del Producto</label>
+                            <input type="text" id="product-name" name="product-name" class="admin-form__input" placeholder="Ej: Vestido Floral" required>
+                        </div>
+                        <div class="admin-form__group">
+                            <label for="product-sku" class="admin-form__label">SKU / Referencia</label>
+                            <input type="text" id="product-sku" name="product-sku" class="admin-form__input" placeholder="Ej: VF-001">
+                        </div>
+                    </div>
+
+                    <div class="admin-form__group">
+                        <label for="product-description" class="admin-form__label">Descripción</label>
+                        <textarea id="product-description" name="product-description" class="admin-form__textarea" placeholder="Descripción detallada del producto..."></textarea>
+                    </div>
+
+                    <div class="admin-form__row">
+                        <div class="admin-form__group">
+                            <label for="product-price" class="admin-form__label">Precio ($)</label>
+                            <input type="number" id="product-price" name="product-price" class="admin-form__input" placeholder="0" min="0" step="100" required>
+                        </div>
+                        <div class="admin-form__group">
+                            <label for="product-stock" class="admin-form__label">Stock</label>
+                            <input type="number" id="product-stock" name="product-stock" class="admin-form__input" placeholder="0" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="admin-form__row">
+                        <div class="admin-form__group">
+                            <label for="product-category" class="admin-form__label">Categoría</label>
+                            <select id="product-category" name="product-category" class="admin-form__select" required>
+                                <option value="">Selecciona una categoría</option>
+                                <option value="ropa">Ropa</option>
+                                <option value="calzado">Calzado</option>
+                                <option value="accesorios">Accesorios</option>
+                                <option value="bolsos">Bolsos</option>
+                                <option value="joyeria">Joyería</option>
+                                <option value="otros">Otros</option>
+                            </select>
+                        </div>
+                        <div class="admin-form__group">
+                            <label for="product-status" class="admin-form__label">Estado</label>
+                            <select id="product-status" name="product-status" class="admin-form__select">
+                                <option value="active">Activo</option>
+                                <option value="inactive">Inactivo</option>
+                                <option value="draft">Borrador</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="admin-form__group">
+                        <label for="product-image" class="admin-form__label">Imagen del Producto</label>
+                        <input type="file" id="product-image" name="product-image" class="admin-form__input" accept="image/*">
+                        <p class="admin-form__hint">Formatos aceptados: JPG, PNG, WEBP. Tamaño máximo: 2MB.</p>
+                    </div>
+
+                    <div class="admin-form__group">
+                        <label for="product-discount" class="admin-form__label">Descuento (%)</label>
+                        <input type="number" id="product-discount" name="product-discount" class="admin-form__input" placeholder="0" min="0" max="100">
+                        <p class="admin-form__hint">Dejar en 0 si no aplica descuento.</p>
+                    </div>
+
+                    <div class="admin-form__actions">
+                        <button type="submit" class="admin-btn admin-btn--primary">Guardar Producto</button>
+                        <a href="products.html" class="admin-btn admin-btn--secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
