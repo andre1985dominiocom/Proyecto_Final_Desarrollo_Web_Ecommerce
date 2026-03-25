@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto - DidiStore</title>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__logo">
+                <h2 class="header__title">DidiStore</h2>
+            </div>
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a class="navigation__link" href="../../index.html">Inicio</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../catalog/category.html">Categorías</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../promotions/promotions.html">Ofertas</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../auth/login.html">Ingresar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <ul class="breadcrumb__list">
+                    <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">Inicio</a></li>
+                    <li class="breadcrumb__item"><a class="breadcrumb__link" href="../catalog/catalog.html">Catálogo</a></li>
+                    <li class="breadcrumb__item breadcrumb__item--active">Detalle del Producto</li>
+                </ul>
+            </nav>
+
+            <section class="product-detail">
+                <div class="product-detail__gallery">
+                    <div class="product-detail__main-image">
+                        <img
+                            src="../../assets/logos/product-placeholder.png"
+                            alt="Imagen principal del producto"
+                            class="product-detail__image"
+                            id="mainImage"
+                        >
+                    </div>
+                    <div class="product-detail__thumbnails">
+                        <img
+                            src="../../assets/logos/product-placeholder.png"
+                            alt="Vista 1"
+                            class="product-detail__thumbnail product-detail__thumbnail--active"
+                            onclick="changeImage(this)"
+                        >
+                        <img
+                            src="../../assets/logos/product-placeholder.png"
+                            alt="Vista 2"
+                            class="product-detail__thumbnail"
+                            onclick="changeImage(this)"
+                        >
+                        <img
+                            src="../../assets/logos/product-placeholder.png"
+                            alt="Vista 3"
+                            class="product-detail__thumbnail"
+                            onclick="changeImage(this)"
+                        >
+                    </div>
+                </div>
+
+                <div class="product-detail__info">
+                    <h1 class="product-detail__title">Nombre del Producto</h1>
+                    <p class="product-detail__sku">Ref: SKU-001</p>
+
+                    <div class="product-detail__pricing">
+                        <span class="product-detail__price">$150.000</span>
+                        <span class="product-detail__price-original">$200.000</span>
+                        <span class="product-detail__discount">-25%</span>
+                    </div>
+
+                    <p class="product-detail__description">
+                        Descripción detallada del producto. Aquí se muestra información relevante sobre
+                        las características, materiales y beneficios del artículo seleccionado.
+                    </p>
+
+                    <div class="product-detail__options">
+                        <div class="product-detail__option-group">
+                            <label for="product-color" class="product-detail__option-label">Color:</label>
+                            <select id="product-color" name="color" class="product-detail__select">
+                                <option value="">Selecciona un color</option>
+                                <option value="rojo">Rojo</option>
+                                <option value="azul">Azul</option>
+                                <option value="verde">Verde</option>
+                                <option value="negro">Negro</option>
+                                <option value="blanco">Blanco</option>
+                            </select>
+                        </div>
+
+                        <div class="product-detail__option-group">
+                            <label for="product-size" class="product-detail__option-label">Talla:</label>
+                            <select id="product-size" name="size" class="product-detail__select">
+                                <option value="">Selecciona una talla</option>
+                                <option value="xs">XS</option>
+                                <option value="s">S</option>
+                                <option value="m">M</option>
+                                <option value="l">L</option>
+                                <option value="xl">XL</option>
+                                <option value="xxl">XXL</option>
+                            </select>
+                        </div>
+
+                        <div class="product-detail__option-group">
+                            <label for="product-quantity" class="product-detail__option-label">Cantidad:</label>
+                            <div class="product-detail__quantity">
+                                <button type="button" class="product-detail__quantity-btn" onclick="changeQty(-1)">−</button>
+                                <input
+                                    type="number"
+                                    id="product-quantity"
+                                    name="quantity"
+                                    value="1"
+                                    min="1"
+                                    max="99"
+                                    class="product-detail__quantity-input"
+                                >
+                                <button type="button" class="product-detail__quantity-btn" onclick="changeQty(1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="product-detail__stock product-detail__stock--available">✓ En stock (15 unidades disponibles)</p>
+
+                    <div class="product-detail__actions">
+                        <button type="button" class="product-detail__btn-cart">Agregar al carrito</button>
+                        <button type="button" class="product-detail__btn-wishlist">♡ Lista de deseos</button>
+                    </div>
+
+                    <div class="product-detail__meta">
+                        <p class="product-detail__meta-item">
+                            <span class="product-detail__meta-label">Categoría:</span>
+                            <a href="../catalog/category.html" class="product-detail__meta-link">Ropa</a>
+                        </p>
+                        <p class="product-detail__meta-item">
+                            <span class="product-detail__meta-label">Envío:</span>
+                            Envío gratis a partir de $200.000
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="product-detail__tabs">
+                <div class="product-detail__tab-header">
+                    <button class="product-detail__tab-btn product-detail__tab-btn--active" onclick="openTab(event, 'description')">Descripción</button>
+                    <button class="product-detail__tab-btn" onclick="openTab(event, 'specifications')">Especificaciones</button>
+                    <button class="product-detail__tab-btn" onclick="openTab(event, 'reviews')">Reseñas</button>
+                </div>
+
+                <div id="description" class="product-detail__tab-content product-detail__tab-content--active">
+                    <h3 class="product-detail__tab-title">Descripción del Producto</h3>
+                    <p>
+                        Este producto está fabricado con materiales de alta calidad, diseñado para brindar
+                        comodidad y durabilidad. Ideal para uso diario, combina estilo y funcionalidad.
+                    </p>
+                    <p>
+                        Disponible en múltiples colores y tallas para adaptarse a tus preferencias. Fácil
+                        de lavar y mantener, conserva su forma y color después de múltiples lavados.
+                    </p>
+                </div>
+
+                <div id="specifications" class="product-detail__tab-content">
+                    <h3 class="product-detail__tab-title">Especificaciones Técnicas</h3>
+                    <table class="product-detail__specs-table">
+                        <tbody>
+                            <tr class="product-detail__specs-row">
+                                <th class="product-detail__specs-key">Material</th>
+                                <td class="product-detail__specs-value">100% Algodón</td>
+                            </tr>
+                            <tr class="product-detail__specs-row">
+                                <th class="product-detail__specs-key">País de origen</th>
+                                <td class="product-detail__specs-value">Colombia</td>
+                            </tr>
+                            <tr class="product-detail__specs-row">
+                                <th class="product-detail__specs-key">Peso</th>
+                                <td class="product-detail__specs-value">250g</td>
+                            </tr>
+                            <tr class="product-detail__specs-row">
+                                <th class="product-detail__specs-key">Cuidado</th>
+                                <td class="product-detail__specs-value">Lavar a máquina en agua fría</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="reviews" class="product-detail__tab-content">
+                    <h3 class="product-detail__tab-title">Reseñas de Clientes</h3>
+                    <div class="product-detail__rating-summary">
+                        <span class="product-detail__rating-score">4.5</span>
+                        <span class="product-detail__rating-stars">★★★★½</span>
+                        <span class="product-detail__rating-count">(24 reseñas)</span>
+                    </div>
+                    <div class="product-detail__review">
+                        <p class="product-detail__review-author">María G. — <span class="product-detail__review-stars">★★★★★</span></p>
+                        <p class="product-detail__review-text">Excelente producto, muy buena calidad. Lo recomiendo totalmente.</p>
+                    </div>
+                    <div class="product-detail__review">
+                        <p class="product-detail__review-author">Carlos M. — <span class="product-detail__review-stars">★★★★☆</span></p>
+                        <p class="product-detail__review-text">Muy buen producto, llegó en perfecto estado y en tiempo récord.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <p class="footer__text">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function changeImage(thumbnail) {
+            document.getElementById('mainImage').src = thumbnail.src;
+            document.querySelectorAll('.product-detail__thumbnail').forEach(function(t) {
+                t.classList.remove('product-detail__thumbnail--active');
+            });
+            thumbnail.classList.add('product-detail__thumbnail--active');
+        }
+
+        function changeQty(delta) {
+            var input = document.getElementById('product-quantity');
+            var currentVal = parseInt(input.value, 10) || 1;
+            var newVal = Math.max(1, Math.min(99, currentVal + delta));
+            input.value = newVal;
+        }
+
+        function openTab(event, tabId) {
+            document.querySelectorAll('.product-detail__tab-content').forEach(function(tab) {
+                tab.classList.remove('product-detail__tab-content--active');
+            });
+            document.querySelectorAll('.product-detail__tab-btn').forEach(function(btn) {
+                btn.classList.remove('product-detail__tab-btn--active');
+            });
+            document.getElementById(tabId).classList.add('product-detail__tab-content--active');
+            event.currentTarget.classList.add('product-detail__tab-btn--active');
+        }
+    </script>
+</body>
+</html>
