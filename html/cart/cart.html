@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - DidiStore</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/modules/cart/cart.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__logo">
+                <h2 class="header__title"><a href="../../index.html">DidiStore</a></h2>
+            </div>
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a class="navigation__link" href="../../index.html">Inicio</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../catalog/category.html">Categorías</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../promotions/promotions.html">Ofertas</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../auth/login.html">Ingresar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="cart">
+            <div class="cart__container container">
+                <h1 class="cart__title">Carrito de Compras</h1>
+
+                <div class="cart__content">
+                    <div class="cart__items">
+                        <div class="cart__item">
+                            <div class="cart__item-image">
+                                <img src="../../assets/logos/placeholder.png" alt="Producto" class="cart__item-img" onerror="this.style.display='none'">
+                            </div>
+                            <div class="cart__item-info">
+                                <h3 class="cart__item-name">Producto Ejemplo 1</h3>
+                                <p class="cart__item-reference">Ref: PRD-001</p>
+                                <p class="cart__item-price">$120.000</p>
+                            </div>
+                            <div class="cart__item-quantity">
+                                <label for="qty-1" class="cart__item-qty-label">Cantidad:</label>
+                                <div class="cart__item-qty-controls">
+                                    <button type="button" class="cart__qty-btn cart__qty-btn--minus">-</button>
+                                    <input type="number" id="qty-1" name="qty-1" class="cart__item-qty-input" value="1" min="1" max="99">
+                                    <button type="button" class="cart__qty-btn cart__qty-btn--plus">+</button>
+                                </div>
+                            </div>
+                            <div class="cart__item-subtotal">
+                                <p class="cart__item-subtotal-label">Subtotal:</p>
+                                <p class="cart__item-subtotal-value">$120.000</p>
+                            </div>
+                            <button type="button" class="cart__item-remove" aria-label="Eliminar producto">&#x2715;</button>
+                        </div>
+
+                        <div class="cart__item">
+                            <div class="cart__item-image">
+                                <img src="../../assets/logos/placeholder.png" alt="Producto" class="cart__item-img" onerror="this.style.display='none'">
+                            </div>
+                            <div class="cart__item-info">
+                                <h3 class="cart__item-name">Producto Ejemplo 2</h3>
+                                <p class="cart__item-reference">Ref: PRD-002</p>
+                                <p class="cart__item-price">$85.000</p>
+                            </div>
+                            <div class="cart__item-quantity">
+                                <label for="qty-2" class="cart__item-qty-label">Cantidad:</label>
+                                <div class="cart__item-qty-controls">
+                                    <button type="button" class="cart__qty-btn cart__qty-btn--minus">-</button>
+                                    <input type="number" id="qty-2" name="qty-2" class="cart__item-qty-input" value="2" min="1" max="99">
+                                    <button type="button" class="cart__qty-btn cart__qty-btn--plus">+</button>
+                                </div>
+                            </div>
+                            <div class="cart__item-subtotal">
+                                <p class="cart__item-subtotal-label">Subtotal:</p>
+                                <p class="cart__item-subtotal-value">$170.000</p>
+                            </div>
+                            <button type="button" class="cart__item-remove" aria-label="Eliminar producto">&#x2715;</button>
+                        </div>
+                    </div>
+
+                    <div class="cart__summary">
+                        <h2 class="cart__summary-title">Resumen del Pedido</h2>
+                        <div class="cart__summary-row">
+                            <span class="cart__summary-label">Subtotal:</span>
+                            <span class="cart__summary-value">$290.000</span>
+                        </div>
+                        <div class="cart__summary-row">
+                            <span class="cart__summary-label">Envío:</span>
+                            <span class="cart__summary-value">$10.000</span>
+                        </div>
+                        <div class="cart__summary-row cart__summary-row--discount">
+                            <span class="cart__summary-label">Descuento:</span>
+                            <span class="cart__summary-value cart__summary-value--discount">-$0</span>
+                        </div>
+                        <div class="cart__summary-row cart__summary-row--total">
+                            <span class="cart__summary-label cart__summary-label--total">Total:</span>
+                            <span class="cart__summary-value cart__summary-value--total">$300.000</span>
+                        </div>
+
+                        <div class="cart__coupon">
+                            <label for="coupon" class="cart__coupon-label">Código de Descuento:</label>
+                            <div class="cart__coupon-group">
+                                <input type="text" id="coupon" name="coupon" class="cart__coupon-input" placeholder="Ingresa tu cupón">
+                                <button type="button" class="cart__coupon-btn">Aplicar</button>
+                            </div>
+                        </div>
+
+                        <a href="../checkout/checkout.html" class="cart__checkout-btn">Proceder al Pago</a>
+                        <a href="../catalog/catalog.html" class="cart__continue-btn">Continuar Comprando</a>
+                    </div>
+                </div>
+
+                <div class="cart__empty" style="display:none;">
+                    <p class="cart__empty-text">Tu carrito está vacío.</p>
+                    <a href="../catalog/catalog.html" class="cart__empty-link">Explorar productos</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <p class="footer__text">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
