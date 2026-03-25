@@ -1,0 +1,232 @@
+/* Promotions page styles */
+
+/* Hero banner */
+.promotions-hero {
+    background-color: var(--primary-color);
+    padding: 3rem 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.promotions-hero__title {
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 0.75rem;
+}
+
+.promotions-hero__subtitle {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+/* Coupons section */
+.promotions-coupons {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+}
+
+.promotions-coupons__title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+.promotions-coupons__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.coupon-card {
+    background-color: #fff;
+    border: 2px dashed var(--primary-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.coupon-card__discount {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.coupon-card__body {
+    margin-bottom: 1rem;
+}
+
+.coupon-card__description {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.75rem;
+}
+
+.coupon-card__code {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #333;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.coupon-card__expiry {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Products on sale section */
+.promotions-products {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+}
+
+.promotions-products__title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+.promotions-products__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+/* Promo product card */
+.promo-card {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 240px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    position: relative;
+}
+
+.promo-card__badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background-color: var(--primary-color);
+    color: #333;
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.promo-card__image-wrapper {
+    width: 100%;
+    height: 160px;
+    background-color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promo-card__image-placeholder {
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.promo-card__body {
+    padding: 1rem;
+    text-align: center;
+}
+
+.promo-card__name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 0.25rem;
+}
+
+.promo-card__category {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0.75rem;
+}
+
+.promo-card__pricing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.promo-card__price--original {
+    font-size: 0.9rem;
+    color: #aaa;
+    text-decoration: line-through;
+}
+
+.promo-card__price--discounted {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.promo-card__button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #333;
+    text-decoration: none;
+    padding: 0.4rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.promo-card__button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Free shipping banner */
+.promotions-banner {
+    background-color: var(--secondary-color);
+    padding: 3rem 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.promotions-banner__title {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 0.75rem;
+}
+
+.promotions-banner__text {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+.promotions-banner__button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #333;
+    text-decoration: none;
+    padding: 0.6rem 1.8rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.promotions-banner__button:hover {
+    background-color: #d4a8d0;
+}
