@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - DidiStore</title>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar__logo">DidiStore</div>
+            <nav class="admin-sidebar__nav">
+                <a href="dashboard.html" class="admin-sidebar__link admin-sidebar__link--active">🏠 Dashboard</a>
+                <a href="products.html" class="admin-sidebar__link">📦 Productos</a>
+                <a href="categories.html" class="admin-sidebar__link">🏷️ Categorías</a>
+                <a href="orders.html" class="admin-sidebar__link">🛒 Pedidos</a>
+                <a href="users.html" class="admin-sidebar__link">👥 Usuarios</a>
+                <a href="promotions.html" class="admin-sidebar__link">🎉 Promociones</a>
+            </nav>
+            <div class="admin-sidebar__logout">
+                <a href="../../html/auth/login.html" class="admin-sidebar__logout-link">⬅ Cerrar sesión</a>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <div class="admin-main">
+            <div class="admin-topbar">
+                <span class="admin-topbar__title">Dashboard</span>
+                <span class="admin-topbar__user">Admin</span>
+            </div>
+
+            <div class="admin-content">
+                <h1 class="admin-page-title">Resumen General</h1>
+
+                <!-- Stats cards -->
+                <div class="admin-stats">
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-card__label">Ventas del mes</div>
+                        <div class="admin-stat-card__value">$8.450.000</div>
+                        <div class="admin-stat-card__sub">+12% respecto al mes anterior</div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-card__label">Pedidos nuevos</div>
+                        <div class="admin-stat-card__value">134</div>
+                        <div class="admin-stat-card__sub">Últimos 30 días</div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-card__label">Usuarios registrados</div>
+                        <div class="admin-stat-card__value">892</div>
+                        <div class="admin-stat-card__sub">Total acumulado</div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-card__label">Productos activos</div>
+                        <div class="admin-stat-card__value">247</div>
+                        <div class="admin-stat-card__sub">En catálogo</div>
+                    </div>
+                </div>
+
+                <!-- Widgets -->
+                <div class="admin-dashboard-grid">
+                    <!-- Recent orders widget -->
+                    <div class="admin-widget">
+                        <div class="admin-widget__header">
+                            Pedidos Recientes
+                            <a href="orders.html" class="admin-widget__link">Ver todos →</a>
+                        </div>
+                        <div class="admin-widget__body">
+                            <div class="admin-table-wrapper">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Cliente</th>
+                                            <th>Total</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#1042</td>
+                                            <td>Laura Gómez</td>
+                                            <td>$125.000</td>
+                                            <td><span class="admin-badge admin-badge--warning">Pendiente</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#1041</td>
+                                            <td>Carlos Ruiz</td>
+                                            <td>$89.900</td>
+                                            <td><span class="admin-badge admin-badge--success">Enviado</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#1040</td>
+                                            <td>Ana Torres</td>
+                                            <td>$210.000</td>
+                                            <td><span class="admin-badge admin-badge--info">En proceso</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#1039</td>
+                                            <td>Pedro López</td>
+                                            <td>$67.500</td>
+                                            <td><span class="admin-badge admin-badge--success">Entregado</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Low stock widget -->
+                    <div class="admin-widget">
+                        <div class="admin-widget__header">
+                            Productos con Bajo Stock
+                            <a href="products.html" class="admin-widget__link">Ver todos →</a>
+                        </div>
+                        <div class="admin-widget__body">
+                            <div class="admin-table-wrapper">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Producto</th>
+                                            <th>Categoría</th>
+                                            <th>Stock</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Bolso de Cuero</td>
+                                            <td>Accesorios</td>
+                                            <td><span class="admin-badge admin-badge--danger">3</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Zapatos Tacón</td>
+                                            <td>Calzado</td>
+                                            <td><span class="admin-badge admin-badge--danger">2</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vestido Floral</td>
+                                            <td>Ropa</td>
+                                            <td><span class="admin-badge admin-badge--warning">5</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cinturón Marrón</td>
+                                            <td>Accesorios</td>
+                                            <td><span class="admin-badge admin-badge--warning">4</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

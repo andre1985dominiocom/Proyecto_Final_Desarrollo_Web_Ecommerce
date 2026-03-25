@@ -1,0 +1,91 @@
+/* Admin dashboard styles */
+
+/* Stats cards */
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.admin-stat-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--primary-color);
+}
+
+.admin-stat-card__label {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.4rem;
+}
+
+.admin-stat-card__value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.admin-stat-card__sub {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 0.25rem;
+}
+
+/* Dashboard grid */
+.admin-dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .admin-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dashboard widget */
+.admin-widget {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.admin-widget--form {
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+.admin-widget--form-wide {
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.admin-widget__header {
+    background-color: var(--primary-color);
+    padding: 0.75rem 1.25rem;
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-widget__body {
+    padding: 1rem 1.25rem;
+}
+
+.admin-widget__link {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.admin-widget__link:hover {
+    text-decoration: underline;
+}

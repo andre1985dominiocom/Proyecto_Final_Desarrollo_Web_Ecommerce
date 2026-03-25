@@ -1,0 +1,57 @@
+/* Cart page styles */
+
+.cart-page {
+    padding: 2rem 0;
+    min-height: calc(100vh - 120px);
+}
+
+.cart-page__container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.cart-page__title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.cart-page__content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+    .cart-page__content {
+        flex-direction: column;
+    }
+
+    .cart-summary {
+        width: 100%;
+    }
+
+    .cart__header {
+        display: none;
+    }
+
+    .cart__item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .cart__item-product {
+        grid-column: 1;
+    }
+
+    .cart__item-price::before {
+        content: "Precio: ";
+        font-weight: bold;
+    }
+
+    .cart__item-subtotal::before {
+        content: "Subtotal: ";
+        font-weight: bold;
+    }
+}

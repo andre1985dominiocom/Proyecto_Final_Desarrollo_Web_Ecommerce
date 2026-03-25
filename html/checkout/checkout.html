@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago - DidiStore</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/modules/checkout/checkout.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__logo">
+                <h2 class="header__title"><a href="../../index.html">DidiStore</a></h2>
+            </div>
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a class="navigation__link" href="../../index.html">Inicio</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../catalog/category.html">Categorías</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../promotions/promotions.html">Ofertas</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../auth/login.html">Ingresar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="checkout">
+            <div class="checkout__container container">
+                <h1 class="checkout__title">Finalizar Compra</h1>
+
+                <div class="checkout__steps">
+                    <span class="checkout__step checkout__step--active">1. Envío</span>
+                    <span class="checkout__step-divider">&#9654;</span>
+                    <span class="checkout__step">2. Pago</span>
+                    <span class="checkout__step-divider">&#9654;</span>
+                    <span class="checkout__step">3. Confirmación</span>
+                </div>
+
+                <div class="checkout__content">
+                    <!-- Left column: Shipping & Payment forms -->
+                    <div class="checkout__forms">
+
+                        <!-- Shipping Address -->
+                        <div class="checkout__section">
+                            <h2 class="checkout__section-title">Dirección de Envío</h2>
+                            <form class="checkout__form" id="checkout-form" action="#" method="post">
+                                <div class="checkout__form-row">
+                                    <div class="checkout__form-group">
+                                        <label for="first-name" class="checkout__label">Nombre:</label>
+                                        <input type="text" id="first-name" name="first-name" class="checkout__input" placeholder="Ingresa tu nombre" required>
+                                    </div>
+                                    <div class="checkout__form-group">
+                                        <label for="last-name" class="checkout__label">Apellido:</label>
+                                        <input type="text" id="last-name" name="last-name" class="checkout__input" placeholder="Ingresa tu apellido" required>
+                                    </div>
+                                </div>
+
+                                <div class="checkout__form-row">
+                                    <div class="checkout__form-group">
+                                        <label for="doc-type" class="checkout__label">Tipo de Documento:</label>
+                                        <select id="doc-type" name="doc-type" class="checkout__input" required>
+                                            <option value="">Selecciona un tipo</option>
+                                            <option value="cc">Cédula de Ciudadanía</option>
+                                            <option value="foreign_id">Cédula de Extranjería</option>
+                                            <option value="passport">Pasaporte</option>
+                                            <option value="card_id">Tarjeta de Identidad</option>
+                                        </select>
+                                    </div>
+                                    <div class="checkout__form-group">
+                                        <label for="doc-number" class="checkout__label">Número de Documento:</label>
+                                        <input type="text" id="doc-number" name="doc-number" class="checkout__input" placeholder="Número de documento" required>
+                                    </div>
+                                </div>
+
+                                <div class="checkout__form-row">
+                                    <div class="checkout__form-group">
+                                        <label for="email" class="checkout__label">Correo Electrónico:</label>
+                                        <input type="email" id="email" name="email" class="checkout__input" placeholder="correo@ejemplo.com" required>
+                                    </div>
+                                    <div class="checkout__form-group">
+                                        <label for="phone" class="checkout__label">Teléfono:</label>
+                                        <input type="tel" id="phone" name="phone" class="checkout__input" placeholder="Número de contacto" required>
+                                    </div>
+                                </div>
+
+                                <div class="checkout__form-row">
+                                    <div class="checkout__form-group">
+                                        <label for="departament" class="checkout__label">Departamento:</label>
+                                        <select id="departament" name="departament" class="checkout__input" required>
+                                            <option value="">Selecciona un departamento</option>
+                                            <option value="amazonas">Amazonas</option>
+                                            <option value="antioquia">Antioquia</option>
+                                            <option value="arauca">Arauca</option>
+                                            <option value="atlantico">Atlántico</option>
+                                            <option value="bolivar">Bolívar</option>
+                                            <option value="boyaca">Boyacá</option>
+                                            <option value="caldas">Caldas</option>
+                                            <option value="caqueta">Caquetá</option>
+                                            <option value="casanare">Casanare</option>
+                                            <option value="cauca">Cauca</option>
+                                            <option value="cesar">Cesar</option>
+                                            <option value="choco">Chocó</option>
+                                            <option value="cordoba">Córdoba</option>
+                                            <option value="cundinamarca">Cundinamarca</option>
+                                            <option value="guainia">Guainía</option>
+                                            <option value="guaviare">Guaviare</option>
+                                            <option value="huila">Huila</option>
+                                            <option value="la_guajira">La Guajira</option>
+                                            <option value="magdalena">Magdalena</option>
+                                            <option value="meta">Meta</option>
+                                            <option value="narino">Nariño</option>
+                                            <option value="norte_de_santander">Norte de Santander</option>
+                                            <option value="putumayo">Putumayo</option>
+                                            <option value="quindio">Quindío</option>
+                                            <option value="risaralda">Risaralda</option>
+                                            <option value="san_andres_y_providencia">San Andrés y Providencia</option>
+                                            <option value="santander">Santander</option>
+                                            <option value="sucre">Sucre</option>
+                                            <option value="tolima">Tolima</option>
+                                            <option value="valle_del_cauca">Valle del Cauca</option>
+                                            <option value="vaupes">Vaupés</option>
+                                            <option value="vichada">Vichada</option>
+                                        </select>
+                                    </div>
+                                    <div class="checkout__form-group">
+                                        <label for="city" class="checkout__label">Ciudad:</label>
+                                        <select id="city" name="city" class="checkout__input" required>
+                                            <option value="">Selecciona una ciudad</option>
+                                            <option value="bogota">Bogotá</option>
+                                            <option value="medellin">Medellín</option>
+                                            <option value="cali">Cali</option>
+                                            <option value="barranquilla">Barranquilla</option>
+                                            <option value="cartagena">Cartagena</option>
+                                            <option value="cucuta">San José de Cúcuta</option>
+                                            <option value="bucaramanga">Bucaramanga</option>
+                                            <option value="pereira">Pereira</option>
+                                            <option value="manizales">Manizales</option>
+                                            <option value="armenia">Armenia</option>
+                                            <option value="neiva">Neiva</option>
+                                            <option value="ibague">Ibagué</option>
+                                            <option value="villavicencio">Villavicencio</option>
+                                            <option value="popayan">Popayán</option>
+                                            <option value="santamarta">Santa Marta</option>
+                                            <option value="monteria">Montería</option>
+                                            <option value="valledupar">Valledupar</option>
+                                            <option value="pasto">Pasto</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="checkout__form-row">
+                                    <div class="checkout__form-group">
+                                        <label for="address" class="checkout__label">Dirección:</label>
+                                        <input type="text" id="address" name="address" class="checkout__input" placeholder="Calle, número, apto..." required>
+                                    </div>
+                                    <div class="checkout__form-group">
+                                        <label for="neighbor" class="checkout__label">Barrio:</label>
+                                        <input type="text" id="neighbor" name="neighbor" class="checkout__input" placeholder="Nombre del barrio" required>
+                                    </div>
+                                </div>
+
+                                <div class="checkout__form-row">
+                                    <div class="checkout__form-group">
+                                        <label for="codepost" class="checkout__label">Código Postal:</label>
+                                        <input type="text" id="codepost" name="codepost" class="checkout__input" placeholder="Código postal">
+                                    </div>
+                                    <div class="checkout__form-group">
+                                        <label for="reference" class="checkout__label">Referencia de Entrega:</label>
+                                        <input type="text" id="reference" name="reference" class="checkout__input" placeholder="Punto de referencia">
+                                    </div>
+                                </div>
+                        </div>
+                        <!-- End Shipping Address section -->
+
+                        <!-- Payment Method -->
+                        <div class="checkout__section">
+                            <h2 class="checkout__section-title">Método de Pago</h2>
+
+                            <div class="checkout__payment-methods">
+                                <label class="checkout__payment-option">
+                                    <input type="radio" name="payment-method" value="credit-card" class="checkout__payment-radio" checked>
+                                    <span class="checkout__payment-label">Tarjeta de Crédito / Débito</span>
+                                </label>
+                                <label class="checkout__payment-option">
+                                    <input type="radio" name="payment-method" value="pse" class="checkout__payment-radio">
+                                    <span class="checkout__payment-label">PSE - Pagos Seguros en Línea</span>
+                                </label>
+                                <label class="checkout__payment-option">
+                                    <input type="radio" name="payment-method" value="cash" class="checkout__payment-radio">
+                                    <span class="checkout__payment-label">Pago Contra Entrega</span>
+                                </label>
+                                <label class="checkout__payment-option">
+                                    <input type="radio" name="payment-method" value="nequi" class="checkout__payment-radio">
+                                    <span class="checkout__payment-label">Nequi</span>
+                                </label>
+                            </div>
+
+                            <!-- Credit Card Fields -->
+                            <div class="checkout__card-fields" id="card-fields">
+                                <div class="checkout__form-row">
+                                    <div class="checkout__form-group checkout__form-group--full">
+                                        <label for="card-number" class="checkout__label">Número de Tarjeta:</label>
+                                        <input type="text" id="card-number" name="card-number" class="checkout__input" placeholder="0000 0000 0000 0000" maxlength="19">
+                                    </div>
+                                </div>
+                                <div class="checkout__form-row">
+                                    <div class="checkout__form-group">
+                                        <label for="card-name" class="checkout__label">Nombre en la Tarjeta:</label>
+                                        <input type="text" id="card-name" name="card-name" class="checkout__input" placeholder="Como aparece en la tarjeta">
+                                    </div>
+                                    <div class="checkout__form-group">
+                                        <label for="card-expiry" class="checkout__label">Fecha de Vencimiento:</label>
+                                        <input type="text" id="card-expiry" name="card-expiry" class="checkout__input" placeholder="MM/AA" maxlength="5">
+                                    </div>
+                                </div>
+                                <div class="checkout__form-row">
+                                    <div class="checkout__form-group">
+                                        <label for="card-cvv" class="checkout__label">CVV:</label>
+                                        <input type="password" id="card-cvv" name="card-cvv" class="checkout__input" placeholder="***" maxlength="4">
+                                    </div>
+                                    <div class="checkout__form-group">
+                                        <label for="card-installments" class="checkout__label">Cuotas:</label>
+                                        <select id="card-installments" name="card-installments" class="checkout__input">
+                                            <option value="1">1 cuota (sin interés)</option>
+                                            <option value="3">3 cuotas</option>
+                                            <option value="6">6 cuotas</option>
+                                            <option value="12">12 cuotas</option>
+                                            <option value="24">24 cuotas</option>
+                                            <option value="36">36 cuotas</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="checkout__form-group checkout__form-group--terms">
+                                <input type="checkbox" id="terms" name="terms" class="checkout__checkbox" required>
+                                <label for="terms" class="checkout__terms-label">
+                                    Acepto los <a href="#" class="checkout__terms-link">Términos y Condiciones</a> y la <a href="#" class="checkout__terms-link">Política de Privacidad</a>.
+                                </label>
+                            </div>
+
+                            <div class="checkout__actions">
+                                <a href="../cart/cart.html" class="checkout__back-btn">&#8592; Volver al Carrito</a>
+                                <button type="submit" class="checkout__submit-btn">Confirmar Pedido</button>
+                            </div>
+                        </div>
+                        <!-- End Payment Method section -->
+                        </form>
+                    </div>
+                    <!-- End Left column -->
+
+                    <!-- Right column: Order Summary -->
+                    <aside class="checkout__order-summary">
+                        <h2 class="checkout__summary-title">Resumen del Pedido</h2>
+
+                        <ul class="checkout__summary-items">
+                            <li class="checkout__summary-item">
+                                <span class="checkout__summary-item-name">Producto Ejemplo 1</span>
+                                <span class="checkout__summary-item-qty">x1</span>
+                                <span class="checkout__summary-item-price">$120.000</span>
+                            </li>
+                            <li class="checkout__summary-item">
+                                <span class="checkout__summary-item-name">Producto Ejemplo 2</span>
+                                <span class="checkout__summary-item-qty">x2</span>
+                                <span class="checkout__summary-item-price">$170.000</span>
+                            </li>
+                        </ul>
+
+                        <div class="checkout__summary-row">
+                            <span class="checkout__summary-label">Subtotal:</span>
+                            <span class="checkout__summary-value">$290.000</span>
+                        </div>
+                        <div class="checkout__summary-row">
+                            <span class="checkout__summary-label">Envío:</span>
+                            <span class="checkout__summary-value">$10.000</span>
+                        </div>
+                        <div class="checkout__summary-row">
+                            <span class="checkout__summary-label">Descuento:</span>
+                            <span class="checkout__summary-value checkout__summary-value--discount">-$0</span>
+                        </div>
+                        <div class="checkout__summary-row checkout__summary-row--total">
+                            <span class="checkout__summary-label checkout__summary-label--total">Total:</span>
+                            <span class="checkout__summary-value checkout__summary-value--total">$300.000</span>
+                        </div>
+
+                        <div class="checkout__secure-badge">
+                            <span>&#128274;</span>
+                            <span>Pago 100% seguro y protegido</span>
+                        </div>
+                    </aside>
+                    <!-- End Right column -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <p class="footer__text">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -10,10 +10,43 @@
     color: var(--text-color);
     font-size: 0.95rem;
     transition: color 0.2s;
+/* Navigation styles */
+.navigation__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+}
+
+.navigation__link {
+    display: inline-block;
+    padding: 6px 14px;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .navigation__link:hover,
 .navigation__link--active {
     color: #9b59b6;
     font-weight: bold;
+}
+    background-color: var(--secondary-color);
+}
+
+.navigation__link--cart {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.navigation__link--cart:hover {
+    background-color: var(--primary-color);
+}
+
+/* Standalone navbar */
+.navigation__container {
+    padding: 8px 0;
 }

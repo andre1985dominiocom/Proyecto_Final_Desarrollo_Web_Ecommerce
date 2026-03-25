@@ -1,0 +1,284 @@
+/* Admin shared layout styles */
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.admin-sidebar {
+    width: 240px;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0;
+    flex-shrink: 0;
+}
+
+.admin-sidebar__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: center;
+    padding: 0 1rem 1.5rem 1rem;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+    margin-bottom: 1rem;
+}
+
+.admin-sidebar__nav {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.admin-sidebar__link {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+}
+
+.admin-sidebar__link:hover,
+.admin-sidebar__link--active {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.admin-sidebar__logout {
+    padding: 1rem 1.5rem 0 1.5rem;
+    border-top: 1px solid rgba(51, 51, 51, 0.2);
+    margin-top: auto;
+}
+
+.admin-sidebar__logout-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.admin-sidebar__logout-link:hover {
+    text-decoration: underline;
+}
+
+/* Main content area */
+.admin-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+    overflow-x: hidden;
+}
+
+/* Admin top bar */
+.admin-topbar {
+    background-color: var(--secondary-color);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.15);
+}
+
+.admin-topbar__title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.admin-topbar__user {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* Content wrapper */
+.admin-content {
+    padding: 2rem;
+    flex: 1;
+}
+
+/* Page heading */
+.admin-page-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+/* Action bar */
+.admin-action-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.admin-search {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.admin-search__input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    min-width: 220px;
+}
+
+.admin-search__button {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.admin-search__button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Buttons */
+.admin-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.admin-btn--primary {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.admin-btn--primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.admin-btn--danger {
+    background-color: var(--color-danger);
+    color: var(--color-danger-text);
+}
+
+.admin-btn--danger:hover {
+    background-color: var(--color-danger-dark);
+}
+
+.admin-btn--secondary {
+    background-color: var(--color-neutral);
+    color: var(--text-color);
+}
+
+.admin-btn--secondary:hover {
+    background-color: var(--color-neutral-dark);
+}
+
+.admin-btn--small {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.8rem;
+}
+
+/* Tables */
+.admin-table-wrapper {
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #f0d6e8;
+    font-size: 0.9rem;
+}
+
+.admin-table th {
+    background-color: var(--primary-color);
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tr:hover td {
+    background-color: #fdf0f8;
+}
+
+.admin-table__actions {
+    display: flex;
+    gap: 0.4rem;
+}
+
+/* Pagination */
+.admin-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.admin-pagination__btn {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.admin-pagination__btn--active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: bold;
+}
+
+.admin-pagination__btn:hover:not(.admin-pagination__btn--active) {
+    background-color: var(--background-color);
+}
+
+/* Badge / status */
+.admin-badge {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    font-weight: bold;
+}
+
+.admin-badge--success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.admin-badge--warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.admin-badge--danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.admin-badge--info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
