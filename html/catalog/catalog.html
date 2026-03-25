@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - DidiStore</title>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__logo">
+                <h2 class="header__title"><a href="../../index.html">DidiStore</a></h2>
+            </div>
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a class="navigation__link" href="../../index.html">Inicio</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="category.html">Categorías</a></li>
+                    <li class="navigation__item"><a class="navigation__link navigation__link--active" href="catalog.html">Catálogo</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../promotions/promotions.html">Ofertas</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../auth/login.html">Ingresar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="catalog">
+            <div class="catalog__container container">
+                <div class="catalog__header">
+                    <h1 class="catalog__title">Catálogo de Productos</h1>
+                    <div class="catalog__controls">
+                        <span class="catalog__count">Mostrando <strong>12</strong> de <strong>48</strong> productos</span>
+                        <div class="catalog__sort">
+                            <label for="sort-select" class="catalog__sort-label">Ordenar por:</label>
+                            <select id="sort-select" class="catalog__sort-select">
+                                <option value="relevance">Relevancia</option>
+                                <option value="price-asc">Precio: menor a mayor</option>
+                                <option value="price-desc">Precio: mayor a menor</option>
+                                <option value="newest">Más recientes</option>
+                                <option value="popular">Más populares</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__body">
+                    <!-- Sidebar de filtros -->
+                    <aside class="filters">
+                        <h2 class="filters__title">Filtros</h2>
+
+                        <div class="filters__group">
+                            <h3 class="filters__group-title">Categorías</h3>
+                            <ul class="filters__list">
+                                <li class="filters__item">
+                                    <label class="filters__label">
+                                        <input type="checkbox" class="filters__checkbox" name="category" value="ropa"> Ropa
+                                    </label>
+                                </li>
+                                <li class="filters__item">
+                                    <label class="filters__label">
+                                        <input type="checkbox" class="filters__checkbox" name="category" value="calzado"> Calzado
+                                    </label>
+                                </li>
+                                <li class="filters__item">
+                                    <label class="filters__label">
+                                        <input type="checkbox" class="filters__checkbox" name="category" value="accesorios"> Accesorios
+                                    </label>
+                                </li>
+                                <li class="filters__item">
+                                    <label class="filters__label">
+                                        <input type="checkbox" class="filters__checkbox" name="category" value="hogar"> Hogar
+                                    </label>
+                                </li>
+                                <li class="filters__item">
+                                    <label class="filters__label">
+                                        <input type="checkbox" class="filters__checkbox" name="category" value="electronica"> Electrónica
+                                    </label>
+                                </li>
+                                <li class="filters__item">
+                                    <label class="filters__label">
+                                        <input type="checkbox" class="filters__checkbox" name="category" value="belleza"> Belleza
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="filters__group">
+                            <h3 class="filters__group-title">Precio</h3>
+                            <div class="filters__price">
+                                <div class="filters__price-inputs">
+                                    <input type="number" class="filters__price-input" id="price-min" placeholder="Mín" min="0">
+                                    <span class="filters__price-separator">-</span>
+                                    <input type="number" class="filters__price-input" id="price-max" placeholder="Máx" min="0">
+                                </div>
+                                <button class="filters__price-apply">Aplicar</button>
+                            </div>
+                        </div>
+
+                        <div class="filters__group">
+                            <h3 class="filters__group-title">Valoración</h3>
+                            <ul class="filters__list">
+                                <li class="filters__item">
+                                    <label class="filters__label">
+                                        <input type="radio" class="filters__radio" name="rating" value="5"> ★★★★★
+                                    </label>
+                                </li>
+                                <li class="filters__item">
+                                    <label class="filters__label">
+                                        <input type="radio" class="filters__radio" name="rating" value="4"> ★★★★☆ y más
+                                    </label>
+                                </li>
+                                <li class="filters__item">
+                                    <label class="filters__label">
+                                        <input type="radio" class="filters__radio" name="rating" value="3"> ★★★☆☆ y más
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="filters__group">
+                            <h3 class="filters__group-title">Disponibilidad</h3>
+                            <ul class="filters__list">
+                                <li class="filters__item">
+                                    <label class="filters__label">
+                                        <input type="checkbox" class="filters__checkbox" name="availability" value="in-stock"> En stock
+                                    </label>
+                                </li>
+                                <li class="filters__item">
+                                    <label class="filters__label">
+                                        <input type="checkbox" class="filters__checkbox" name="availability" value="on-sale"> En oferta
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <button class="filters__reset">Limpiar filtros</button>
+                    </aside>
+
+                    <!-- Grilla de productos -->
+                    <section class="catalog__products">
+                        <div class="catalog__grid">
+
+                            <!-- Producto 1 -->
+                            <article class="product-card">
+                                <a href="../product/product-detail.html" class="product-card__link">
+                                    <div class="product-card__image-wrapper">
+                                        <div class="product-card__image-placeholder">Sin imagen</div>
+                                        <span class="product-card__badge product-card__badge--new">Nuevo</span>
+                                    </div>
+                                    <div class="product-card__body">
+                                        <h3 class="product-card__name">Blusa Floral</h3>
+                                        <p class="product-card__category">Ropa</p>
+                                        <div class="product-card__rating">★★★★☆</div>
+                                        <div class="product-card__prices">
+                                            <span class="product-card__price">$45.000</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="product-card__actions">
+                                    <button class="product-card__btn product-card__btn--cart">Agregar al carrito</button>
+                                    <button class="product-card__btn product-card__btn--wishlist" title="Añadir a lista de deseos">♡</button>
+                                </div>
+                            </article>
+
+                            <!-- Producto 2 -->
+                            <article class="product-card">
+                                <a href="../product/product-detail.html" class="product-card__link">
+                                    <div class="product-card__image-wrapper">
+                                        <div class="product-card__image-placeholder">Sin imagen</div>
+                                        <span class="product-card__badge product-card__badge--sale">-20%</span>
+                                    </div>
+                                    <div class="product-card__body">
+                                        <h3 class="product-card__name">Zapatillas Deportivas</h3>
+                                        <p class="product-card__category">Calzado</p>
+                                        <div class="product-card__rating">★★★★★</div>
+                                        <div class="product-card__prices">
+                                            <span class="product-card__price">$120.000</span>
+                                            <span class="product-card__price-original">$150.000</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="product-card__actions">
+                                    <button class="product-card__btn product-card__btn--cart">Agregar al carrito</button>
+                                    <button class="product-card__btn product-card__btn--wishlist" title="Añadir a lista de deseos">♡</button>
+                                </div>
+                            </article>
+
+                            <!-- Producto 3 -->
+                            <article class="product-card">
+                                <a href="../product/product-detail.html" class="product-card__link">
+                                    <div class="product-card__image-wrapper">
+                                        <div class="product-card__image-placeholder">Sin imagen</div>
+                                    </div>
+                                    <div class="product-card__body">
+                                        <h3 class="product-card__name">Bolso de Cuero</h3>
+                                        <p class="product-card__category">Accesorios</p>
+                                        <div class="product-card__rating">★★★★☆</div>
+                                        <div class="product-card__prices">
+                                            <span class="product-card__price">$85.000</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="product-card__actions">
+                                    <button class="product-card__btn product-card__btn--cart">Agregar al carrito</button>
+                                    <button class="product-card__btn product-card__btn--wishlist" title="Añadir a lista de deseos">♡</button>
+                                </div>
+                            </article>
+
+                            <!-- Producto 4 -->
+                            <article class="product-card">
+                                <a href="../product/product-detail.html" class="product-card__link">
+                                    <div class="product-card__image-wrapper">
+                                        <div class="product-card__image-placeholder">Sin imagen</div>
+                                        <span class="product-card__badge product-card__badge--sale">-30%</span>
+                                    </div>
+                                    <div class="product-card__body">
+                                        <h3 class="product-card__name">Camiseta Básica</h3>
+                                        <p class="product-card__category">Ropa</p>
+                                        <div class="product-card__rating">★★★☆☆</div>
+                                        <div class="product-card__prices">
+                                            <span class="product-card__price">$28.000</span>
+                                            <span class="product-card__price-original">$40.000</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="product-card__actions">
+                                    <button class="product-card__btn product-card__btn--cart">Agregar al carrito</button>
+                                    <button class="product-card__btn product-card__btn--wishlist" title="Añadir a lista de deseos">♡</button>
+                                </div>
+                            </article>
+
+                            <!-- Producto 5 -->
+                            <article class="product-card">
+                                <a href="../product/product-detail.html" class="product-card__link">
+                                    <div class="product-card__image-wrapper">
+                                        <div class="product-card__image-placeholder">Sin imagen</div>
+                                        <span class="product-card__badge product-card__badge--new">Nuevo</span>
+                                    </div>
+                                    <div class="product-card__body">
+                                        <h3 class="product-card__name">Auriculares Inalámbricos</h3>
+                                        <p class="product-card__category">Electrónica</p>
+                                        <div class="product-card__rating">★★★★★</div>
+                                        <div class="product-card__prices">
+                                            <span class="product-card__price">$195.000</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="product-card__actions">
+                                    <button class="product-card__btn product-card__btn--cart">Agregar al carrito</button>
+                                    <button class="product-card__btn product-card__btn--wishlist" title="Añadir a lista de deseos">♡</button>
+                                </div>
+                            </article>
+
+                            <!-- Producto 6 -->
+                            <article class="product-card">
+                                <a href="../product/product-detail.html" class="product-card__link">
+                                    <div class="product-card__image-wrapper">
+                                        <div class="product-card__image-placeholder">Sin imagen</div>
+                                    </div>
+                                    <div class="product-card__body">
+                                        <h3 class="product-card__name">Crema Hidratante</h3>
+                                        <p class="product-card__category">Belleza</p>
+                                        <div class="product-card__rating">★★★★☆</div>
+                                        <div class="product-card__prices">
+                                            <span class="product-card__price">$35.000</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="product-card__actions">
+                                    <button class="product-card__btn product-card__btn--cart">Agregar al carrito</button>
+                                    <button class="product-card__btn product-card__btn--wishlist" title="Añadir a lista de deseos">♡</button>
+                                </div>
+                            </article>
+
+                            <!-- Producto 7 -->
+                            <article class="product-card">
+                                <a href="../product/product-detail.html" class="product-card__link">
+                                    <div class="product-card__image-wrapper">
+                                        <div class="product-card__image-placeholder">Sin imagen</div>
+                                    </div>
+                                    <div class="product-card__body">
+                                        <h3 class="product-card__name">Jeans Clásico</h3>
+                                        <p class="product-card__category">Ropa</p>
+                                        <div class="product-card__rating">★★★★☆</div>
+                                        <div class="product-card__prices">
+                                            <span class="product-card__price">$75.000</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="product-card__actions">
+                                    <button class="product-card__btn product-card__btn--cart">Agregar al carrito</button>
+                                    <button class="product-card__btn product-card__btn--wishlist" title="Añadir a lista de deseos">♡</button>
+                                </div>
+                            </article>
+
+                            <!-- Producto 8 -->
+                            <article class="product-card">
+                                <a href="../product/product-detail.html" class="product-card__link">
+                                    <div class="product-card__image-wrapper">
+                                        <div class="product-card__image-placeholder">Sin imagen</div>
+                                        <span class="product-card__badge product-card__badge--sale">-15%</span>
+                                    </div>
+                                    <div class="product-card__body">
+                                        <h3 class="product-card__name">Sandalias de Verano</h3>
+                                        <p class="product-card__category">Calzado</p>
+                                        <div class="product-card__rating">★★★★☆</div>
+                                        <div class="product-card__prices">
+                                            <span class="product-card__price">$55.000</span>
+                                            <span class="product-card__price-original">$65.000</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="product-card__actions">
+                                    <button class="product-card__btn product-card__btn--cart">Agregar al carrito</button>
+                                    <button class="product-card__btn product-card__btn--wishlist" title="Añadir a lista de deseos">♡</button>
+                                </div>
+                            </article>
+
+                            <!-- Producto 9 -->
+                            <article class="product-card">
+                                <a href="../product/product-detail.html" class="product-card__link">
+                                    <div class="product-card__image-wrapper">
+                                        <div class="product-card__image-placeholder">Sin imagen</div>
+                                    </div>
+                                    <div class="product-card__body">
+                                        <h3 class="product-card__name">Lámpara de Mesa</h3>
+                                        <p class="product-card__category">Hogar</p>
+                                        <div class="product-card__rating">★★★★★</div>
+                                        <div class="product-card__prices">
+                                            <span class="product-card__price">$95.000</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="product-card__actions">
+                                    <button class="product-card__btn product-card__btn--cart">Agregar al carrito</button>
+                                    <button class="product-card__btn product-card__btn--wishlist" title="Añadir a lista de deseos">♡</button>
+                                </div>
+                            </article>
+
+                            <!-- Producto 10 -->
+                            <article class="product-card">
+                                <a href="../product/product-detail.html" class="product-card__link">
+                                    <div class="product-card__image-wrapper">
+                                        <div class="product-card__image-placeholder">Sin imagen</div>
+                                        <span class="product-card__badge product-card__badge--new">Nuevo</span>
+                                    </div>
+                                    <div class="product-card__body">
+                                        <h3 class="product-card__name">Collar Dorado</h3>
+                                        <p class="product-card__category">Accesorios</p>
+                                        <div class="product-card__rating">★★★★☆</div>
+                                        <div class="product-card__prices">
+                                            <span class="product-card__price">$42.000</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="product-card__actions">
+                                    <button class="product-card__btn product-card__btn--cart">Agregar al carrito</button>
+                                    <button class="product-card__btn product-card__btn--wishlist" title="Añadir a lista de deseos">♡</button>
+                                </div>
+                            </article>
+
+                            <!-- Producto 11 -->
+                            <article class="product-card">
+                                <a href="../product/product-detail.html" class="product-card__link">
+                                    <div class="product-card__image-wrapper">
+                                        <div class="product-card__image-placeholder">Sin imagen</div>
+                                    </div>
+                                    <div class="product-card__body">
+                                        <h3 class="product-card__name">Perfume Floral</h3>
+                                        <p class="product-card__category">Belleza</p>
+                                        <div class="product-card__rating">★★★★★</div>
+                                        <div class="product-card__prices">
+                                            <span class="product-card__price">$110.000</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="product-card__actions">
+                                    <button class="product-card__btn product-card__btn--cart">Agregar al carrito</button>
+                                    <button class="product-card__btn product-card__btn--wishlist" title="Añadir a lista de deseos">♡</button>
+                                </div>
+                            </article>
+
+                            <!-- Producto 12 -->
+                            <article class="product-card">
+                                <a href="../product/product-detail.html" class="product-card__link">
+                                    <div class="product-card__image-wrapper">
+                                        <div class="product-card__image-placeholder">Sin imagen</div>
+                                        <span class="product-card__badge product-card__badge--sale">-25%</span>
+                                    </div>
+                                    <div class="product-card__body">
+                                        <h3 class="product-card__name">Smartwatch</h3>
+                                        <p class="product-card__category">Electrónica</p>
+                                        <div class="product-card__rating">★★★★☆</div>
+                                        <div class="product-card__prices">
+                                            <span class="product-card__price">$225.000</span>
+                                            <span class="product-card__price-original">$300.000</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="product-card__actions">
+                                    <button class="product-card__btn product-card__btn--cart">Agregar al carrito</button>
+                                    <button class="product-card__btn product-card__btn--wishlist" title="Añadir a lista de deseos">♡</button>
+                                </div>
+                            </article>
+
+                        </div>
+
+                        <!-- Paginación -->
+                        <nav class="catalog__pagination" aria-label="Paginación del catálogo">
+                            <button class="catalog__page-btn catalog__page-btn--prev" disabled>&laquo; Anterior</button>
+                            <ul class="catalog__pages">
+                                <li><a class="catalog__page catalog__page--active" href="#">1</a></li>
+                                <li><a class="catalog__page" href="#">2</a></li>
+                                <li><a class="catalog__page" href="#">3</a></li>
+                                <li><a class="catalog__page" href="#">4</a></li>
+                            </ul>
+                            <button class="catalog__page-btn catalog__page-btn--next">Siguiente &raquo;</button>
+                        </nav>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <p class="footer__text">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

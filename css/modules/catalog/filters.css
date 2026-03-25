@@ -1,0 +1,131 @@
+/* Filters styles */
+
+.filters {
+    width: 240px;
+    flex-shrink: 0;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+.filters__title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.filters__group {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #eee;
+}
+
+.filters__group:last-of-type {
+    border-bottom: none;
+}
+
+.filters__group-title {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+}
+
+.filters__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.filters__item {
+    display: flex;
+    align-items: center;
+}
+
+.filters__label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.filters__label:hover {
+    color: var(--primary-color);
+}
+
+.filters__checkbox,
+.filters__radio {
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* Price filter */
+.filters__price {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filters__price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filters__price-input {
+    width: 80px;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.filters__price-separator {
+    color: #999;
+}
+
+.filters__price-apply {
+    align-self: flex-start;
+    padding: 0.35rem 0.75rem;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.filters__price-apply:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Reset button */
+.filters__reset {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.filters__reset:hover {
+    background-color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .filters {
+        width: 100%;
+    }
+}
