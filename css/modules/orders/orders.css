@@ -1,0 +1,318 @@
+/* Orders module styles */
+
+.orders {
+    padding: 2rem 0;
+}
+
+.orders__title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+/* Orders list */
+.orders__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Order item card */
+.orders__item {
+    background-color: #fff;
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.orders__item-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.orders__number {
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.orders__date {
+    font-size: 0.9rem;
+    color: #666;
+    flex: 1;
+}
+
+/* Status badges */
+.orders__status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.orders__status--entregado {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.orders__status--en-camino {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.orders__status--procesando {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.orders__status--cancelado {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.orders__item-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.orders__total strong {
+    color: var(--text-color);
+}
+
+.orders__item-footer {
+    text-align: right;
+}
+
+.orders__detail-link {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.orders__detail-link:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Empty state */
+.orders__empty {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.orders__empty-text {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.orders__shop-link {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.orders__shop-link:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Order detail styles */
+.order-detail {
+    padding: 2rem 0;
+}
+
+.order-detail__breadcrumb {
+    margin-bottom: 1rem;
+}
+
+.order-detail__back-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.order-detail__back-link:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+
+.order-detail__title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+/* Order info summary */
+.order-detail__info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: #fff;
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.order-detail__info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 160px;
+}
+
+.order-detail__info-label {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.order-detail__info-value {
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+/* Order status badge */
+.order-detail__status {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.order-detail__status--entregado {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.order-detail__status--en-camino {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.order-detail__status--procesando {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.order-detail__status--cancelado {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Sections */
+.order-detail__section {
+    background-color: #fff;
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.order-detail__section-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Products */
+.order-detail__products {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.order-detail__product {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.order-detail__product:last-child {
+    border-bottom: none;
+}
+
+.order-detail__product-info {
+    flex: 1;
+}
+
+.order-detail__product-name {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.order-detail__product-sku {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.order-detail__product-quantity {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.order-detail__product-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.order-detail__product-price strong {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Shipping */
+.order-detail__shipping p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin-bottom: 0.25rem;
+}
+
+/* Totals */
+.order-detail__totals {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 320px;
+    margin-left: auto;
+}
+
+.order-detail__totals-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.order-detail__totals-row--total {
+    font-size: 1.1rem;
+    padding-top: 0.5rem;
+    border-top: 2px solid var(--secondary-color);
+}

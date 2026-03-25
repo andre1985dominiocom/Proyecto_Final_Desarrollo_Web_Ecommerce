@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Categorías - DidiStore Admin</title>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar__logo">DidiStore</div>
+            <nav class="admin-sidebar__nav">
+                <a href="dashboard.html" class="admin-sidebar__link">🏠 Dashboard</a>
+                <a href="products.html" class="admin-sidebar__link">📦 Productos</a>
+                <a href="categories.html" class="admin-sidebar__link admin-sidebar__link--active">🏷️ Categorías</a>
+                <a href="orders.html" class="admin-sidebar__link">🛒 Pedidos</a>
+                <a href="users.html" class="admin-sidebar__link">👥 Usuarios</a>
+                <a href="promotions.html" class="admin-sidebar__link">🎉 Promociones</a>
+            </nav>
+            <div class="admin-sidebar__logout">
+                <a href="../../html/auth/login.html" class="admin-sidebar__logout-link">⬅ Cerrar sesión</a>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <div class="admin-main">
+            <div class="admin-topbar">
+                <span class="admin-topbar__title">Gestión de Categorías</span>
+                <span class="admin-topbar__user">Admin</span>
+            </div>
+
+            <div class="admin-content">
+                <h1 class="admin-page-title">Categorías</h1>
+
+                <!-- Add category form -->
+                <div class="admin-widget admin-widget--form">
+                    <div class="admin-widget__header">Nueva Categoría</div>
+                    <div class="admin-widget__body">
+                        <form action="#" method="post">
+                            <div class="admin-form__group">
+                                <label for="cat-name" class="admin-form__label">Nombre de la Categoría</label>
+                                <input type="text" id="cat-name" name="cat-name" class="admin-form__input" placeholder="Ej: Accesorios" required>
+                            </div>
+                            <div class="admin-form__group">
+                                <label for="cat-description" class="admin-form__label">Descripción</label>
+                                <input type="text" id="cat-description" name="cat-description" class="admin-form__input" placeholder="Descripción breve...">
+                            </div>
+                            <div class="admin-form__actions">
+                                <button type="submit" class="admin-btn admin-btn--primary">Agregar Categoría</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Categories table -->
+                <div class="admin-table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Productos</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01</td>
+                                <td>Ropa</td>
+                                <td>Prendas de vestir para mujer y hombre</td>
+                                <td>85</td>
+                                <td><span class="admin-badge admin-badge--success">Activa</span></td>
+                                <td>
+                                    <div class="admin-table__actions">
+                                        <button class="admin-btn admin-btn--primary admin-btn--small">Editar</button>
+                                        <button class="admin-btn admin-btn--danger admin-btn--small">Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>02</td>
+                                <td>Calzado</td>
+                                <td>Zapatos, sandalias y botas</td>
+                                <td>64</td>
+                                <td><span class="admin-badge admin-badge--success">Activa</span></td>
+                                <td>
+                                    <div class="admin-table__actions">
+                                        <button class="admin-btn admin-btn--primary admin-btn--small">Editar</button>
+                                        <button class="admin-btn admin-btn--danger admin-btn--small">Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>03</td>
+                                <td>Accesorios</td>
+                                <td>Cinturones, gorros, bufandas y más</td>
+                                <td>42</td>
+                                <td><span class="admin-badge admin-badge--success">Activa</span></td>
+                                <td>
+                                    <div class="admin-table__actions">
+                                        <button class="admin-btn admin-btn--primary admin-btn--small">Editar</button>
+                                        <button class="admin-btn admin-btn--danger admin-btn--small">Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>04</td>
+                                <td>Bolsos</td>
+                                <td>Bolsos, carteras y mochilas</td>
+                                <td>38</td>
+                                <td><span class="admin-badge admin-badge--success">Activa</span></td>
+                                <td>
+                                    <div class="admin-table__actions">
+                                        <button class="admin-btn admin-btn--primary admin-btn--small">Editar</button>
+                                        <button class="admin-btn admin-btn--danger admin-btn--small">Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>05</td>
+                                <td>Joyería</td>
+                                <td>Collares, aretes y pulseras</td>
+                                <td>18</td>
+                                <td><span class="admin-badge admin-badge--warning">Inactiva</span></td>
+                                <td>
+                                    <div class="admin-table__actions">
+                                        <button class="admin-btn admin-btn--primary admin-btn--small">Editar</button>
+                                        <button class="admin-btn admin-btn--danger admin-btn--small">Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
