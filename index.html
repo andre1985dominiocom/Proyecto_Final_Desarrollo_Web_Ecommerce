@@ -9,6 +9,12 @@
 <body>
     <!-- Encabezado -->
     <header class="header">
+        <div class="header__search">
+            <form class="search" action="#" method="get" role="search">
+                <input type="search" name="q" class="search__input" placeholder="Buscar productos..." aria-label="Buscar productos">
+                <button type="submit" class="search__button" aria-label="Buscar">&#128269;</button>
+            </form>
+        </div>
         <div class="header__container container">
             <div class="header__logo">
                 <a href="index.html" class="header__logo-link">
@@ -16,27 +22,26 @@
                     <span class="header__logo-text">DidiStore</span>
                 </a>
             </div>
-            <div class="header__search">
-                <form class="search" action="#" method="get" role="search">
-                    <input type="search" name="q" class="search__input" placeholder="Buscar productos..." aria-label="Buscar productos">
-                    <button type="submit" class="search__button" aria-label="Buscar">&#128269;</button>
-                </form>
-            </div>
             <nav class="navigation" aria-label="Navegación principal">
                 <ul class="navigation__list">
                     <li class="navigation__item"><a class="navigation__link navigation__link--active" href="index.html">Inicio</a></li>
                     <li class="navigation__item"><a class="navigation__link" href="html/catalog/category.html">Categorías</a></li>
                     <li class="navigation__item"><a class="navigation__link" href="html/promotions/promotions.html">Ofertas</a></li>
                     <li class="navigation__item"><a class="navigation__link" href="#contacto">Contacto</a></li>
-                    <li class="navigation__item"><a class="navigation__link" href="html/auth/login.html">Ingresar</a></li>
+                    <!--<li class="navigation__item"><a class="navigation__link" href="html/auth/login.html">Ingresar</a></li>-->
                     <li class="navigation__item">
-                        <a class="navigation__link navigation__link--icon" href="html/cart/cart.html" aria-label="Carrito de compras">
-                            &#128722;
-                            <span class="badge badge--cart">0</span>
-                        </a>
                     </li>
                 </ul>
             </nav>
+            
+            <a class="navigation__link navigation__link--register" href="html/auth/login.html"><span class="header__register">Iniciar Sesión</span></a>
+
+            <a class="navigation__link navigation__link--account" href="html/auth/register.html"><span class="header__account">Crear Cuenta</span></a>
+
+            <a class="navigation__link navigation__link--icon" href="html/cart/cart.html" aria-label="Carrito de compras">
+                &#128722;
+                <span class="badge badge--cart">0</span>
+            </a>
         </div>
     </header>
 
@@ -48,7 +53,7 @@
             <div class="hero__container container">
                 <div class="hero__content">
                     <h1 class="hero__title">Bienvenido a DidiStore</h1>
-                    <p class="hero__description">Tu tienda en línea de confianza para productos de calidad. Descubre miles de artículos con los mejores precios y envío rápido a todo el país.</p>
+                    <p class="hero__description">Tu tienda en línea de confianza para tu descanso. Descubre miles de artículos con los mejores precios y envío rápido a todo el país.</p>
                     <div class="hero__actions">
                         <a href="html/catalog/catalog.html" class="btn btn--primary">Explorar Productos</a>
                         <a href="html/promotions/promotions.html" class="btn btn--secondary">Ver Ofertas</a>
@@ -64,28 +69,16 @@
                 <p class="categories__subtitle">Explora nuestra amplia variedad de productos</p>
                 <div class="categories__grid">
                     <a href="html/catalog/category.html" class="category-card">
-                        <span class="category-card__icon">&#128187;</span>
-                        <h3 class="category-card__name">Tecnología</h3>
+                        <span class="category-card__icon">&#128085;</span>
+                        <h3 class="category-card__name">Pijamas de Mujer</h3>
                     </a>
                     <a href="html/catalog/category.html" class="category-card">
-                        <span class="category-card__icon">&#128084;</span>
-                        <h3 class="category-card__name">Ropa</h3>
+                        <span class="category-card__icon">&#128142;</span>
+                        <h3 class="category-card__name">Accesorios</h3>
                     </a>
                     <a href="html/catalog/category.html" class="category-card">
-                        <span class="category-card__icon">&#127968;</span>
-                        <h3 class="category-card__name">Hogar</h3>
-                    </a>
-                    <a href="html/catalog/category.html" class="category-card">
-                        <span class="category-card__icon">&#9917;</span>
-                        <h3 class="category-card__name">Deportes</h3>
-                    </a>
-                    <a href="html/catalog/category.html" class="category-card">
-                        <span class="category-card__icon">&#128214;</span>
-                        <h3 class="category-card__name">Libros</h3>
-                    </a>
-                    <a href="html/catalog/category.html" class="category-card">
-                        <span class="category-card__icon">&#127801;</span>
-                        <h3 class="category-card__name">Belleza</h3>
+                        <span class="category-card__icon">&#129523;</span>
+                        <h3 class="category-card__name">Complementos</h3>
                     </a>
                 </div>
             </div>
@@ -95,16 +88,17 @@
         <section class="featured-products">
             <div class="featured-products__container container">
                 <h2 class="featured-products__title">Productos Destacados</h2>
-                <p class="featured-products__subtitle">Los artículos más populares de nuestra tienda</p>
+                <p class="featured-products__subtitle">Las pijamas más populares de nuestra tienda</p>
                 <div class="featured-products__grid">
                     <article class="product-card">
                         <div class="product-card__image-wrapper">
                             <span class="product-card__badge badge badge--new">Nuevo</span>
                             <div class="product-card__image product-card__image--placeholder"></div>
+                            <img src="assets/images/products/Foto-2-10-24-11-06-26-a.-m.jpg" alt="Pijama Completa">
                         </div>
                         <div class="product-card__body">
-                            <h3 class="product-card__name">Producto Ejemplo 1</h3>
-                            <p class="product-card__price">$150.000</p>
+                            <h3 class="product-card__name">Pijama Completa</h3>
+                            <p class="product-card__price">$55.000</p>
                             <a href="html/product/product-detail.html" class="btn btn--primary btn--sm">Ver Detalle</a>
                         </div>
                     </article>
@@ -112,20 +106,22 @@
                         <div class="product-card__image-wrapper">
                             <span class="product-card__badge badge badge--sale">Oferta</span>
                             <div class="product-card__image product-card__image--placeholder"></div>
+                            <img src="assets/images/products/Foto-22-08-24-4-02-52-p.-m.jpg" alt="Pijama Bata">
                         </div>
                         <div class="product-card__body">
-                            <h3 class="product-card__name">Producto Ejemplo 2</h3>
-                            <p class="product-card__price">$89.000 <span class="product-card__price--old">$120.000</span></p>
+                            <h3 class="product-card__name">Pijama Bata</h3>
+                            <p class="product-card__price">$48.000 <span class="product-card__price--old">$60.000</span></p>
                             <a href="html/product/product-detail.html" class="btn btn--primary btn--sm">Ver Detalle</a>
                         </div>
                     </article>
                     <article class="product-card">
                         <div class="product-card__image-wrapper">
                             <div class="product-card__image product-card__image--placeholder"></div>
+                            <img src="assets/images/products/WhatsApp-Image-2025-01-09-at-5.33.17-PM.jpg" alt="Pijama Short">
                         </div>
                         <div class="product-card__body">
-                            <h3 class="product-card__name">Producto Ejemplo 3</h3>
-                            <p class="product-card__price">$200.000</p>
+                            <h3 class="product-card__name">Pijama Short</h3>
+                            <p class="product-card__price">$48.000</p>
                             <a href="html/product/product-detail.html" class="btn btn--primary btn--sm">Ver Detalle</a>
                         </div>
                     </article>
@@ -133,10 +129,11 @@
                         <div class="product-card__image-wrapper">
                             <span class="product-card__badge badge badge--new">Nuevo</span>
                             <div class="product-card__image product-card__image--placeholder"></div>
+                            <img src="assets/images/products/-OYHZGSnYK1htrTIrhk9.jpg" alt="Bolso Rumania Negro">
                         </div>
                         <div class="product-card__body">
-                            <h3 class="product-card__name">Producto Ejemplo 4</h3>
-                            <p class="product-card__price">$75.000</p>
+                            <h3 class="product-card__name">Bolso Rumania Negro</h3>
+                            <p class="product-card__price">$80.000</p>
                             <a href="html/product/product-detail.html" class="btn btn--primary btn--sm">Ver Detalle</a>
                         </div>
                     </article>
@@ -221,7 +218,7 @@
                     <ul class="footer__list">
                         <li class="footer__list-item">&#128205; Colombia</li>
                         <li class="footer__list-item">&#128231; contacto@didistore.com</li>
-                        <li class="footer__list-item">&#128222; +57 300 000 0000</li>
+                        <li class="footer__list-item">&#128222; +57 318-6314551</li>
                     </ul>
                 </div>
             </div>
