@@ -7,50 +7,227 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <!-- Encabezado -->
     <header class="header">
         <div class="header__container container">
             <div class="header__logo">
-                <h2 class="header__title">DidiStore</h2>
+                <a href="index.html" class="header__logo-link">
+                    <img src="assets/logos/Group_3-removebg-preview.png" alt="DidiStore Logo" class="header__logo-img">
+                    <span class="header__logo-text">DidiStore</span>
+                </a>
             </div>
-            <nav class="navigation">
+            <div class="header__search">
+                <form class="search" action="#" method="get" role="search">
+                    <input type="search" name="q" class="search__input" placeholder="Buscar productos..." aria-label="Buscar productos">
+                    <button type="submit" class="search__button" aria-label="Buscar">&#128269;</button>
+                </form>
+            </div>
+            <nav class="navigation" aria-label="Navegación principal">
                 <ul class="navigation__list">
                     <li class="navigation__item"><a class="navigation__link navigation__link--active" href="index.html">Inicio</a></li>
-                    <li class="navigation__item"><a class="navigation__link navigation__link" href="html/catalog/category.html">Categorías</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="html/catalog/category.html">Categorías</a></li>
                     <li class="navigation__item"><a class="navigation__link" href="html/promotions/promotions.html">Ofertas</a></li>
-                    <li class="navigation__item"><a class="navigation__link" href="html/components/footer.html">Contactos</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="#contacto">Contacto</a></li>
                     <li class="navigation__item"><a class="navigation__link" href="html/auth/login.html">Ingresar</a></li>
+                    <li class="navigation__item">
+                        <a class="navigation__link navigation__link--icon" href="html/cart/cart.html" aria-label="Carrito de compras">
+                            &#128722;
+                            <span class="badge badge--cart">0</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Contenido principal -->
     <main class="main">
-        <section class="main__hero hero">
-            <div class="main__container container">
-                <h1 class="main__title">Bienvenido a DidiStore</h1>
-                <p class="main__description">Tu tienda en línea de confianza para productos de calidad.</p>
-                <a href="html/catalog/catalog.html" class="main__button">Explorar Productos</a>
+
+        <!-- Sección Hero / Banner principal -->
+        <section class="hero">
+            <div class="hero__container container">
+                <div class="hero__content">
+                    <h1 class="hero__title">Bienvenido a DidiStore</h1>
+                    <p class="hero__description">Tu tienda en línea de confianza para productos de calidad. Descubre miles de artículos con los mejores precios y envío rápido a todo el país.</p>
+                    <div class="hero__actions">
+                        <a href="html/catalog/catalog.html" class="btn btn--primary">Explorar Productos</a>
+                        <a href="html/promotions/promotions.html" class="btn btn--secondary">Ver Ofertas</a>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <!-- Sección Categorías Destacadas -->
+        <section class="categories">
+            <div class="categories__container container">
+                <h2 class="categories__title">Categorías</h2>
+                <p class="categories__subtitle">Explora nuestra amplia variedad de productos</p>
+                <div class="categories__grid">
+                    <a href="html/catalog/category.html" class="category-card">
+                        <span class="category-card__icon">&#128187;</span>
+                        <h3 class="category-card__name">Tecnología</h3>
+                    </a>
+                    <a href="html/catalog/category.html" class="category-card">
+                        <span class="category-card__icon">&#128084;</span>
+                        <h3 class="category-card__name">Ropa</h3>
+                    </a>
+                    <a href="html/catalog/category.html" class="category-card">
+                        <span class="category-card__icon">&#127968;</span>
+                        <h3 class="category-card__name">Hogar</h3>
+                    </a>
+                    <a href="html/catalog/category.html" class="category-card">
+                        <span class="category-card__icon">&#9917;</span>
+                        <h3 class="category-card__name">Deportes</h3>
+                    </a>
+                    <a href="html/catalog/category.html" class="category-card">
+                        <span class="category-card__icon">&#128214;</span>
+                        <h3 class="category-card__name">Libros</h3>
+                    </a>
+                    <a href="html/catalog/category.html" class="category-card">
+                        <span class="category-card__icon">&#127801;</span>
+                        <h3 class="category-card__name">Belleza</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Productos Destacados -->
+        <section class="featured-products">
+            <div class="featured-products__container container">
+                <h2 class="featured-products__title">Productos Destacados</h2>
+                <p class="featured-products__subtitle">Los artículos más populares de nuestra tienda</p>
+                <div class="featured-products__grid">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <span class="product-card__badge badge badge--new">Nuevo</span>
+                            <div class="product-card__image product-card__image--placeholder"></div>
+                        </div>
+                        <div class="product-card__body">
+                            <h3 class="product-card__name">Producto Ejemplo 1</h3>
+                            <p class="product-card__price">$150.000</p>
+                            <a href="html/product/product-detail.html" class="btn btn--primary btn--sm">Ver Detalle</a>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <span class="product-card__badge badge badge--sale">Oferta</span>
+                            <div class="product-card__image product-card__image--placeholder"></div>
+                        </div>
+                        <div class="product-card__body">
+                            <h3 class="product-card__name">Producto Ejemplo 2</h3>
+                            <p class="product-card__price">$89.000 <span class="product-card__price--old">$120.000</span></p>
+                            <a href="html/product/product-detail.html" class="btn btn--primary btn--sm">Ver Detalle</a>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <div class="product-card__image product-card__image--placeholder"></div>
+                        </div>
+                        <div class="product-card__body">
+                            <h3 class="product-card__name">Producto Ejemplo 3</h3>
+                            <p class="product-card__price">$200.000</p>
+                            <a href="html/product/product-detail.html" class="btn btn--primary btn--sm">Ver Detalle</a>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <span class="product-card__badge badge badge--new">Nuevo</span>
+                            <div class="product-card__image product-card__image--placeholder"></div>
+                        </div>
+                        <div class="product-card__body">
+                            <h3 class="product-card__name">Producto Ejemplo 4</h3>
+                            <p class="product-card__price">$75.000</p>
+                            <a href="html/product/product-detail.html" class="btn btn--primary btn--sm">Ver Detalle</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="featured-products__actions">
+                    <a href="html/catalog/catalog.html" class="btn btn--outline">Ver Todos los Productos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Banner de Ofertas -->
+        <section class="promo-banner">
+            <div class="promo-banner__container container">
+                <div class="promo-banner__content">
+                    <h2 class="promo-banner__title">¡Ofertas Especiales!</h2>
+                    <p class="promo-banner__description">Hasta 50% de descuento en productos seleccionados. ¡No te pierdas estas increíbles promociones!</p>
+                    <a href="html/promotions/promotions.html" class="btn btn--secondary">Ver Ofertas</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección ¿Por qué elegirnos? -->
         <section class="features">
             <div class="features__container container">
-                <div class="features__header">
-                    <h3 class="features__title">Variedad de Productos</h3>
-                    <p class="features__description">Encuentra una amplia gama de productos para satisfacer todas tus necesidades.</p>
-                </div>
-                <div class="features__item">
-                    <h3 class="features__title">Envío Rápido</h3>
-                    <p class="features__description">Disfruta de envíos rápidos y seguros a tu puerta.</p>
-                </div>
-                <div class="features__item">
-                    <h3 class="features__title">Atención al Cliente</h3>
-                    <p class="features__description">Nuestro equipo de atención al cliente está aquí para ayudarte en todo momento.</p>
+                <h2 class="features__title">¿Por qué elegirnos?</h2>
+                <div class="features__grid">
+                    <div class="features__item">
+                        <span class="features__icon">&#128722;</span>
+                        <h3 class="features__item-title">Variedad de Productos</h3>
+                        <p class="features__item-description">Encuentra una amplia gama de productos para satisfacer todas tus necesidades.</p>
+                    </div>
+                    <div class="features__item">
+                        <span class="features__icon">&#128666;</span>
+                        <h3 class="features__item-title">Envío Rápido</h3>
+                        <p class="features__item-description">Disfruta de envíos rápidos y seguros a tu puerta en todo el país.</p>
+                    </div>
+                    <div class="features__item">
+                        <span class="features__icon">&#128272;</span>
+                        <h3 class="features__item-title">Compra Segura</h3>
+                        <p class="features__item-description">Tus datos y pagos están protegidos con la más alta seguridad.</p>
+                    </div>
+                    <div class="features__item">
+                        <span class="features__icon">&#128101;</span>
+                        <h3 class="features__item-title">Atención al Cliente</h3>
+                        <p class="features__item-description">Nuestro equipo de atención al cliente está disponible para ayudarte en todo momento.</p>
+                    </div>
                 </div>
             </div>
         </section>
+
     </main>
-    <footer class="footer">
+
+    <!-- Pie de página -->
+    <footer class="footer" id="contacto">
         <div class="footer__container container">
-            <p class="footer__text">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+            <div class="footer__grid">
+                <div class="footer__section">
+                    <h4 class="footer__section-title">DidiStore</h4>
+                    <p class="footer__section-text">Tu tienda en línea de confianza. Ofrecemos productos de calidad con los mejores precios.</p>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__section-title">Navegación</h4>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a class="footer__link" href="index.html">Inicio</a></li>
+                        <li class="footer__list-item"><a class="footer__link" href="html/catalog/catalog.html">Catálogo</a></li>
+                        <li class="footer__list-item"><a class="footer__link" href="html/catalog/category.html">Categorías</a></li>
+                        <li class="footer__list-item"><a class="footer__link" href="html/promotions/promotions.html">Ofertas</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__section-title">Mi Cuenta</h4>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a class="footer__link" href="html/auth/login.html">Ingresar</a></li>
+                        <li class="footer__list-item"><a class="footer__link" href="html/auth/register.html">Registrarse</a></li>
+                        <li class="footer__list-item"><a class="footer__link" href="html/account/account.html">Mi Perfil</a></li>
+                        <li class="footer__list-item"><a class="footer__link" href="html/orders/orders.html">Mis Pedidos</a></li>
+                        <li class="footer__list-item"><a class="footer__link" href="html/account/wishlist.html">Lista de Deseos</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__section-title">Contacto</h4>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">&#128205; Colombia</li>
+                        <li class="footer__list-item">&#128231; contacto@didistore.com</li>
+                        <li class="footer__list-item">&#128222; +57 300 000 0000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 </body>
