@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Pedidos - DidiStore</title>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__logo">
+                <h2 class="header__title"><a href="../../index.html">DidiStore</a></h2>
+            </div>
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a class="navigation__link" href="../../index.html">Inicio</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../catalog/category.html">Categorías</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../promotions/promotions.html">Ofertas</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../components/footer.html">Contactos</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../account/account.html">Mi Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="orders container">
+            <h1 class="orders__title">Mis Pedidos</h1>
+
+            <div class="orders__list">
+
+                <div class="orders__item">
+                    <div class="orders__item-header">
+                        <span class="orders__number">Pedido #001234</span>
+                        <span class="orders__date">15 de marzo de 2026</span>
+                        <span class="orders__status orders__status--entregado">Entregado</span>
+                    </div>
+                    <div class="orders__item-body">
+                        <p class="orders__summary">3 productos</p>
+                        <p class="orders__total">Total: <strong>$185.000</strong></p>
+                    </div>
+                    <div class="orders__item-footer">
+                        <a href="order-detail.html?id=001234" class="orders__detail-link">Ver detalle</a>
+                    </div>
+                </div>
+
+                <div class="orders__item">
+                    <div class="orders__item-header">
+                        <span class="orders__number">Pedido #001198</span>
+                        <span class="orders__date">2 de febrero de 2026</span>
+                        <span class="orders__status orders__status--en-camino">En camino</span>
+                    </div>
+                    <div class="orders__item-body">
+                        <p class="orders__summary">1 producto</p>
+                        <p class="orders__total">Total: <strong>$75.000</strong></p>
+                    </div>
+                    <div class="orders__item-footer">
+                        <a href="order-detail.html?id=001198" class="orders__detail-link">Ver detalle</a>
+                    </div>
+                </div>
+
+                <div class="orders__item">
+                    <div class="orders__item-header">
+                        <span class="orders__number">Pedido #001047</span>
+                        <span class="orders__date">10 de enero de 2026</span>
+                        <span class="orders__status orders__status--cancelado">Cancelado</span>
+                    </div>
+                    <div class="orders__item-body">
+                        <p class="orders__summary">2 productos</p>
+                        <p class="orders__total">Total: <strong>$120.000</strong></p>
+                    </div>
+                    <div class="orders__item-footer">
+                        <a href="order-detail.html?id=001047" class="orders__detail-link">Ver detalle</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="orders__empty" style="display:none;">
+                <p class="orders__empty-text">Aún no tienes pedidos realizados.</p>
+                <a href="../catalog/catalog.html" class="orders__shop-link">Ir a la tienda</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <p class="footer__text">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

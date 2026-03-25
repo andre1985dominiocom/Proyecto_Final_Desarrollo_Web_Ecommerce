@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Pedido - DidiStore</title>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__logo">
+                <h2 class="header__title"><a href="../../index.html">DidiStore</a></h2>
+            </div>
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a class="navigation__link" href="../../index.html">Inicio</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../catalog/category.html">Categorías</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../promotions/promotions.html">Ofertas</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../components/footer.html">Contactos</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../account/account.html">Mi Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="order-detail container">
+            <div class="order-detail__breadcrumb">
+                <a href="orders.html" class="order-detail__back-link">&larr; Volver a Mis Pedidos</a>
+            </div>
+
+            <h1 class="order-detail__title">Detalle del Pedido #001234</h1>
+
+            <div class="order-detail__info">
+                <div class="order-detail__info-group">
+                    <span class="order-detail__info-label">Fecha del pedido:</span>
+                    <span class="order-detail__info-value">15 de marzo de 2026</span>
+                </div>
+                <div class="order-detail__info-group">
+                    <span class="order-detail__info-label">Estado:</span>
+                    <span class="order-detail__status order-detail__status--entregado">Entregado</span>
+                </div>
+                <div class="order-detail__info-group">
+                    <span class="order-detail__info-label">Método de pago:</span>
+                    <span class="order-detail__info-value">Tarjeta de crédito</span>
+                </div>
+            </div>
+
+            <section class="order-detail__section">
+                <h2 class="order-detail__section-title">Productos</h2>
+                <div class="order-detail__products">
+
+                    <div class="order-detail__product">
+                        <div class="order-detail__product-info">
+                            <p class="order-detail__product-name">Camisa de Algodón</p>
+                            <p class="order-detail__product-sku">REF: CAM-001</p>
+                        </div>
+                        <div class="order-detail__product-quantity">
+                            <span>Cantidad: 2</span>
+                        </div>
+                        <div class="order-detail__product-price">
+                            <span>$50.000 c/u</span>
+                            <strong>$100.000</strong>
+                        </div>
+                    </div>
+
+                    <div class="order-detail__product">
+                        <div class="order-detail__product-info">
+                            <p class="order-detail__product-name">Pantalón Jeans</p>
+                            <p class="order-detail__product-sku">REF: PAN-042</p>
+                        </div>
+                        <div class="order-detail__product-quantity">
+                            <span>Cantidad: 1</span>
+                        </div>
+                        <div class="order-detail__product-price">
+                            <span>$85.000 c/u</span>
+                            <strong>$85.000</strong>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="order-detail__section">
+                <h2 class="order-detail__section-title">Dirección de Envío</h2>
+                <div class="order-detail__shipping">
+                    <p class="order-detail__shipping-name">María García</p>
+                    <p class="order-detail__shipping-address">Calle 123 # 45-67, Barrio El Prado</p>
+                    <p class="order-detail__shipping-city">Bogotá, Cundinamarca</p>
+                    <p class="order-detail__shipping-phone">Tel: 300 123 4567</p>
+                </div>
+            </section>
+
+            <section class="order-detail__section order-detail__section--totals">
+                <h2 class="order-detail__section-title">Resumen del Pedido</h2>
+                <div class="order-detail__totals">
+                    <div class="order-detail__totals-row">
+                        <span>Subtotal</span>
+                        <span>$185.000</span>
+                    </div>
+                    <div class="order-detail__totals-row">
+                        <span>Envío</span>
+                        <span>Gratis</span>
+                    </div>
+                    <div class="order-detail__totals-row order-detail__totals-row--total">
+                        <strong>Total</strong>
+                        <strong>$185.000</strong>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <p class="footer__text">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
