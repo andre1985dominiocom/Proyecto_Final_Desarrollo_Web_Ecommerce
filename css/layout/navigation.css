@@ -1,0 +1,19 @@
+/* Navigation layout */
+.navigation__list {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.navigation__link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.navigation__link:hover,
+.navigation__link--active {
+    color: #9b59b6;
+    font-weight: bold;
+}

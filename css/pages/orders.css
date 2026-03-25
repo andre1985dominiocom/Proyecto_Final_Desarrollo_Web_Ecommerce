@@ -1,0 +1,6 @@
+/* Page-level styles for orders pages */
+
+.orders-page .main,
+.order-detail-page .main {
+    min-height: calc(100vh - 120px);
+}
