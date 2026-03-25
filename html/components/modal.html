@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal - DidiStore</title>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+    <!-- Botón de demostración para abrir el modal -->
+    <button class="btn btn--primary" id="openModal">Abrir Modal</button>
+
+    <!-- Componente Modal -->
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="modal__overlay" id="modalOverlay"></div>
+        <div class="modal__container">
+            <div class="modal__header">
+                <h3 class="modal__title" id="modal-title">Título del Modal</h3>
+                <button class="modal__close" id="closeModal" aria-label="Cerrar modal">&#x2715;</button>
+            </div>
+            <div class="modal__body">
+                <p class="modal__text">Contenido del modal. Aquí puede ir cualquier tipo de información, formularios o confirmaciones.</p>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--secondary modal__button--cancel" id="cancelModal">Cancelar</button>
+                <button class="btn btn--primary modal__button--confirm">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const openBtn = document.getElementById('openModal');
+        const closeBtn = document.getElementById('closeModal');
+        const cancelBtn = document.getElementById('cancelModal');
+        const overlay = document.getElementById('modalOverlay');
+
+        openBtn.addEventListener('click', () => { modal.removeAttribute('hidden'); });
+        closeBtn.addEventListener('click', () => { modal.setAttribute('hidden', ''); });
+        cancelBtn.addEventListener('click', () => { modal.setAttribute('hidden', ''); });
+        overlay.addEventListener('click', () => { modal.setAttribute('hidden', ''); });
+    </script>
+</body>
+</html>
