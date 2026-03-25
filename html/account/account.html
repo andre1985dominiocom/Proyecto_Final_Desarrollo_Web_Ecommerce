@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Mi Cuenta - DidiStore</title>
     <link rel="stylesheet" href="../../css/main.css">
 </head>
@@ -193,10 +194,55 @@
             </section>
         </div>
     </main>
+=======
+    <title>Ingresar Cuenta</title>
+    <link rel="stylesheet" href="../../css/pages/account.css">
+</head>
+<body>
+    <header class="account">
+        <nav class="account__title">
+            <ul class="account__list">
+                <li class="account__item"><a class="navigation__link navigation__link--active" href="/index.html">Inicio</a></li>
+                <li class="account__item"><a class="navigation__link navigation__link" href="wishlist.html">Lista de Deseos</a></li>
+                <li class="account__item"><a class="navigation__link" href="../auth/login.html">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="profile">
+        <section id="profile__summary">
+            <h2 class="profile__title">Mi Cuenta</h2>
+            <div class="profile__container">
+                <p><strong>Nombre de Usuario:</strong><span id="display__username"></span></p>
+                <p><strong>Correo Eletrónico</strong><span id="display__email"></span></p>
+                <p><strong>Miembro desde:</strong></p>
+            </div>
+
+            <div class="actions">
+                <button onclick="location.href='../auth/register.html'">Editar Perfil</button>
+                <button onclick="location.href='../auth/reset-password.html'">Cambiar Contraseña</button>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="account__settings">
+            <h3 class="account__private">Configuración de Privacidad</h3>
+            <label>
+                <input type="checkbox" checked> Recibir notificaciones por Correo Electrónico
+            </label>
+        </section>
+    </main>
+
+>>>>>>> features
     <footer class="footer">
         <div class="footer__container container">
             <p class="footer__text">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
         </div>
     </footer>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> features
