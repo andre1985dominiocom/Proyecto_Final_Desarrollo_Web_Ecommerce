@@ -1,0 +1,39 @@
+/* Status filter select */
+.admin-filter-select {
+    min-width: auto;
+    width: 180px;
+}
+
+.admin-order-detail {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    max-width: 800px;
+}
+
+.admin-order-detail__section {
+    margin-bottom: 1.5rem;
+}
+
+.admin-order-detail__section-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #f0d6e8;
+}
+
+.admin-order-detail__row {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+}
+
+.admin-order-detail__key {
+    font-weight: bold;
+    min-width: 160px;
+    color: #555;
+}

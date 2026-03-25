@@ -1,0 +1,68 @@
+/* Register styles */
+
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background-color: var(--background-color);
+}
+
+.register__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.register__form {
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+}
+
+.register__label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.register__input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.register__input[type="checkbox"] {
+    width: auto;
+    margin-bottom: 0;
+    margin-right: 0.25rem;
+}
+
+.register__button {
+    padding: 0.5rem;
+    color: var(--background-color);
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    border: none;
+    margin-top: 0.5rem;
+}
+
+.register__button:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.register__login {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.register__login a {
+    color: var(--primary-color);
+}
+
+.register__login a:hover {
+    text-decoration: underline;
+    color: var(--primary-color-dark);
+}

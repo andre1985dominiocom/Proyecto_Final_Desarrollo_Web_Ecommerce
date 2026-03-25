@@ -19,6 +19,8 @@
                     <li class="navigation__item"><a class="navigation__link" href="../catalog/category.html">Categorías</a></li>
                     <li class="navigation__item"><a class="navigation__link" href="../promotions/promotions.html">Ofertas</a></li>
                     <li class="navigation__item"><a class="navigation__link" href="../auth/login.html">Ingresar</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../components/footer.html">Contactos</a></li>
+                    <li class="navigation__item"><a class="navigation__link navigation__link--active" href="cart.html">Carrito</a></li>
                 </ul>
             </nav>
         </div>
@@ -118,6 +120,81 @@
                 </div>
             </div>
         </section>
+    <main class="main cart-page">
+        <div class="cart-page__container container">
+            <h1 class="cart-page__title">Mi Carrito de Compras</h1>
+
+            <div class="cart-page__content">
+                <!-- Lista de productos en el carrito -->
+                <section class="cart">
+                    <div class="cart__header">
+                        <span class="cart__header-product">Producto</span>
+                        <span class="cart__header-price">Precio</span>
+                        <span class="cart__header-quantity">Cantidad</span>
+                        <span class="cart__header-subtotal">Subtotal</span>
+                        <span class="cart__header-remove"></span>
+                    </div>
+
+                    <div class="cart__items">
+                        <!-- Ítem de ejemplo 1 -->
+                        <div class="cart__item">
+                            <div class="cart__item-product">
+                                <img src="../../assets/logos/placeholder.png" alt="Nombre del Producto" class="cart__item-image" onerror="this.style.display='none'">
+                                <span class="cart__item-name">Nombre del Producto</span>
+                            </div>
+                            <span class="cart__item-price">$50.000</span>
+                            <div class="cart__item-quantity">
+                                <button class="cart__quantity-btn cart__quantity-btn--minus" type="button" aria-label="Disminuir cantidad">&#8722;</button>
+                                <input type="number" class="cart__quantity-input" value="1" min="1" max="99" aria-label="Cantidad">
+                                <button class="cart__quantity-btn cart__quantity-btn--plus" type="button" aria-label="Aumentar cantidad">&#43;</button>
+                            </div>
+                            <span class="cart__item-subtotal">$50.000</span>
+                            <button class="cart__item-remove" type="button" aria-label="Eliminar producto">&#10005;</button>
+                        </div>
+
+                        <!-- Ítem de ejemplo 2 -->
+                        <div class="cart__item">
+                            <div class="cart__item-product">
+                                <img src="../../assets/logos/placeholder.png" alt="Otro Producto" class="cart__item-image" onerror="this.style.display='none'">
+                                <span class="cart__item-name">Otro Producto</span>
+                            </div>
+                            <span class="cart__item-price">$35.000</span>
+                            <div class="cart__item-quantity">
+                                <button class="cart__quantity-btn cart__quantity-btn--minus" type="button" aria-label="Disminuir cantidad">&#8722;</button>
+                                <input type="number" class="cart__quantity-input" value="2" min="1" max="99" aria-label="Cantidad">
+                                <button class="cart__quantity-btn cart__quantity-btn--plus" type="button" aria-label="Aumentar cantidad">&#43;</button>
+                            </div>
+                            <span class="cart__item-subtotal">$70.000</span>
+                            <button class="cart__item-remove" type="button" aria-label="Eliminar producto">&#10005;</button>
+                        </div>
+                    </div>
+
+                    <div class="cart__actions">
+                        <a href="../catalog/catalog.html" class="cart__btn-continue">Seguir Comprando</a>
+                        <button class="cart__btn-clear" type="button">Vaciar Carrito</button>
+                    </div>
+                </section>
+
+                <!-- Resumen del pedido -->
+                <aside class="cart-summary">
+                    <h2 class="cart-summary__title">Resumen del Pedido</h2>
+                    <div class="cart-summary__row">
+                        <span class="cart-summary__label">Subtotal</span>
+                        <span class="cart-summary__value">$120.000</span>
+                    </div>
+                    <div class="cart-summary__row">
+                        <span class="cart-summary__label">Envío</span>
+                        <span class="cart-summary__value">$10.000</span>
+                    </div>
+                    <div class="cart-summary__row cart-summary__row--total">
+                        <span class="cart-summary__label">Total</span>
+                        <span class="cart-summary__value">$130.000</span>
+                    </div>
+                    <a href="../checkout/checkout.html" class="cart-summary__btn-checkout">Proceder al Pago</a>
+                    <p class="cart-summary__note">Los impuestos y descuentos se aplicarán en el paso siguiente.</p>
+                </aside>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">

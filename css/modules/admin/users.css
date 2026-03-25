@@ -1,0 +1,16 @@
+/* Admin users page styles */
+
+/* Role filter select - re-uses .admin-filter-select from orders.css */
+
+.admin-user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
