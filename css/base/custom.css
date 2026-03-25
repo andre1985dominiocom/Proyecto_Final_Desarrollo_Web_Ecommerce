@@ -4,4 +4,10 @@
     --secondary-color: #F4CCE9;
     --text-color: #333;
     --background-color: #FFDFEF;
+    --color-danger: #e74c3c;
+    --color-danger-dark: #c0392b;
+    --color-danger-text: #fff;
+    --color-neutral: #ccc;
+    --color-neutral-dark: #bbb;
+    --color-muted: #888;
 }

@@ -21,6 +21,13 @@
 @import url("./components/modal.css");
 
 /* Modules */
+@import url("./modules/admin/admin.css");
+@import url("./modules/admin/dashboard.css");
+@import url("./modules/admin/products.css");
+@import url("./modules/admin/orders.css");
+@import url("./modules/admin/users.css");
+@import url("./modules/admin/categories.css");
+@import url("./modules/admin/promotions.css");
 @import url("./modules/auth/login.css");
 @import url("./modules/auth/register.css");
 @import url("./modules/cart/cart.css");
