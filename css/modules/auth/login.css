@@ -37,6 +37,8 @@
     color: var(--background-color);
     border-radius: 4px;
     cursor: pointer;
+    background-color: var(--primary-color);
+    border: none;
 }
 
 .login__button:hover {
