@@ -1,7 +1,9 @@
 /* Custom styles */
 :root {
     --primary-color: #EABDE6;
+    --primary-color-dark: #C97EC4;
     --secondary-color: #F4CCE9;
     --text-color: #333;
     --background-color: #FFDFEF;
+    --background-color-dark: #C97EC4;
 }
