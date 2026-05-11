@@ -1,0 +1,7 @@
+/* =============================================
+    DidiStore — Página: Checkout (BEM)
+    Bloque: .page--checkout
+   ============================================= */
+.page--checkout {
+    min-height: calc(100vh - 160px);
+}

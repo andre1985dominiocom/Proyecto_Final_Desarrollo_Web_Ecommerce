@@ -13,7 +13,7 @@
     border-radius: 8px;
     padding: 1.25rem 1.5rem;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid var(--color-primary);
 }
 
 .admin-stat-card__label {
@@ -25,7 +25,7 @@
 .admin-stat-card__value {
     font-size: 2rem;
     font-weight: bold;
-    color: var(--text-color);
+    color: var(--color-text);
 }
 
 .admin-stat-card__sub {
@@ -66,11 +66,11 @@
 }
 
 .admin-widget__header {
-    background-color: var(--primary-color);
+    background-color: var(--color-primary);
     padding: 0.75rem 1.25rem;
     font-weight: bold;
     font-size: 1rem;
-    color: var(--text-color);
+    color: var(--color-text);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,7 +82,7 @@
 
 .admin-widget__link {
     font-size: 0.8rem;
-    color: var(--text-color);
+    color: var(--color-text);
     text-decoration: none;
 }
 

@@ -1,13 +1,35 @@
-/* Base styles */
+/* =============================================
+    DidiStore — Estilos base del documento
+    (Aquí NO se repiten los imports de reset/typography;
+    eso lo hace main.css)
+   ============================================= */
 
-/* Importación de los estilos base */
-@import 'reset.css';
-@import 'typography.css';
-@import 'custom.css';
+/* Scroll-to-top */
+.scroll-to-top {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    border-radius: var(--radius-pill);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
+    z-index: 999;
+}
 
-/* Base estilos para la entrada de la aplicación */
-body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-family: 'Inika', 'Inder', 'Joan', 'Arial', sans-serif;
+.scroll-to-top--visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--color-background-dark);
 }

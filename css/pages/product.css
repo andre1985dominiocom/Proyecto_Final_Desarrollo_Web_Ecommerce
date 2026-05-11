@@ -1,0 +1,7 @@
+/* =============================================
+    DidiStore — Página: Producto
+    Los estilos están en modules/product/product-detail.css
+   ============================================= */
+.page--product {
+    min-height: calc(100vh - 160px);
+}

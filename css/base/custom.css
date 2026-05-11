@@ -1,15 +1,61 @@
-/* Custom styles */
+/* =============================================
+    DidiStore — Variables globales de la marca
+   ============================================= */
 :root {
-    --primary-color: #EABDE6;
-    --primary-color-dark: #C97EC4;
-    --secondary-color: #F4CCE9;
-    --text-color: #333;
-    --background-color: #FFDFEF;
-    --background-color-dark: #C97EC4;
-    --color-danger: #e74c3c;
-    --color-danger-dark: #c0392b;
-    --color-danger-text: #fff;
-    --color-neutral: #ccc;
-    --color-neutral-dark: #bbb;
-    --color-muted: #888;
+    /* Paleta de marca */
+    --color-primary:        #EABDE6;
+    --color-primary-dark:   #C97EC4;
+    --color-secondary:      #F4CCE9;
+    --color-background:     #FFDFEF;
+    --color-background-dark:#C97EC4;
+
+    /* Texto */
+    --color-text:           #333333;
+    --color-text-light:     #555555;
+    --color-text-muted:     #888888;
+    --color-text-heading:   #222222;
+
+    /* Estado */
+    --color-danger:         #e74c3c;
+    --color-danger-dark:    #c0392b;
+    --color-danger-text:    #ffffff;
+    --color-success:        #4caf50;
+    --color-success-text:   #ffffff;
+    --color-neutral:        #cccccc;
+    --color-neutral-dark:   #bbbbbb;
+
+    /* Superficies */
+    --color-white:          #ffffff;
+    --color-border:         var(--color-secondary);
+
+    /* Tipografía */
+    --font-family-base: 'Inika', 'Inder', 'Joan', Arial, sans-serif;
+
+    /* Espaciado */
+    --spacing-xs:  4px;
+    --spacing-sm:  8px;
+    --spacing-md:  16px;
+    --spacing-lg:  24px;
+    --spacing-xl:  32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+
+    /* Bordes */
+    --radius-sm:  4px;
+    --radius-md:  8px;
+    --radius-lg:  12px;
+    --radius-pill:9999px;
+
+    /* Sombras */
+    --shadow-sm:  0 2px 6px rgba(0,0,0,0.08);
+    --shadow-md:  0 4px 12px rgba(0,0,0,0.12);
+    --shadow-lg:  0 8px 24px rgba(0,0,0,0.16);
+
+    /* Transiciones */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.25s ease;
+
+    /* Layout */
+    --container-max: 1200px;
+    --container-padding: 20px;
 }

@@ -1,74 +1,77 @@
-/* Login styles */
-
-.login {
+/* =============================================
+    DidiStore — Módulo: Login (BEM)
+    Bloque: .auth
+   ============================================= */
+.auth {
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: var(--background-color);
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--color-background);
 }
 
-.login__title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.login__form {
+/* --- Elemento: tarjeta del formulario --- */
+.auth__card {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-xl);
     display: flex;
     flex-direction: column;
-    width: 300px;
+    gap: var(--spacing-md);
 }
 
-.login__label {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+/* --- Elemento: logo/encabezado --- */
+.auth__header {
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
 }
 
-.login__input {
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.auth__logo {
+    height: 56px;
+    margin: 0 auto var(--spacing-sm);
 }
 
-.login__button {
-    padding: 0.5rem;
-    color: var(--background-color);
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: var(--primary-color);
+/* --- Elemento: título --- */
+.auth__title {
+    font-size: 1.6rem;
+    text-align: center;
+    color: var(--color-text-heading);
+    margin-bottom: 0;
+}
+
+/* --- Elemento: subtítulo / enlace secundario --- */
+.auth__subtitle {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+}
+
+.auth__link {
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+.auth__link:hover {
+    color: var(--color-background-dark);
+    text-decoration: underline;
+}
+
+/* --- Elemento: separador --- */
+.auth__divider {
     border: none;
+    border-top: 1px solid var(--color-secondary);
+    margin: var(--spacing-xs) 0;
 }
 
-.login__button:hover {
-    background-color: var(--background-color-dark);
-}
-
-.login__register {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-}
-
-.login__register a {
-    color: var(--primary-color);
-}
-
-.login__register a:hover {
-    text-decoration: underline;
-    color: var(--primary-color-dark);
-}
-
-.login__olvido {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.login__olvido a {
-    color: var(--primary-color);
-}
-
-.login__olvido a:hover {
-    text-decoration: underline;
-    color: var(--primary-color-dark);
+/* --- Elemento: pie (¿olvidaste tu contraseña?) --- */
+.auth__footer {
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
 }

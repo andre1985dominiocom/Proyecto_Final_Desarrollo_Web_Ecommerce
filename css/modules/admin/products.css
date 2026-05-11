@@ -5,7 +5,7 @@
     height: 50px;
     object-fit: cover;
     border-radius: 4px;
-    background-color: var(--secondary-color);
+    background-color: var(--color-secondary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,7 +31,7 @@
     margin-bottom: 0.4rem;
     font-weight: bold;
     font-size: 0.9rem;
-    color: var(--text-color);
+    color: var(--color-text);
 }
 
 .admin-form__input,
@@ -55,7 +55,7 @@
 .admin-form__select:focus,
 .admin-form__textarea:focus {
     outline: none;
-    border-color: var(--primary-color);
+    border-color: var(--color-primary);
 }
 
 .admin-form__hint {

@@ -8,7 +8,7 @@
 /* Sidebar */
 .admin-sidebar {
     width: 240px;
-    background-color: var(--primary-color);
+    background-color: var(--color-primary);
     display: flex;
     flex-direction: column;
     padding: 1.5rem 0;
@@ -18,7 +18,7 @@
 .admin-sidebar__logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--text-color);
+    color: var(--color-text);
     text-align: center;
     padding: 0 1rem 1.5rem 1rem;
     border-bottom: 1px solid rgba(51, 51, 51, 0.2);
@@ -34,7 +34,7 @@
 .admin-sidebar__link {
     display: block;
     padding: 0.75rem 1.5rem;
-    color: var(--text-color);
+    color: var(--color-text);
     text-decoration: none;
     font-size: 0.95rem;
     transition: background-color 0.2s;
@@ -42,7 +42,7 @@
 
 .admin-sidebar__link:hover,
 .admin-sidebar__link--active {
-    background-color: var(--secondary-color);
+    background-color: var(--color-secondary);
     font-weight: bold;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .admin-sidebar__logout-link {
-    color: var(--text-color);
+    color: var(--color-text);
     text-decoration: none;
     font-size: 0.95rem;
 }
@@ -67,13 +67,13 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: var(--background-color);
+    background-color: var(--color-background);
     overflow-x: hidden;
 }
 
 /* Admin top bar */
 .admin-topbar {
-    background-color: var(--secondary-color);
+    background-color: var(--color-secondary);
     padding: 1rem 2rem;
     display: flex;
     align-items: center;
@@ -84,12 +84,12 @@
 .admin-topbar__title {
     font-size: 1.25rem;
     font-weight: bold;
-    color: var(--text-color);
+    color: var(--color-text);
 }
 
 .admin-topbar__user {
     font-size: 0.9rem;
-    color: var(--text-color);
+    color: var(--color-text);
 }
 
 /* Content wrapper */
@@ -102,7 +102,7 @@
 .admin-page-title {
     font-size: 1.75rem;
     margin-bottom: 1.5rem;
-    color: var(--text-color);
+    color: var(--color-text);
 }
 
 /* Action bar */
@@ -131,7 +131,7 @@
 
 .admin-search__button {
     padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
+    background-color: var(--color-primary);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -139,7 +139,7 @@
 }
 
 .admin-search__button:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--color-secondary);
 }
 
 /* Buttons */
@@ -154,12 +154,12 @@
 }
 
 .admin-btn--primary {
-    background-color: var(--primary-color);
-    color: var(--text-color);
+    background-color: var(--color-primary);
+    color: var(--color-text);
 }
 
 .admin-btn--primary:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--color-secondary);
 }
 
 .admin-btn--danger {
@@ -173,7 +173,7 @@
 
 .admin-btn--secondary {
     background-color: var(--color-neutral);
-    color: var(--text-color);
+    color: var(--color-text);
 }
 
 .admin-btn--secondary:hover {
@@ -208,9 +208,9 @@
 }
 
 .admin-table th {
-    background-color: var(--primary-color);
+    background-color: var(--color-primary);
     font-weight: bold;
-    color: var(--text-color);
+    color: var(--color-text);
 }
 
 .admin-table tr:last-child td {
@@ -245,13 +245,13 @@
 }
 
 .admin-pagination__btn--active {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
     font-weight: bold;
 }
 
 .admin-pagination__btn:hover:not(.admin-pagination__btn--active) {
-    background-color: var(--background-color);
+    background-color: var(--color-background);
 }
 
 /* Badge / status */

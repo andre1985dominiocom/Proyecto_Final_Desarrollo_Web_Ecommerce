@@ -1,0 +1,13 @@
+/* =============================================
+    DidiStore — Utilidades de color
+   ============================================= */
+.u-text-primary    { color: var(--color-primary-dark); }
+.u-text-muted      { color: var(--color-text-muted); }
+.u-text-danger     { color: var(--color-danger); }
+.u-text-success    { color: var(--color-success); }
+.u-text-white      { color: var(--color-white); }
+
+.u-bg-primary      { background-color: var(--color-primary); }
+.u-bg-secondary    { background-color: var(--color-secondary); }
+.u-bg-background   { background-color: var(--color-background); }
+.u-bg-white        { background-color: var(--color-white); }

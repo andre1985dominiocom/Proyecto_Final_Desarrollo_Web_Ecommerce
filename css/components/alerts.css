@@ -1,0 +1,43 @@
+/* =============================================
+    DidiStore — Alertas (BEM)
+    Bloque: .alert
+   ============================================= */
+.alert {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    border: 1px solid transparent;
+}
+
+.alert__icon { flex-shrink: 0; font-size: 1rem; }
+.alert__text { flex: 1; }
+.alert__close {
+    background: none; border: none;
+    font-size: 1rem; cursor: pointer;
+    opacity: 0.6; transition: opacity var(--transition-fast);
+}
+.alert__close:hover { opacity: 1; }
+
+.alert--success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+.alert--danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+.alert--warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+}
+.alert--info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}

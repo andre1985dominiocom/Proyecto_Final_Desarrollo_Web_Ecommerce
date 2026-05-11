@@ -3,23 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Login DidiStore</title>
-    <link rel="stylesheet" href="../../css/modules/auth/login.css">
+
+    <!-- Estilos globales -->
+    <link rel="stylesheet" href="../../CSS/main.css">
+
+    <!-- Estilos del módulo -->
+    <link rel="stylesheet" href="../../CSS/modules/auth/login.css">
 </head>
+
 <body>
-    <div class="login">
-        <h2 class="login__title">Iniciar Sesión</h2>
-        <form class="login__form" action="#" method="post">
-            <label for="username" class="login__label">Usuario:</label>
-            <input type="text" id="username" name="username" class="login__input" required>
 
-            <label for="password" class="login__label">Contraseña:</label>
-            <input type="password" id="password" name="password" class="login__input" required>
+    <main class="auth">
 
-            <button type="submit" class="login__button">Ingresar</button>
-        </form>
-        <p class="login__register">¿No tienes una cuenta? <a href="../auth/register.html" class="login__register-link">Regístrate aquí</a></p>
-        <p class="login__olvido">¿Olvidaste tu contraseña? <a href="../auth/forgot-password.html" class="login__olvido-link">Recupérala aquí</a></p>
-    </div>
+        <section class="auth__card">
+
+            <!-- Encabezado -->
+            <header class="auth__header">
+
+                <h2 class="auth__title">
+                    Iniciar Sesión
+                </h2>
+
+                <p class="auth__subtitle">
+                    Accede a tu cuenta de DidiStore
+                </p>
+
+            </header>
+
+            <!-- Formulario -->
+            <form class="auth__form" action="#" method="post">
+
+                <label for="username" class="auth__label">
+                    Usuario
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    class="auth__input"
+                    required
+                >
+
+                <label for="password" class="auth__label">
+                    Contraseña
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="auth__input"
+                    required
+                >
+
+                <button type="submit" class="auth__button">
+                    Ingresar
+                </button>
+
+            </form>
+
+            <hr class="auth__divider">
+
+            <!-- Footer -->
+            <footer class="auth__footer">
+
+                <p>
+                    ¿No tienes una cuenta?
+                    <a href="../auth/register.html" class="auth__link">
+                        Regístrate aquí
+                    </a>
+                </p>
+
+                <p>
+                    ¿Olvidaste tu contraseña?
+                    <a href="../auth/forgot-password.html" class="auth__link">
+                        Recupérala aquí
+                    </a>
+                </p>
+
+            </footer>
+
+        </section>
+
+    </main>
+
 </body>
 </html>

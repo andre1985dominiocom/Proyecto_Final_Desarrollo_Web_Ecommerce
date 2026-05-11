@@ -1,71 +1,80 @@
-/* Form component styles */
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-}
-
-.form__group {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.form__label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-color);
-}
-
-.form__input,
-.form__select,
-.form__textarea {
-    width: 100%;
-    padding: 10px 14px;
-    font-size: 0.95rem;
-    font-family: inherit;
-    color: var(--text-color);
-    background-color: #fff;
-    border: 1px solid var(--secondary-color);
-    border-radius: 6px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.form__input:focus,
-.form__select:focus,
-.form__textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(234, 189, 230, 0.3);
-}
-
-.form__textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.form__checkbox-group {
+/* =============================================
+    DidiStore — Modal (BEM)
+    Bloque: .modal
+   ============================================= */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
 }
 
-.form__checkbox {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--primary-color);
-    cursor: pointer;
+.modal[hidden] { display: none; }
+
+/* --- Elemento: fondo oscuro --- */
+.modal__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.45);
 }
 
-.form__error {
-    font-size: 0.8rem;
-    color: #e74c3c;
-    margin-top: 2px;
+/* --- Elemento: caja del modal --- */
+.modal__box {
+    position: relative;
+    z-index: 1;
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 480px;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-.form__hint {
-    font-size: 0.8rem;
-    color: #888;
-    margin-top: 2px;
+/* --- Elemento: cabecera --- */
+.modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--color-primary);
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.modal__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-heading);
+    margin-bottom: 0;
+}
+
+/* --- Elemento: botón cerrar --- */
+.modal__close {
+    font-size: 1.2rem;
+    color: var(--color-text-heading);
+    padding: 4px var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-fast);
+}
+
+.modal__close:hover { background-color: var(--color-secondary); }
+
+/* --- Elemento: cuerpo --- */
+.modal__body {
+    padding: var(--spacing-lg);
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+
+/* --- Elemento: pie de acciones --- */
+.modal__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-top: 1px solid var(--color-secondary);
+    background-color: #fafafa;
 }

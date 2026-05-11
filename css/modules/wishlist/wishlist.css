@@ -1,36 +1,37 @@
-/* Wishlist module styles */
-
+/* =============================================
+    DidiStore — Módulo: Lista de deseos (BEM)
+    Bloque: .wishlist
+   ============================================= */
 .wishlist {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--spacing-md);
 }
 
+/* --- Elemento: ítem --- */
 .wishlist__item {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 1rem;
-    background-color: #fafafa;
-    transition: box-shadow 0.2s;
+    gap: var(--spacing-md);
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    background-color: var(--color-white);
+    transition: box-shadow var(--transition-base);
 }
 
 .wishlist__item:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
 }
 
+/* --- Elemento: imagen --- */
 .wishlist__image-wrapper {
     width: 80px;
     height: 80px;
-    min-width: 80px;
-    border-radius: 6px;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
     overflow: hidden;
-    background-color: var(--secondary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: var(--color-secondary);
 }
 
 .wishlist__image {
@@ -39,89 +40,58 @@
     object-fit: cover;
 }
 
+/* --- Elemento: información del producto --- */
 .wishlist__info {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
 }
 
 .wishlist__product-name {
     font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 0.25rem;
-    color: #222;
+    font-weight: 700;
+    color: var(--color-text-heading);
+    margin-bottom: 0;
 }
 
 .wishlist__product-price {
     font-size: 0.95rem;
-    color: var(--text-color);
-    margin-bottom: 0.25rem;
+    color: var(--color-text);
+    margin-bottom: 0;
 }
 
 .wishlist__product-status {
-    font-size: 0.85rem;
-    font-weight: bold;
+    font-size: 0.82rem;
+    font-weight: 700;
 }
 
-.wishlist__product-status--available {
-    color: #27ae60;
-}
+.wishlist__product-status--available   { color: #27ae60; }
+.wishlist__product-status--unavailable { color: var(--color-danger); }
 
-.wishlist__product-status--unavailable {
-    color: #c0392b;
-}
-
+/* --- Elemento: acciones --- */
 .wishlist__actions {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--spacing-sm);
+    flex-shrink: 0;
 }
 
-.wishlist__btn {
-    padding: 0.45rem 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: bold;
-    transition: background-color 0.2s;
-}
-
-.wishlist__btn--cart {
-    background-color: var(--primary-color);
-    color: #fff;
-}
-
-.wishlist__btn--cart:hover:not(:disabled) {
-    background-color: #d49dd0;
-}
-
-.wishlist__btn--cart:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-.wishlist__btn--remove {
-    background-color: #fff;
-    color: #c0392b;
-    border: 1px solid #c0392b;
-}
-
-.wishlist__btn--remove:hover {
-    background-color: #c0392b;
-    color: #fff;
-}
-
+/* --- Elemento: estado vacío --- */
 .wishlist__empty {
     text-align: center;
-    color: var(--text-color);
-    padding: 2rem 0;
+    padding: var(--spacing-2xl);
+    color: var(--color-text-muted);
     font-size: 1rem;
 }
 
-.wishlist__link {
-    color: var(--primary-color);
-    text-decoration: none;
+.wishlist__empty-link {
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    transition: color var(--transition-fast);
 }
 
-.wishlist__link:hover {
+.wishlist__empty-link:hover {
+    color: var(--color-background-dark);
     text-decoration: underline;
 }

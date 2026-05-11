@@ -1,29 +1,22 @@
-/* Grid layout */
+/* =============================================
+    DidiStore — Grid utilitario (BEM)
+    Bloque: .grid
+   ============================================= */
 .grid {
     display: grid;
-    gap: 24px;
+    gap: var(--spacing-lg);
 }
 
-.grid--2 {
-    grid-template-columns: repeat(2, 1fr);
-}
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
 
-.grid--3 {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.grid--4 {
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.grid--auto {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-}
+.grid--auto-sm { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+.grid--auto-md { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.grid--auto-lg { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
 
 @media (max-width: 768px) {
     .grid--2,
     .grid--3,
-    .grid--4 {
-        grid-template-columns: 1fr;
-    }
+    .grid--4 { grid-template-columns: 1fr; }
 }

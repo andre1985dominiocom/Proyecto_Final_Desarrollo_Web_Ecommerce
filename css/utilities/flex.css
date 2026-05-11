@@ -1,0 +1,13 @@
+/* =============================================
+    DidiStore — Utilidades de flexbox
+   ============================================= */
+.u-flex            { display: flex; }
+.u-flex-col        { flex-direction: column; }
+.u-items-center    { align-items: center; }
+.u-items-start     { align-items: flex-start; }
+.u-justify-center  { justify-content: center; }
+.u-justify-between { justify-content: space-between; }
+.u-flex-wrap       { flex-wrap: wrap; }
+.u-gap-sm          { gap: var(--spacing-sm); }
+.u-gap-md          { gap: var(--spacing-md); }
+.u-gap-lg          { gap: var(--spacing-lg); }

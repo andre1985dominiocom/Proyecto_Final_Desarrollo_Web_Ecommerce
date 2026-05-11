@@ -3,181 +3,504 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce DidiStore</title>
-    <link rel="stylesheet" href="css/main.css">
+    <meta name="description" content="DidiStore - Tu tienda online de pijamas para mujer, accesorios y complementos.">
+    <meta name="keywords" content="pijamas mujer, accesorios, complementos, DidiStore">
+    <meta name="author" content="DidiStore">
+    <title>DidiStore - Inicio | Pijamas y Accesorios para Mujer</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Encabezado -->
+
+    <!-- ========== HEADER ========== -->
     <header class="header">
-        <div class="header__search">
-            <form class="search" action="#" method="get" role="search">
-                <input type="search" name="q" class="search__input" placeholder="Buscar productos..." aria-label="Buscar productos">
-                <button type="submit" class="search__button" aria-label="Buscar">&#128269;</button>
-            </form>
-        </div>
-        <div class="header__container container">
-            <div class="header__logo">
-                <a href="index.html" class="header__logo-link">
-                    <img src="assets/logos/Group_3-removebg-preview.png" alt="DidiStore Logo" class="header__logo-img">
-                    <span class="header__logo-text">DidiStore</span>
-                </a>
+
+        <!-- Barra superior -->
+        <div class="header__topbar">
+            <div class="container">
+                <div class="header__topbar-inner">
+                    <div class="header__topbar-promo">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>Envío gratis en compras mayores a $100.000</span>
+                    </div>
+                    <div class="header__topbar-links">
+                        <a href="../html/account/account.html" class="header__topbar-link">
+                            <i class="fa-solid fa-user"></i> Mi Cuenta
+                        </a>
+                        <a href="../html/orders/orders.html" class="header__topbar-link">
+                            <i class="fa-solid fa-box"></i> Mis Pedidos
+                        </a>
+                        <a href="../html/account/wishlist.html" class="header__topbar-link">
+                            <i class="fa-solid fa-heart"></i> Favoritos
+                        </a>
+                    </div>
+                </div>
             </div>
-            <nav class="navigation" aria-label="Navegación principal">
-                <ul class="navigation__list">
-                    <li class="navigation__item"><a class="navigation__link navigation__link--active" href="index.html">Inicio</a></li>
-                    <li class="navigation__item"><a class="navigation__link" href="html/catalog/category.html">Categorías</a></li>
-                    <li class="navigation__item"><a class="navigation__link" href="html/promotions/promotions.html">Ofertas</a></li>
-                    <li class="navigation__item"><a class="navigation__link" href="#contacto">Contacto</a></li>
-                    <li class="navigation__item">
-                    </li>
-                </ul>
-            </nav>
-            
-            <a class="navigation__link navigation__link--register" href="html/auth/login.html"><span class="header__register">Iniciar Sesión</span></a>
-
-            <a class="navigation__link navigation__link--account" href="html/auth/register.html"><span class="header__account">Crear Cuenta</span></a>
-
-            <a class="navigation__link navigation__link--icon" href="html/cart/cart.html" aria-label="Carrito de compras">
-                &#128722;
-                <span class="badge badge--cart">0</span>
-            </a>
         </div>
+
+        <!-- Navbar principal -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar__wrapper">
+
+                    <!-- Logo -->
+                    <div class="navbar__logo">
+                        <a href="../index.html" class="navbar__logo-link">
+                            <img src="../assets/logos/Group_3-removebg-preview.png"
+                                    alt="DidiStore Logo"
+                                        class="navbar__logo-img">
+                            <span class="navbar__logo-text">DidiStore</span>
+                        </a>
+                    </div>
+
+                    <!-- Buscador -->
+                    <div class="navbar__search">
+                        <form class="navbar__search-form"
+                                action="../html/catalog/catalog.html"
+                                method="GET">
+                            <input
+                                type="search"
+                                name="q"
+                                class="navbar__search-input"
+                                placeholder="Buscar pijamas, accesorios, complementos…"
+                                aria-label="Buscar productos">
+                            <button type="submit"
+                                    class="navbar__search-btn"
+                                    aria-label="Buscar">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Acciones (usuario, wishlist, carrito) -->
+                    <div class="navbar__actions">
+                        <a href="../html/auth/login.html"
+                            class="navbar__action-link"
+                            aria-label="Iniciar sesión">
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+
+                        <a href="../html/account/wishlist.html"
+                            class="navbar__action-link navbar__action-link--wishlist"
+                            aria-label="Lista de deseos">
+                            <i class="fa-solid fa-heart"></i>
+                            <span class="navbar__badge badge badge--count" data-count="0">0</span>
+                        </a>
+
+                        <a href="../html/cart/cart.html"
+                            class="navbar__action-link"
+                            aria-label="Carrito de compras">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="navbar__badge badge badge--count" data-count="0">0</span>
+                        </a>
+                    </div>
+
+                    <!-- Botón hamburguesa (móvil) -->
+                    <button class="navbar__toggle"
+                            aria-label="Abrir menú"
+                            aria-expanded="false">
+                        <span class="navbar__toggle-bar"></span>
+                        <span class="navbar__toggle-bar"></span>
+                        <span class="navbar__toggle-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Categorías -->
+                <div class="navbar__categories">
+                    <ul class="category-menu">
+                        <li class="category-menu__item">
+                            <a href="../html/catalog/catalog.html"
+                                class="category-menu__link">Todos los Productos</a>
+                        </li>
+                        <li class="category-menu__item">
+                            <a href="../html/catalog/catalog.html?category=pijamas-mujer"
+                                class="category-menu__link">Pijamas de Mujer</a>
+                        </li>
+                        <li class="category-menu__item">
+                            <a href="../html/catalog/catalog.html?category=accesorios"
+                                class="category-menu__link">Accesorios</a>
+                        </li>
+                        <li class="category-menu__item">
+                            <a href="../html/catalog/catalog.html?category=complementos"
+                                class="category-menu__link">Complementos</a>
+                        </li>
+                        <li class="category-menu__item">
+                            <a href="../html/promotions/promotions.html"
+                                class="category-menu__link category-menu__link--highlight">
+                                <i class="fa-solid fa-tags"></i> Promociones
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <!-- Contenido principal -->
+    <!-- ========== MAIN ========== -->
     <main class="main">
 
-        <!-- Sección Hero / Banner principal -->
+        <!-- Hero / Slider -->
         <section class="hero">
-            <div class="hero__container container">
-                <div class="hero__content">
-                    <h1 class="hero__title">Bienvenido a DidiStore</h1>
-                    <p class="hero__description">Tu tienda en línea de confianza para tu descanso. Descubre miles de artículos con los mejores precios y envío rápido a todo el país.</p>
-                    <div class="hero__actions">
-                        <a href="html/catalog/catalog.html" class="btn btn--primary">Explorar Productos</a>
-                        <a href="html/promotions/promotions.html" class="btn btn--secondary">Ver Ofertas</a>
+            <div class="hero__slider">
+
+                <!-- Slide 1 -->
+                <div class="hero__slide hero__slide--active">
+                    <div class="hero__content">
+                        <div class="container">
+                            <div class="hero__text">
+                                <h1 class="hero__title">Comodidad que abraza tus sueños</h1>
+                                <p class="hero__subtitle">Descubre nuestra nueva colección de pijamas</p>
+                                <a href="../html/catalog/catalog.html?new=true"
+                                        class="btn btn--primary">Ver Catálogo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__image">
+                        <img src="../assets/images/banners/banner_catalogo.jpg"
+                                alt="Nueva Colección de Pijamas">
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Sección Categorías Destacadas -->
-        <section class="categories">
-            <div class="categories__container container">
-                <h2 class="categories__title">Categorías</h2>
-                <p class="categories__subtitle">Explora nuestra amplia variedad de productos</p>
-                <div class="categories__grid">
-                    <a href="html/catalog/category.html" class="category-card">
-                        <span class="category-card__icon">&#128085;</span>
-                        <h3 class="category-card__name">Pijamas de Mujer</h3>
-                    </a>
-                    <a href="html/catalog/category.html" class="category-card">
-                        <span class="category-card__icon">&#128142;</span>
-                        <h3 class="category-card__name">Accesorios</h3>
-                    </a>
-                    <a href="html/catalog/category.html" class="category-card">
-                        <span class="category-card__icon">&#129523;</span>
-                        <h3 class="category-card__name">Complementos</h3>
-                    </a>
+                <!-- Slide 2 -->
+                <div class="hero__slide">
+                    <div class="hero__content">
+                        <div class="container">
+                            <div class="hero__text">
+                                <h2 class="hero__title">Hasta 30% de descuento</h2>
+                                <p class="hero__subtitle">En pijamas seleccionadas</p>
+                                <a href="../html/promotions/promotions.html"
+                                    class="btn btn--primary">Ver Promociones</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__image">
+                        <img src="../assets/images/banners/banner_promociones.jpg"
+                                alt="Promociones DidiStore">
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="hero__slide">
+                    <div class="hero__content">
+                        <div class="container">
+                            <div class="hero__text">
+                                <h2 class="hero__title">Envío gratis</h2>
+                                <p class="hero__subtitle">En compras superiores a $299.900</p>
+                                <a href="../html/catalog/catalog.html"
+                                    class="btn btn--primary">Comprar Ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__image">
+                        <img src="../assets/images/banners/banner_envios.jpg"
+                                alt="Envío Gratis DidiStore">
+                    </div>
+                </div>
+
+                <!-- Controles del slider -->
+                <button class="hero__arrow hero__arrow--prev" aria-label="Anterior">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="hero__arrow hero__arrow--next" aria-label="Siguiente">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <div class="hero__indicators">
+                    <button class="indicator indicator--active"
+                            data-slide="0" aria-label="Ir a slide 1"></button>
+                    <button class="indicator"
+                            data-slide="1" aria-label="Ir a slide 2"></button>
+                    <button class="indicator"
+                            data-slide="2" aria-label="Ir a slide 3"></button>
                 </div>
             </div>
         </section>
 
-        <!-- Sección Productos Destacados -->
-        <section class="featured-products">
-            <div class="featured-products__container container">
-                <h2 class="featured-products__title">Productos Destacados</h2>
-                <p class="featured-products__subtitle">Las pijamas más populares de nuestra tienda</p>
-                <div class="featured-products__grid">
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <span class="product-card__badge badge badge--new">Nuevo</span>
-                            <div class="product-card__image product-card__image--placeholder"></div>
-                            <img src="assets/images/products/Foto-2-10-24-11-06-26-a.-m.jpg" alt="Pijama Completa">
-                        </div>
-                        <div class="product-card__body">
-                            <h3 class="product-card__name">Pijama Completa</h3>
-                            <p class="product-card__price">$55.000</p>
-                            <a href="html/product/product-detail.html" class="btn btn--primary btn--sm">Ver Detalle</a>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <span class="product-card__badge badge badge--sale">Oferta</span>
-                            <div class="product-card__image product-card__image--placeholder"></div>
-                            <img src="assets/images/products/Foto-22-08-24-4-02-52-p.-m.jpg" alt="Pijama Bata">
-                        </div>
-                        <div class="product-card__body">
-                            <h3 class="product-card__name">Pijama Bata</h3>
-                            <p class="product-card__price">$48.000 <span class="product-card__price--old">$60.000</span></p>
-                            <a href="html/product/product-detail.html" class="btn btn--primary btn--sm">Ver Detalle</a>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <div class="product-card__image product-card__image--placeholder"></div>
-                            <img src="assets/images/products/WhatsApp-Image-2025-01-09-at-5.33.17-PM.jpg" alt="Pijama Short">
-                        </div>
-                        <div class="product-card__body">
-                            <h3 class="product-card__name">Pijama Short</h3>
-                            <p class="product-card__price">$48.000</p>
-                            <a href="html/product/product-detail.html" class="btn btn--primary btn--sm">Ver Detalle</a>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <span class="product-card__badge badge badge--new">Nuevo</span>
-                            <div class="product-card__image product-card__image--placeholder"></div>
-                            <img src="assets/images/products/-OYHZGSnYK1htrTIrhk9.jpg" alt="Bolso Rumania Negro">
-                        </div>
-                        <div class="product-card__body">
-                            <h3 class="product-card__name">Bolso Rumania Negro</h3>
-                            <p class="product-card__price">$80.000</p>
-                            <a href="html/product/product-detail.html" class="btn btn--primary btn--sm">Ver Detalle</a>
-                        </div>
-                    </article>
-                </div>
-                <div class="featured-products__actions">
-                    <a href="html/catalog/catalog.html" class="btn btn--outline">Ver Todos los Productos</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Banner de Ofertas -->
-        <section class="promo-banner">
-            <div class="promo-banner__container container">
-                <div class="promo-banner__content">
-                    <h2 class="promo-banner__title">¡Ofertas Especiales!</h2>
-                    <p class="promo-banner__description">Hasta 50% de descuento en productos seleccionados. ¡No te pierdas estas increíbles promociones!</p>
-                    <a href="html/promotions/promotions.html" class="btn btn--secondary">Ver Ofertas</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección ¿Por qué elegirnos? -->
+        <!-- Características -->
         <section class="features">
-            <div class="features__container container">
-                <h2 class="features__title">¿Por qué elegirnos?</h2>
+            <div class="container">
                 <div class="features__grid">
-                    <div class="features__item">
-                        <span class="features__icon">&#128722;</span>
-                        <h3 class="features__item-title">Variedad de Productos</h3>
-                        <p class="features__item-description">Encuentra una amplia gama de productos para satisfacer todas tus necesidades.</p>
+
+                    <div class="feature">
+                        <span class="feature__icon"><i class="fa-solid fa-truck-fast"></i></span>
+                        <h3 class="feature__title">Envío Rápido</h3>
+                        <p class="feature__text">Recibe tus productos en 2-5 días hábiles</p>
                     </div>
-                    <div class="features__item">
-                        <span class="features__icon">&#128666;</span>
-                        <h3 class="features__item-title">Envío Rápido</h3>
-                        <p class="features__item-description">Disfruta de envíos rápidos y seguros a tu puerta en todo el país.</p>
+
+                    <div class="feature">
+                        <span class="feature__icon"><i class="fa-solid fa-shield-halved"></i></span>
+                        <h3 class="feature__title">Compra Segura</h3>
+                        <p class="feature__text">Tus pagos están 100% protegidos</p>
                     </div>
-                    <div class="features__item">
-                        <span class="features__icon">&#128272;</span>
-                        <h3 class="features__item-title">Compra Segura</h3>
-                        <p class="features__item-description">Tus datos y pagos están protegidos con la más alta seguridad.</p>
+
+                    <div class="feature">
+                        <span class="feature__icon"><i class="fa-solid fa-rotate-left"></i></span>
+                        <h3 class="feature__title">Devoluciones Fáciles</h3>
+                        <p class="feature__text">30 días para cambios y devoluciones</p>
                     </div>
-                    <div class="features__item">
-                        <span class="features__icon">&#128101;</span>
-                        <h3 class="features__item-title">Atención al Cliente</h3>
-                        <p class="features__item-description">Nuestro equipo de atención al cliente está disponible para ayudarte en todo momento.</p>
+
+                    <div class="feature">
+                        <span class="feature__icon"><i class="fa-solid fa-headset"></i></span>
+                        <h3 class="feature__title">Atención 24/7</h3>
+                        <p class="feature__text">Estamos para ayudarte siempre</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorías -->
+        <section class="categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-header__title">Compra por Categoría</h2>
+                    <p class="section-header__subtitle">Encuentra lo que buscas</p>
+                </div>
+
+                <div class="categories__grid">
+
+                    <a href="../html/catalog/catalog.html?category=pijamas-mujer"
+                        class="category-card">
+                        <div class="category-card__image">
+                            <img src="../assets/images/banners/banner_category_mujer.png"
+                                    alt="Pijamas de Mujer">
+                        </div>
+                        <div class="category-card__content">
+                            <h3 class="category-card__title">Pijamas de Mujer</h3>
+                            <span class="category-card__link">
+                                Ver más <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </a>
+
+                    <a href="../html/catalog/catalog.html?category=accesorios"
+                        class="category-card">
+                        <div class="category-card__image">
+                            <img src="../assets/images/banners/banner_accesorios.jpg"
+                                    alt="Accesorios">
+                        </div>
+                        <div class="category-card__content">
+                            <h3 class="category-card__title">Accesorios</h3>
+                            <span class="category-card__link">
+                                Ver más <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </a>
+
+                    <a href="../html/catalog/catalog.html?category=complementos"
+                        class="category-card">
+                        <div class="category-card__image">
+                            <img src="../assets/images/banners/banner_complementos.jpg"
+                                    alt="Complementos">
+                        </div>
+                        <div class="category-card__content">
+                            <h3 class="category-card__title">Complementos</h3>
+                            <span class="category-card__link">
+                                Ver más <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Productos Destacados -->
+        <section class="products">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-header__title">Productos Destacados</h2>
+                    <p class="section-header__subtitle">Los favoritos de nuestras clientas</p>
+                </div>
+
+                <div class="products__grid">
+
+                    <!-- Producto 1 -->
+                    <div class="product-card">
+                        <div class="product-card__badge">
+                            <span class="badge badge--new">Nuevo</span>
+                        </div>
+                        <div class="product-card__wishlist">
+                            <button class="product-card__wishlist-btn"
+                                    aria-label="Agregar a favoritos">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <a href="../html/product/product.html?id=1"
+                            class="product-card__image">
+                            <img src="../assets/images/products/product-1.jpg"
+                                    alt="Pijama de Algodón Modelo A">
+                        </a>
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">
+                                <a href="../html/product/product.html?id=1">
+                                    Pijama de Algodón Modelo A
+                                </a>
+                            </h3>
+                            <div class="product-card__rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                                <span class="product-card__rating-count">(24 reseñas)</span>
+                            </div>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">$89.900</span>
+                                <span class="product-card__price-original">$120.000</span>
+                            </div>
+                            <button class="btn btn--primary btn--block"
+                                    data-product-id="1">
+                                <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Producto 2 -->
+                    <div class="product-card">
+                        <div class="product-card__badge">
+                            <span class="badge badge--sale">-20%</span>
+                        </div>
+                        <div class="product-card__wishlist">
+                            <button class="product-card__wishlist-btn"
+                                    aria-label="Agregar a favoritos">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <a href="../html/product/product.html?id=2"
+                            class="product-card__image">
+                            <img src="../assets/images/products/product-2.jpg"
+                                    alt="Bata de Baño Premium">
+                        </a>
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">
+                                <a href="../html/product/product.html?id=2">
+                                    Bata de Baño Premium
+                                </a>
+                            </h3>
+                            <div class="product-card__rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span class="product-card__rating-count">(45 reseñas)</span>
+                            </div>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">$79.900</span>
+                                <span class="product-card__price-original">$99.900</span>
+                            </div>
+                            <button class="btn btn--primary btn--block"
+                                    data-product-id="2">
+                                <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Producto 3 -->
+                    <div class="product-card">
+                        <div class="product-card__wishlist">
+                            <button class="product-card__wishlist-btn"
+                                    aria-label="Agregar a favoritos">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <a href="../html/product/product.html?id=3"
+                            class="product-card__image">
+                            <img src="../assets/images/products/product-3.jpg"
+                                    alt="Conjunto Pijama Estampado Floral">
+                        </a>
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">
+                                <a href="../html/product/product.html?id=3">
+                                    Conjunto Pijama Estampado Floral
+                                </a>
+                            </h3>
+                            <div class="product-card__rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <span class="product-card__rating-count">(18 reseñas)</span>
+                            </div>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">$59.900</span>
+                            </div>
+                            <button class="btn btn--primary btn--block"
+                                    data-product-id="3">
+                                <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Producto 4 -->
+                    <div class="product-card">
+                        <div class="product-card__badge">
+                            <span class="badge badge--new">Nuevo</span>
+                        </div>
+                        <div class="product-card__wishlist">
+                            <button class="product-card__wishlist-btn"
+                                    aria-label="Agregar a favoritos">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <a href="../html/product/product.html?id=4"
+                            class="product-card__image">
+                            <img src="../assets/images/products/product-4.jpg"
+                                    alt="Accesorio Antifaz Satén">
+                        </a>
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">
+                                <a href="../html/product/product.html?id=4">
+                                    Accesorio Antifaz Satén
+                                </a>
+                            </h3>
+                            <div class="product-card__rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span class="product-card__rating-count">(32 reseñas)</span>
+                            </div>
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">$29.900</span>
+                            </div>
+                            <button class="btn btn--primary btn--block"
+                                    data-product-id="4">
+                                <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="products__cta">
+                    <a href="../html/catalog/catalog.html" class="btn btn--secondary">
+                        Ver Todos los Productos
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner Promocional -->
+        <section class="promo-banner">
+            <div class="container">
+                <div class="promo-banner__content">
+                    <div class="promo-banner__text">
+                        <h2 class="promo-banner__title">¡Promoción Especial!</h2>
+                        <p class="promo-banner__subtitle">
+                            Hasta 30% de descuento en pijamas seleccionadas
+                        </p>
+                        <p class="promo-banner__description">
+                            Solo por tiempo limitado. Aprovecha nuestras mejores ofertas.
+                        </p>
+                        <a href="../html/promotions/promotions.html"
+                            class="btn btn--light">Ver Promociones</a>
+                    </div>
+                    <div class="promo-banner__image">
+                        <img src="../assets/images/promo-banner.jpg"
+                                alt="Promociones DidiStore">
                     </div>
                 </div>
             </div>
@@ -185,46 +508,123 @@
 
     </main>
 
-    <!-- Pie de página -->
-    <footer class="footer" id="contacto">
-        <div class="footer__container container">
-            <div class="footer__grid">
-                <div class="footer__section">
-                    <h4 class="footer__section-title">DidiStore</h4>
-                    <p class="footer__section-text">Tu tienda en línea de confianza. Ofrecemos productos de calidad con los mejores precios.</p>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__section-title">Navegación</h4>
-                    <ul class="footer__list">
-                        <li class="footer__list-item"><a class="footer__link" href="index.html">Inicio</a></li>
-                        <li class="footer__list-item"><a class="footer__link" href="html/catalog/catalog.html">Catálogo</a></li>
-                        <li class="footer__list-item"><a class="footer__link" href="html/catalog/category.html">Categorías</a></li>
-                        <li class="footer__list-item"><a class="footer__link" href="html/promotions/promotions.html">Ofertas</a></li>
-                    </ul>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__section-title">Mi Cuenta</h4>
-                    <ul class="footer__list">
-                        <li class="footer__list-item"><a class="footer__link" href="html/auth/login.html">Ingresar</a></li>
-                        <li class="footer__list-item"><a class="footer__link" href="html/auth/register.html">Registrarse</a></li>
-                        <li class="footer__list-item"><a class="footer__link" href="html/account/account.html">Mi Perfil</a></li>
-                        <li class="footer__list-item"><a class="footer__link" href="html/orders/orders.html">Mis Pedidos</a></li>
-                        <li class="footer__list-item"><a class="footer__link" href="html/account/wishlist.html">Lista de Deseos</a></li>
-                    </ul>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__section-title">Contacto</h4>
-                    <ul class="footer__list">
-                        <li class="footer__list-item">&#128205; Colombia</li>
-                        <li class="footer__list-item">&#128231; contacto@didistore.com</li>
-                        <li class="footer__list-item">&#128222; +57 318-6314551</li>
-                    </ul>
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__grid">
+
+                    <div class="footer__col">
+                        <h3 class="footer__title">Sobre DidiStore</h3>
+                        <p class="footer__text">
+                            Tu tienda online de confianza para pijamas y accesorios de mujer.
+                            Calidad y comodidad en cada prenda.
+                        </p>
+                        <div class="footer__social">
+                            <a href="#" class="footer__social-link" aria-label="Facebook">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href="#" class="footer__social-link" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" class="footer__social-link" aria-label="Twitter">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="#" class="footer__social-link" aria-label="WhatsApp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer__col">
+                        <h3 class="footer__title">Enlaces Rápidos</h3>
+                        <ul class="footer__links">
+                            <li class="footer__links-item">
+                                <a href="../html/catalog/catalog.html"
+                                    class="footer__links-link">Catálogo</a>
+                            </li>
+                            <li class="footer__links-item">
+                                <a href="../html/promotions/promotions.html"
+                                    class="footer__links-link">Promociones</a>
+                            </li>
+                            <li class="footer__links-item">
+                                <a href="#" class="footer__links-link">Sobre Nosotros</a>
+                            </li>
+                            <li class="footer__links-item">
+                                <a href="#" class="footer__links-link">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__col">
+                        <h3 class="footer__title">Atención al Cliente</h3>
+                        <ul class="footer__links">
+                            <li class="footer__links-item">
+                                <a href="#" class="footer__links-link">Preguntas Frecuentes</a>
+                            </li>
+                            <li class="footer__links-item">
+                                <a href="#" class="footer__links-link">Política de Envíos</a>
+                            </li>
+                            <li class="footer__links-item">
+                                <a href="#" class="footer__links-link">Devoluciones</a>
+                            </li>
+                            <li class="footer__links-item">
+                                <a href="#" class="footer__links-link">Términos y Condiciones</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__col">
+                        <h3 class="footer__title">Contacto</h3>
+                        <ul class="footer__contact">
+                            <li class="footer__contact-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Bucaramanga, Santander, Colombia</span>
+                            </li>
+                            <li class="footer__contact-item">
+                                <i class="fa-solid fa-phone"></i>
+                                <a href="tel:+573186314551"
+                                    class="footer__contact-link">+57 318 631 4551</a>
+                            </li>
+                            <li class="footer__contact-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <a href="mailto:info@didistore.com"
+                                    class="footer__contact-link">info@didistore.com</a>
+                            </li>
+                            <li class="footer__contact-item">
+                                <i class="fa-solid fa-clock"></i>
+                                <span>Lun - Sáb: 9:00 AM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
-            <div class="footer__bottom">
-                <p class="footer__copyright">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="container">
+                <div class="footer__bottom-content">
+                    <p class="footer__copyright">
+                        &copy; 2026 DidiStore. Todos los derechos reservados. |
+                        Proyecto SENA - Análisis y Desarrollo de Software
+                    </p>
+                    <div class="footer__payment">
+                        <span class="footer__payment-label">Métodos de pago:</span>
+                        <i class="fa-brands fa-cc-visa"></i>
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        <i class="fa-brands fa-cc-paypal"></i>
+                        <i class="fa-solid fa-credit-card"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Botón volver arriba -->
+    <button class="scroll-to-top" aria-label="Volver arriba" id="scrollToTop">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
 </body>
 </html>

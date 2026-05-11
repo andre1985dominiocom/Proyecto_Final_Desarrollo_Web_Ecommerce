@@ -1,163 +1,129 @@
-/* Account page styles */
-
+/* =============================================
+    DidiStore — Página: Mi Cuenta (BEM)
+    Bloque: .account
+   ============================================= */
 .account {
+    padding: var(--spacing-2xl) 0;
     display: flex;
-    gap: 2rem;
-    padding: 2rem 0;
+    gap: var(--spacing-xl);
     align-items: flex-start;
 }
 
-/* Sidebar */
+/* --- Elemento: barra lateral --- */
 .account__sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background-color: var(--color-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    width: 220px;
-    min-width: 220px;
+    gap: var(--spacing-md);
+    position: sticky;
+    top: var(--spacing-lg);
 }
 
+/* --- Elemento: avatar --- */
 .account__avatar {
     width: 80px;
     height: 80px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
+    border-radius: var(--radius-pill);
+    background-color: var(--color-primary-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.75rem;
 }
 
 .account__avatar-initials {
     font-size: 1.75rem;
-    font-weight: bold;
-    color: #fff;
+    font-weight: 700;
+    color: var(--color-white);
 }
 
+/* --- Elemento: nombre de usuario --- */
 .account__username {
-    font-weight: bold;
-    margin-bottom: 1.25rem;
+    font-weight: 700;
     font-size: 1rem;
+    color: var(--color-text-heading);
+    text-align: center;
 }
 
-.account__nav {
-    width: 100%;
-}
+/* --- Elemento: navegación lateral --- */
+.account__nav { width: 100%; }
 
 .account__nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.account__nav-item {
-    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
 }
 
 .account__nav-link {
     display: block;
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
-    text-decoration: none;
-    color: var(--text-color);
-    transition: background-color 0.2s;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
 .account__nav-link:hover {
-    background-color: var(--primary-color);
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-text-heading);
 }
 
+/* --- Modificador: enlace activo --- */
 .account__nav-item--active .account__nav-link {
-    background-color: var(--primary-color);
-    color: #fff;
-    font-weight: bold;
+    background-color: var(--color-primary);
+    color: var(--color-text-heading);
+    font-weight: 700;
 }
 
+/* --- Modificador: enlace cerrar sesión --- */
 .account__nav-link--logout {
-    color: #c0392b;
-    margin-top: 1rem;
+    color: var(--color-danger);
+    margin-top: var(--spacing-sm);
 }
 
 .account__nav-link--logout:hover {
-    background-color: #c0392b;
-    color: #fff;
+    background-color: var(--color-danger);
+    color: var(--color-white);
 }
 
-/* Content area */
+/* --- Elemento: zona de contenido principal --- */
 .account__content {
     flex: 1;
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
 }
 
-.account__title {
+.account__content-title {
     font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: #222;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 0.5rem;
+    color: var(--color-text-heading);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--color-primary);
 }
 
-/* Form styles */
-.account__form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
+/* --- Elemento: fieldset de sección de formulario --- */
 .account__fieldset {
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
 }
 
 .account__legend {
-    font-weight: bold;
-    font-size: 1rem;
-    color: var(--text-color);
-    padding: 0 0.5rem;
-}
-
-.account__label {
-    margin-bottom: 0.35rem;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-.account__input {
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    font-weight: 700;
     font-size: 0.95rem;
+    color: var(--color-text-heading);
+    padding: 0 var(--spacing-sm);
 }
 
-.account__input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(234, 189, 230, 0.4);
-}
-
-.account__button {
-    align-self: flex-start;
-    padding: 0.65rem 2rem;
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.2s;
-}
-
-.account__button:hover {
-    background-color: #d49dd0;
+/* Responsive */
+@media (max-width: 768px) {
+    .account { flex-direction: column; }
+    .account__sidebar { width: 100%; position: static; }
 }

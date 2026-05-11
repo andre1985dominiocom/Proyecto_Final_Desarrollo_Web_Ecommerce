@@ -1,58 +1,65 @@
-/* Catalog styles */
-
+/* =============================================
+    DidiStore — Módulo: Catálogo (BEM)
+    Bloque: .catalog
+   ============================================= */
 .catalog {
-    padding: 2rem 0;
+    padding: var(--spacing-2xl) 0;
 }
 
+/* --- Elemento: cabecera (título + controles) --- */
 .catalog__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
 }
 
 .catalog__title {
     font-size: 1.75rem;
-    color: var(--text-color);
+    color: var(--color-text-heading);
+    margin-bottom: 0;
 }
 
+/* --- Elemento: controles de ordenamiento --- */
 .catalog__controls {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--spacing-lg);
     flex-wrap: wrap;
 }
 
 .catalog__count {
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
 }
 
 .catalog__sort {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-sm);
 }
 
 .catalog__sort-label {
-    font-size: 0.9rem;
-    font-weight: bold;
+    font-size: 0.88rem;
+    font-weight: 600;
 }
 
 .catalog__sort-select {
-    padding: 0.4rem 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    font-size: 0.9rem;
+    padding: 6px var(--spacing-sm);
+    border: 1px solid var(--color-neutral);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-white);
+    font-size: 0.88rem;
     cursor: pointer;
+    font-family: var(--font-family-base);
 }
 
+/* --- Elemento: layout cuerpo (filtros + grid) --- */
 .catalog__body {
     display: flex;
-    gap: 2rem;
+    gap: var(--spacing-xl);
     align-items: flex-start;
 }
 
@@ -61,152 +68,79 @@
     min-width: 0;
 }
 
+/* --- Elemento: grid de productos --- */
 .catalog__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
 }
 
-/* Pagination */
-.catalog__pagination {
+/* =============================================
+    Bloque: .pagination
+   ============================================= */
+.pagination {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    margin-top: 2rem;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xl);
+    flex-wrap: wrap;
 }
 
-.catalog__pages {
+.pagination__btn {
+    padding: 6px var(--spacing-md);
+    border: 1px solid var(--color-neutral);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-white);
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.pagination__btn:hover:not(:disabled) {
+    background-color: var(--color-secondary);
+}
+
+.pagination__btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pagination__list {
     display: flex;
-    list-style: none;
-    gap: 0.4rem;
-    margin: 0;
-    padding: 0;
+    gap: 4px;
 }
 
-.catalog__page {
+.pagination__item {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 36px;
     height: 36px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid var(--color-neutral);
+    border-radius: var(--radius-sm);
     text-decoration: none;
-    color: var(--text-color);
-    font-size: 0.9rem;
-    transition: background-color 0.2s;
+    color: var(--color-text);
+    font-size: 0.88rem;
+    transition: background-color var(--transition-fast);
 }
 
-.catalog__page:hover {
-    background-color: var(--secondary-color);
+.pagination__item:hover {
+    background-color: var(--color-secondary);
 }
 
-.catalog__page--active {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    font-weight: bold;
+.pagination__item--active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    font-weight: 700;
 }
 
-.catalog__page-btn {
-    padding: 0.4rem 0.9rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.2s;
-}
-
-.catalog__page-btn:hover:not(:disabled) {
-    background-color: var(--secondary-color);
-}
-
-.catalog__page-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-}
-
-/* Category page */
-.category {
-    padding: 2rem 0;
-}
-
-.category__header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.category__title {
-    font-size: 1.75rem;
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
-}
-
-.category__description {
-    color: #666;
-    font-size: 1rem;
-}
-
-.category__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1.5rem;
-}
-
-.category-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1rem;
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    text-decoration: none;
-    color: var(--text-color);
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-align: center;
-}
-
-.category-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    background-color: var(--secondary-color);
-}
-
-.category-card__icon {
-    font-size: 3rem;
-    margin-bottom: 0.75rem;
-}
-
-.category-card__name {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 0.25rem;
-}
-
-.category-card__count {
-    font-size: 0.85rem;
-    color: #888;
-}
-
+/* =============================================
+    Responsive
+   ============================================= */
 @media (max-width: 768px) {
-    .catalog__body {
-        flex-direction: column;
-    }
-
-    .catalog__header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .catalog__grid {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    }
-
-    .category__grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    }
+    .catalog__body    { flex-direction: column; }
+    .catalog__header  { flex-direction: column; align-items: flex-start; }
+    .catalog__grid    { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 }

@@ -1,17 +1,23 @@
-/* Base */
-@import url("./base/reset.css");
-@import url("./base/custom.css");
-@import url("./base/base.css");
-@import url("./base/typography.css");
+/* =============================================
+    DidiStore — Hoja de estilos principal
+    Orden de carga: base → layout → components
+                → modules → pages → utilities
+   ============================================= */
 
-/* Layout */
+/* --- Base --- */
+@import url("./base/custom.css");
+@import url("./base/reset.css");
+@import url("./base/typography.css");
+@import url("./base/base.css");
+
+/* --- Layout --- */
 @import url("./layout/container.css");
-@import url("./layout/footer.css");
 @import url("./layout/grid.css");
 @import url("./layout/header.css");
 @import url("./layout/navigation.css");
+@import url("./layout/footer.css");
 
-/* Components */
+/* --- Components --- */
 @import url("./components/alerts.css");
 @import url("./components/badges.css");
 @import url("./components/buttons.css");
@@ -20,7 +26,7 @@
 @import url("./components/loaders.css");
 @import url("./components/modal.css");
 
-/* Modules */
+/* --- Modules --- */
 @import url("./modules/admin/admin.css");
 @import url("./modules/admin/dashboard.css");
 @import url("./modules/admin/products.css");
@@ -28,20 +34,24 @@
 @import url("./modules/admin/users.css");
 @import url("./modules/admin/categories.css");
 @import url("./modules/admin/promotions.css");
+
 @import url("./modules/auth/login.css");
 @import url("./modules/auth/register.css");
 @import url("./modules/auth/password.css");
+
 @import url("./modules/cart/cart.css");
+
 @import url("./modules/catalog/catalog.css");
 @import url("./modules/catalog/filters.css");
 @import url("./modules/catalog/product-card.css");
+
 @import url("./modules/checkout/checkout.css");
 @import url("./modules/orders/orders.css");
 @import url("./modules/product/product-detail.css");
 @import url("./modules/promotions/promotions.css");
 @import url("./modules/wishlist/wishlist.css");
 
-/* Pages */
+/* --- Pages --- */
 @import url("./pages/account.css");
 @import url("./pages/cart.css");
 @import url("./pages/checkout.css");
@@ -50,7 +60,7 @@
 @import url("./pages/product.css");
 @import url("./pages/shop.css");
 
-/* Utilities */
+/* --- Utilities (siempre al final para poder hacer override) --- */
 @import url("./utilities/colors.css");
 @import url("./utilities/flex.css");
 @import url("./utilities/helpers.css");
