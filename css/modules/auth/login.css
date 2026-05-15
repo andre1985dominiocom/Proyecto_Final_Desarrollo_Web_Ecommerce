@@ -75,3 +75,54 @@
     font-size: 0.88rem;
     color: var(--color-text-muted);
 }
+
+/* --- Elemento: formulario --- */
+.auth__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md); /* Separa los inputs entre sí */
+}
+
+/* --- Estilos para los Inputs --- */
+.auth__input {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.auth__input:focus {
+    outline: none;
+    border-color: var(--color-primary-dark);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05); /* Un brillo sutil */
+}
+
+/* --- Estilos para los Labels --- */
+.auth__label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text-heading);
+    margin-bottom: calc(var(--spacing-xs) * -1 + 4px); /* Ajuste fino de cercanía al input */
+}
+
+/* --- Estilos para el Botón --- */
+.auth__button {
+    width: 100%;
+    padding: var(--spacing-md);
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: var(--spacing-sm);
+    transition: background-color var(--transition-fast);
+}
+
+.auth__button:hover {
+    background-color: var(--color-background-dark);
+}
