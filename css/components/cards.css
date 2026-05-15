@@ -169,13 +169,7 @@
 }
 
 /* --- Elemento: precios --- */
-.product-card__price {
-    display: flex;
-    align-items: baseline;
-    gap: var(--spacing-sm);
-    margin-top: auto;
-}
-
+.product-card__price,
 .product-card__prices {
     display: flex;
     align-items: baseline;
