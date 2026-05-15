@@ -3,110 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DidiStore - Gestiona tu perfil, privacidad y datos personales.">
+    <title>Mi Cuenta - DidiStore</title>
 
-    <title>Mi Cuenta</title>
-
-    <!-- Estilos globales -->
-    <link rel="stylesheet" href="../../CSS/main.css">
-
-    <!-- Estilos de la página -->
-    <link rel="stylesheet" href="../../CSS/pages/account.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/pages/account.css">
 </head>
-
 <body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar__wrapper">
+                    <div class="navbar__logo">
+                        <a href="../../index.html" class="navbar__logo-link">
+                            <span class="navbar__logo-text">DidiStore</span>
+                        </a>
+                    </div>
 
-    <main class="account">
+                    <button class="navbar__toggle" aria-label="Abrir menú" aria-expanded="false">
+                        <span class="navbar__toggle-bar"></span>
+                        <span class="navbar__toggle-bar"></span>
+                        <span class="navbar__toggle-bar"></span>
+                    </button>
+                </div>
 
-        <!-- Sidebar -->
-        <aside class="account__sidebar">
-
-            <!-- Avatar -->
-            <div class="account__avatar">
-                <span class="account__avatar-initials">JD</span>
+                <div class="navbar__categories">
+                    <ul class="category-menu">
+                        <li class="category-menu__item">
+                            <a href="../../index.html" class="category-menu__link">Inicio</a>
+                        </li>
+                        <li class="category-menu__item">
+                            <a href="../catalog/catalog.html" class="category-menu__link">Catálogo</a>
+                        </li>
+                        <li class="category-menu__item">
+                            <a href="../promotions/promotions.html" class="category-menu__link category-menu__link--highlight">Promociones</a>
+                        </li>
+                        <li class="category-menu__item">
+                            <a href="account.html" class="category-menu__link">Mi Cuenta</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </nav>
+    </header>
 
-            <!-- Usuario -->
-            <p class="account__username">
-                Juan David
-            </p>
+    <main class="main">
+        <div class="account container">
+            <aside class="account__sidebar">
+                <div class="account__avatar">
+                    <span class="account__avatar-initials">JD</span>
+                </div>
 
-            <!-- Navegación -->
-            <nav class="account__nav">
+                <p class="account__username">Juan David</p>
 
-                <ul class="account__nav-list">
+                <nav class="account__nav" aria-label="Menú de cuenta">
+                    <ul class="account__nav-list">
+                        <li class="account__nav-item account__nav-item--active">
+                            <a class="account__nav-link" href="account.html">Perfil</a>
+                        </li>
+                        <li class="account__nav-item">
+                            <a class="account__nav-link" href="addresses.html">Direcciones</a>
+                        </li>
+                        <li class="account__nav-item">
+                            <a class="account__nav-link" href="wishlist.html">Lista de Deseos</a>
+                        </li>
+                        <li class="account__nav-item">
+                            <a class="account__nav-link" href="../orders/orders.html">Mis Pedidos</a>
+                        </li>
+                        <li class="account__nav-item">
+                            <a class="account__nav-link account__nav-link--logout" href="../auth/login.html">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
 
-                    <li class="account__nav-item account__nav-item--active">
-                        <a class="account__nav-link" href="/index.html">
-                            Inicio
-                        </a>
-                    </li>
+            <section class="account__content">
+                <h1 class="account__content-title">Mi Cuenta</h1>
 
-                    <li class="account__nav-item">
-                        <a class="account__nav-link" href="wishlist.html">
-                            Lista de Deseos
-                        </a>
-                    </li>
+                <fieldset class="account__fieldset">
+                    <legend class="account__legend">Información Personal</legend>
 
-                    <li class="account__nav-item">
-                        <a class="account__nav-link account__nav-link--logout"
-                            href="../auth/login.html">
-                            Cerrar Sesión
-                        </a>
-                    </li>
+                    <p class="account__info-item">
+                        <strong class="account__info-label">Nombre de Usuario:</strong>
+                        <span id="display-username" class="account__info-value"></span>
+                    </p>
 
-                </ul>
+                    <p class="account__info-item">
+                        <strong class="account__info-label">Correo Electrónico:</strong>
+                        <span id="display-email" class="account__info-value"></span>
+                    </p>
 
-            </nav>
+                    <p class="account__info-item">
+                        <strong class="account__info-label">Miembro desde:</strong>
+                        <span class="account__info-value">Marzo 2026</span>
+                    </p>
+                </fieldset>
 
-        </aside>
+                <fieldset class="account__fieldset">
+                    <legend class="account__legend">Configuración de Privacidad</legend>
 
-        <!-- Contenido -->
-        <section class="account__content">
-
-            <h2 class="account__content-title">
-                Mi Cuenta
-            </h2>
-
-            <!-- Información -->
-            <fieldset class="account__fieldset">
-
-                <legend class="account__legend">
-                    Información Personal
-                </legend>
-
-                <p>
-                    <strong>Nombre de Usuario:</strong>
-                    <span id="display__username"></span>
-                </p>
-
-                <p>
-                    <strong>Correo Electrónico:</strong>
-                    <span id="display__email"></span>
-                </p>
-
-                <p>
-                    <strong>Miembro desde:</strong>
-                </p>
-
-            </fieldset>
-
-            <!-- Configuración -->
-            <fieldset class="account__fieldset">
-
-                <legend class="account__legend">
-                    Configuración de Privacidad
-                </legend>
-
-                <label>
-                    <input type="checkbox" checked>
-                    Recibir notificaciones por correo electrónico
-                </label>
-
-            </fieldset>
-
-        </section>
-
+                    <label class="account__setting">
+                        <input type="checkbox" class="account__checkbox" checked>
+                        <span class="account__setting-text">Recibir notificaciones por correo electrónico</span>
+                    </label>
+                </fieldset>
+            </section>
+        </div>
     </main>
 
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__grid">
+                    <div class="footer__col">
+                        <h3 class="footer__title">DidiStore</h3>
+                        <p class="footer__text">Tu tienda online de pijamas, accesorios y complementos para mujer.</p>
+                    </div>
+
+                    <div class="footer__col">
+                        <h3 class="footer__title">Enlaces Rápidos</h3>
+                        <ul class="footer__links">
+                            <li class="footer__links-item"><a href="../../index.html" class="footer__links-link">Inicio</a></li>
+                            <li class="footer__links-item"><a href="../catalog/catalog.html" class="footer__links-link">Catálogo</a></li>
+                            <li class="footer__links-item"><a href="../promotions/promotions.html" class="footer__links-link">Promociones</a></li>
+                            <li class="footer__links-item"><a href="wishlist.html" class="footer__links-link">Lista de Deseos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="container">
+                <div class="footer__bottom-content">
+                    <p class="footer__copyright">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

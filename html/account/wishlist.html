@@ -3,37 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DidiStore - Consulta y gestiona tu lista de deseos.">
     <title>Lista de Deseos - DidiStore</title>
     <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/pages/account.css">
 </head>
 <body>
     <header class="header">
-        <div class="header__container container">
-            <div class="header__logo">
-                <h2 class="header__title">DidiStore</h2>
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar__wrapper">
+                    <div class="navbar__logo">
+                        <a href="../../index.html" class="navbar__logo-link">
+                            <span class="navbar__logo-text">DidiStore</span>
+                        </a>
+                    </div>
+
+                    <button class="navbar__toggle" aria-label="Abrir menú" aria-expanded="false">
+                        <span class="navbar__toggle-bar"></span>
+                        <span class="navbar__toggle-bar"></span>
+                        <span class="navbar__toggle-bar"></span>
+                    </button>
+                </div>
+
+                <div class="navbar__categories">
+                    <ul class="category-menu">
+                        <li class="category-menu__item">
+                            <a href="../../index.html" class="category-menu__link">Inicio</a>
+                        </li>
+                        <li class="category-menu__item">
+                            <a href="../catalog/catalog.html" class="category-menu__link">Catálogo</a>
+                        </li>
+                        <li class="category-menu__item">
+                            <a href="../promotions/promotions.html" class="category-menu__link category-menu__link--highlight">Promociones</a>
+                        </li>
+                        <li class="category-menu__item">
+                            <a href="account.html" class="category-menu__link">Mi Cuenta</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <nav class="navigation">
-                <ul class="navigation__list">
-                    <li class="navigation__item"><a class="navigation__link" href="../../index.html">Inicio</a></li>
-                    <li class="navigation__item"><a class="navigation__link" href="../catalog/category.html">Categorías</a></li>
-                    <li class="navigation__item"><a class="navigation__link" href="../promotions/promotions.html">Ofertas</a></li>
-                    <li class="navigation__item"><a class="navigation__link" href="../components/footer.html">Contactos</a></li>
-                    <li class="navigation__item"><a class="navigation__link navigation__link--active" href="account.html">Mi Cuenta</a></li>
-                </ul>
-            </nav>
-        </div>
+        </nav>
     </header>
+
     <main class="main">
         <div class="account container">
             <aside class="account__sidebar">
                 <div class="account__avatar">
                     <span class="account__avatar-initials">JD</span>
                 </div>
+
                 <p class="account__username">Juan Díaz</p>
-                <nav class="account__nav">
+
+                <nav class="account__nav" aria-label="Menú de cuenta">
                     <ul class="account__nav-list">
                         <li class="account__nav-item">
                             <a href="account.html" class="account__nav-link">Perfil</a>
+                        </li>
+                        <li class="account__nav-item">
+                            <a href="addresses.html" class="account__nav-link">Direcciones</a>
                         </li>
                         <li class="account__nav-item">
                             <a href="../orders/orders.html" class="account__nav-link">Mis Pedidos</a>
@@ -47,15 +75,17 @@
                     </ul>
                 </nav>
             </aside>
+
             <section class="account__content">
-                <h2 class="account__title">Lista de Deseos</h2>
+                <h1 class="account__content-title">Lista de Deseos</h1>
+
                 <div class="wishlist">
                     <div class="wishlist__item">
                         <div class="wishlist__image-wrapper">
-                            <img src="../../assets/logos/placeholder.png" alt="Producto 1" class="wishlist__image" onerror="this.style.display='none'">
+                            <img src="../../assets/logos/placeholder.png" alt="Pijama de algodón" class="wishlist__image" onerror="this.style.display='none'">
                         </div>
                         <div class="wishlist__info">
-                            <h3 class="wishlist__product-name">Nombre del Producto 1</h3>
+                            <h2 class="wishlist__product-name">Nombre del Producto 1</h2>
                             <p class="wishlist__product-price">$120.000</p>
                             <p class="wishlist__product-status wishlist__product-status--available">Disponible</p>
                         </div>
@@ -64,12 +94,13 @@
                             <button type="button" class="wishlist__btn wishlist__btn--remove">Eliminar</button>
                         </div>
                     </div>
+
                     <div class="wishlist__item">
                         <div class="wishlist__image-wrapper">
-                            <img src="../../assets/logos/placeholder.png" alt="Producto 2" class="wishlist__image" onerror="this.style.display='none'">
+                            <img src="../../assets/logos/placeholder.png" alt="Bata premium" class="wishlist__image" onerror="this.style.display='none'">
                         </div>
                         <div class="wishlist__info">
-                            <h3 class="wishlist__product-name">Nombre del Producto 2</h3>
+                            <h2 class="wishlist__product-name">Nombre del Producto 2</h2>
                             <p class="wishlist__product-price">$85.000</p>
                             <p class="wishlist__product-status wishlist__product-status--unavailable">Agotado</p>
                         </div>
@@ -78,12 +109,13 @@
                             <button type="button" class="wishlist__btn wishlist__btn--remove">Eliminar</button>
                         </div>
                     </div>
+
                     <div class="wishlist__item">
                         <div class="wishlist__image-wrapper">
-                            <img src="../../assets/logos/placeholder.png" alt="Producto 3" class="wishlist__image" onerror="this.style.display='none'">
+                            <img src="../../assets/logos/placeholder.png" alt="Set de descanso" class="wishlist__image" onerror="this.style.display='none'">
                         </div>
                         <div class="wishlist__info">
-                            <h3 class="wishlist__product-name">Nombre del Producto 3</h3>
+                            <h2 class="wishlist__product-name">Nombre del Producto 3</h2>
                             <p class="wishlist__product-price">$230.000</p>
                             <p class="wishlist__product-status wishlist__product-status--available">Disponible</p>
                         </div>
@@ -93,13 +125,43 @@
                         </div>
                     </div>
                 </div>
-                <p class="wishlist__empty" hidden>No tienes productos en tu lista de deseos. <a href="../catalog/catalog.html" class="wishlist__link">Explorar productos</a></p>
+
+                <p class="wishlist__empty" hidden>
+                    No tienes productos en tu lista de deseos.
+                    <a href="../catalog/catalog.html" class="wishlist__link">Explorar productos</a>
+                </p>
             </section>
         </div>
     </main>
+
     <footer class="footer">
-        <div class="footer__container container">
-            <p class="footer__text">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__grid">
+                    <div class="footer__col">
+                        <h3 class="footer__title">DidiStore</h3>
+                        <p class="footer__text">Tu tienda online de pijamas, accesorios y complementos para mujer.</p>
+                    </div>
+
+                    <div class="footer__col">
+                        <h3 class="footer__title">Enlaces Rápidos</h3>
+                        <ul class="footer__links">
+                            <li class="footer__links-item"><a href="../../index.html" class="footer__links-link">Inicio</a></li>
+                            <li class="footer__links-item"><a href="../catalog/catalog.html" class="footer__links-link">Catálogo</a></li>
+                            <li class="footer__links-item"><a href="../promotions/promotions.html" class="footer__links-link">Promociones</a></li>
+                            <li class="footer__links-item"><a href="account.html" class="footer__links-link">Mi Cuenta</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="container">
+                <div class="footer__bottom-content">
+                    <p class="footer__copyright">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+                </div>
+            </div>
         </div>
     </footer>
 </body>

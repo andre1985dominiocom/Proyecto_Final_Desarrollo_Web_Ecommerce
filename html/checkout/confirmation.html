@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra - DidiStore</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/modules/checkout/checkout.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__logo">
+                <h2 class="header__title">
+                    <a href="../../index.html">DidiStore</a>
+                </h2>
+            </div>
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item">
+                        <a class="navigation__link" href="../../index.html">Inicio</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a class="navigation__link" href="../catalog/category.html">Categorías</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a class="navigation__link" href="../promotions/promotions.html">Ofertas</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a class="navigation__link" href="../auth/login.html">Ingresar</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="checkout">
+            <div class="checkout__container container">
+
+                <h1 class="checkout__title">Confirmación del Pedido</h1>
+
+                <div class="checkout__steps">
+                    <span class="checkout__step">1. Envío</span>
+                    <span class="checkout__step-divider">&#9654;</span>
+                    <span class="checkout__step">2. Pago</span>
+                    <span class="checkout__step-divider">&#9654;</span>
+                    <span class="checkout__step checkout__step--active">3. Confirmación</span>
+                </div>
+
+                <div class="checkout__confirmation">
+                    <div class="checkout__confirmation-card">
+
+                        <div class="checkout__confirmation-icon">
+                            ✓
+                        </div>
+
+                        <h2 class="checkout__confirmation-title">
+                            ¡Tu compra fue realizada con éxito!
+                        </h2>
+
+                        <p class="checkout__confirmation-text">
+                            Gracias por comprar en DidiStore. Hemos recibido tu pedido y ya estamos procesándolo.
+                        </p>
+
+                        <div class="checkout__confirmation-info">
+                            <div class="checkout__confirmation-row">
+                                <span class="checkout__confirmation-label">Número de pedido:</span>
+                                <span class="checkout__confirmation-value">#DS-2026-00125</span>
+                            </div>
+
+                            <div class="checkout__confirmation-row">
+                                <span class="checkout__confirmation-label">Fecha:</span>
+                                <span class="checkout__confirmation-value">14/05/2026</span>
+                            </div>
+
+                            <div class="checkout__confirmation-row">
+                                <span class="checkout__confirmation-label">Método de pago:</span>
+                                <span class="checkout__confirmation-value">Tarjeta de Crédito</span>
+                            </div>
+
+                            <div class="checkout__confirmation-row">
+                                <span class="checkout__confirmation-label">Estado:</span>
+                                <span class="checkout__confirmation-value">Pago aprobado</span>
+                            </div>
+
+                            <div class="checkout__confirmation-row checkout__confirmation-row--total">
+                                <span class="checkout__confirmation-label checkout__confirmation-label--total">Total pagado:</span>
+                                <span class="checkout__confirmation-value checkout__confirmation-value--total">$300.000</span>
+                            </div>
+                        </div>
+
+                        <div class="checkout__confirmation-summary">
+                            <h3 class="checkout__confirmation-summary-title">Resumen del pedido</h3>
+
+                            <ul class="checkout__summary-items">
+                                <li class="checkout__summary-item">
+                                    <span class="checkout__summary-item-name">Producto Ejemplo 1</span>
+                                    <span class="checkout__summary-item-qty">x1</span>
+                                    <span class="checkout__summary-item-price">$120.000</span>
+                                </li>
+
+                                <li class="checkout__summary-item">
+                                    <span class="checkout__summary-item-name">Producto Ejemplo 2</span>
+                                    <span class="checkout__summary-item-qty">x2</span>
+                                    <span class="checkout__summary-item-price">$170.000</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="checkout__confirmation-actions">
+                            <a href="../../index.html" class="checkout__back-btn">
+                                Volver al Inicio
+                            </a>
+
+                            <a href="../orders/orders.html" class="checkout__submit-btn">
+                                Ver Mis Pedidos
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <p class="footer__text">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
