@@ -158,6 +158,70 @@
 }
 
 /* =============================================
+   Compatibilidad con navegación legacy
+   Bloques: .header__container + .navigation
+   ============================================= */
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+    flex-wrap: wrap;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.header__logo img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+}
+
+.header__title {
+    margin-bottom: 0;
+    font-size: 1.35rem;
+    color: var(--color-text-heading);
+}
+
+.header__title a {
+    color: inherit;
+}
+
+.navigation {
+    margin-left: auto;
+}
+
+.navigation__list {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+}
+
+.navigation__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px var(--spacing-md);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    color: var(--color-text);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.navigation__link:hover,
+.navigation__link--active {
+    background-color: var(--color-secondary);
+    color: var(--color-text-heading);
+}
+
+/* =============================================
    Bloque: .category-menu
    ============================================= */
 .category-menu {
@@ -232,5 +296,21 @@
 
     .category-menu__link {
         width: 100%;
+    }
+
+    .header__container {
+        align-items: flex-start;
+    }
+
+    .navigation {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .navigation__list {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: var(--spacing-xs);
     }
 }
