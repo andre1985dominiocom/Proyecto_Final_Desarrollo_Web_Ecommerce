@@ -84,7 +84,7 @@
     padding: 6px 10px;
     border-radius: var(--radius-pill);
     background: linear-gradient(135deg, var(--color-danger) 0%, var(--color-danger-dark) 100%);
-    color: var(--color-danger-text);
+    color: var(--color-text-heading);
     font-size: 0.82rem;
     font-weight: 700;
     line-height: 1;
@@ -204,7 +204,7 @@
     font-size: 0.88rem;
     font-weight: 600;
     text-decoration: none;
-    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
 }
 
 .catalog__page:hover,
@@ -222,7 +222,9 @@
 }
 
 .catalog__page-btn:disabled {
-    opacity: 0.45;
+    opacity: 0.55;
+    background-color: #f7f7f7;
+    border-color: var(--color-neutral-dark);
     cursor: not-allowed;
 }
 
