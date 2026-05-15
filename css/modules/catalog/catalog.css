@@ -76,6 +76,24 @@
     margin-bottom: var(--spacing-xl);
 }
 
+/* --- Badge de descuento en cards --- */
+.catalog .product-card__badge--sale {
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    min-width: 54px;
+    padding: 6px 10px;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(135deg, var(--color-danger) 0%, var(--color-danger-dark) 100%);
+    color: var(--color-text-heading);
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
 /* =============================================
     Bloque: .pagination
    ============================================= */
@@ -137,10 +155,95 @@
 }
 
 /* =============================================
+    Bloque: .catalog__pagination
+   ============================================= */
+.catalog__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-pill);
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    flex-wrap: wrap;
+}
+
+.catalog__page-btn {
+    min-height: 38px;
+    padding: 0 var(--spacing-md);
+    border: 1px solid var(--color-neutral);
+    border-radius: var(--radius-pill);
+    background-color: var(--color-white);
+    color: var(--color-text);
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.catalog__pages {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.catalog__page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--color-neutral);
+    background-color: var(--color-white);
+    color: var(--color-text);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.catalog__page:hover,
+.catalog__page-btn:hover:not(:disabled) {
+    background-color: var(--color-secondary);
+    border-color: var(--color-primary-dark);
+    color: var(--color-text-heading);
+}
+
+.catalog__page--active {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.catalog__page-btn:disabled {
+    opacity: 0.55;
+    background-color: #f7f7f7;
+    border-color: var(--color-neutral-dark);
+    cursor: not-allowed;
+}
+
+.catalog__page:focus-visible,
+.catalog__page-btn:focus-visible {
+    outline: 2px solid var(--color-primary-dark);
+    outline-offset: 2px;
+}
+
+/* =============================================
     Responsive
    ============================================= */
 @media (max-width: 768px) {
     .catalog__body    { flex-direction: column; }
     .catalog__header  { flex-direction: column; align-items: flex-start; }
     .catalog__grid    { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+    .catalog__pagination { gap: 6px; }
+    .catalog__page-btn { padding: 0 12px; font-size: 0.82rem; }
+    .catalog__page,
+    .catalog__page-btn { min-height: 34px; height: 34px; }
+    .catalog__page { width: 34px; }
 }
