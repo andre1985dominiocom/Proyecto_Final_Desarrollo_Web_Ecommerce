@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DidiStore - Gestiona tus direcciones de envío y facturación.">
+    <title>Direcciones - DidiStore</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/pages/account.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar__wrapper">
+                    <div class="navbar__logo">
+                        <a href="../../index.html" class="navbar__logo-link">
+                            <span class="navbar__logo-text">DidiStore</span>
+                        </a>
+                    </div>
+
+                    <button class="navbar__toggle" aria-label="Abrir menú" aria-expanded="false">
+                        <span class="navbar__toggle-bar"></span>
+                        <span class="navbar__toggle-bar"></span>
+                        <span class="navbar__toggle-bar"></span>
+                    </button>
+                </div>
+
+                <div class="navbar__categories">
+                    <ul class="category-menu">
+                        <li class="category-menu__item">
+                            <a href="../../index.html" class="category-menu__link">Inicio</a>
+                        </li>
+                        <li class="category-menu__item">
+                            <a href="../catalog/catalog.html" class="category-menu__link">Catálogo</a>
+                        </li>
+                        <li class="category-menu__item">
+                            <a href="../promotions/promotions.html" class="category-menu__link category-menu__link--highlight">Promociones</a>
+                        </li>
+                        <li class="category-menu__item">
+                            <a href="account.html" class="category-menu__link">Mi Cuenta</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="account container">
+            <aside class="account__sidebar">
+                <div class="account__avatar">
+                    <span class="account__avatar-initials">JD</span>
+                </div>
+
+                <p class="account__username">Juan David</p>
+
+                <nav class="account__nav" aria-label="Menú de cuenta">
+                    <ul class="account__nav-list">
+                        <li class="account__nav-item">
+                            <a class="account__nav-link" href="account.html">Perfil</a>
+                        </li>
+                        <li class="account__nav-item account__nav-item--active">
+                            <a class="account__nav-link" href="addresses.html">Direcciones</a>
+                        </li>
+                        <li class="account__nav-item">
+                            <a class="account__nav-link" href="wishlist.html">Lista de Deseos</a>
+                        </li>
+                        <li class="account__nav-item">
+                            <a class="account__nav-link" href="../orders/orders.html">Mis Pedidos</a>
+                        </li>
+                        <li class="account__nav-item">
+                            <a class="account__nav-link account__nav-link--logout" href="../auth/login.html">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <section class="account__content">
+                <h1 class="account__content-title">Mis Direcciones</h1>
+
+                <div class="addresses">
+                    <div class="addresses__header">
+                        <p class="addresses__description">Administra tus direcciones de envío y facturación desde un solo lugar.</p>
+                        <button type="button" class="addresses__button addresses__button--primary">Agregar nueva dirección</button>
+                    </div>
+
+                    <div class="addresses__list">
+                        <article class="addresses__card addresses__card--primary">
+                            <div class="addresses__card-header">
+                                <h2 class="addresses__card-title">Casa</h2>
+                                <span class="addresses__badge">Principal</span>
+                            </div>
+                            <p class="addresses__card-line">Juan David</p>
+                            <p class="addresses__card-line">Calle 45 # 18-20, Apto 301</p>
+                            <p class="addresses__card-line">Bucaramanga, Santander</p>
+                            <p class="addresses__card-line">Colombia</p>
+                            <p class="addresses__card-line">+57 318 631 4551</p>
+                            <div class="addresses__actions">
+                                <button type="button" class="addresses__button">Editar</button>
+                                <button type="button" class="addresses__button addresses__button--danger">Eliminar</button>
+                            </div>
+                        </article>
+
+                        <article class="addresses__card">
+                            <div class="addresses__card-header">
+                                <h2 class="addresses__card-title">Oficina</h2>
+                            </div>
+                            <p class="addresses__card-line">Juan David</p>
+                            <p class="addresses__card-line">Carrera 27 # 36-15</p>
+                            <p class="addresses__card-line">Floridablanca, Santander</p>
+                            <p class="addresses__card-line">Colombia</p>
+                            <p class="addresses__card-line">+57 300 123 4567</p>
+                            <div class="addresses__actions">
+                                <button type="button" class="addresses__button">Editar</button>
+                                <button type="button" class="addresses__button addresses__button--danger">Eliminar</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__grid">
+                    <div class="footer__col">
+                        <h3 class="footer__title">DidiStore</h3>
+                        <p class="footer__text">Tu tienda online de pijamas, accesorios y complementos para mujer.</p>
+                    </div>
+
+                    <div class="footer__col">
+                        <h3 class="footer__title">Enlaces Rápidos</h3>
+                        <ul class="footer__links">
+                            <li class="footer__links-item"><a href="../../index.html" class="footer__links-link">Inicio</a></li>
+                            <li class="footer__links-item"><a href="../catalog/catalog.html" class="footer__links-link">Catálogo</a></li>
+                            <li class="footer__links-item"><a href="../promotions/promotions.html" class="footer__links-link">Promociones</a></li>
+                            <li class="footer__links-item"><a href="wishlist.html" class="footer__links-link">Lista de Deseos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="container">
+                <div class="footer__bottom-content">
+                    <p class="footer__copyright">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

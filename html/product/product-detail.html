@@ -37,47 +37,45 @@
                 <div class="product-detail__gallery">
                     <div class="product-detail__main-image">
                         <img
-                            src="../../assets/logos/product-placeholder.png"
+                            src="../../assets/images/products/WhatsApp-Image-2025-08-29-at-4.48.26-PM-4.jpg" 
                             alt="Imagen principal del producto"
                             class="product-detail__image"
-                            id="mainImage"
-                        >
+                            id="mainImage">
                     </div>
                     <div class="product-detail__thumbnails">
                         <img
-                            src="../../assets/logos/product-placeholder.png"
+                            src="../../assets/images/products/WhatsApp-Image-2025-08-29-at-4.48.26-PM-4.jpg"
                             alt="Vista 1"
                             class="product-detail__thumbnail product-detail__thumbnail--active"
-                            onclick="changeImage(this)"
-                        >
+                            onclick="changeImage(this)">
                         <img
-                            src="../../assets/logos/product-placeholder.png"
+                            src="../../assets/images/products/WhatsApp-Image-2025-08-29-at-4.48.26-PM-4.jpg"
                             alt="Vista 2"
                             class="product-detail__thumbnail"
-                            onclick="changeImage(this)"
-                        >
+                            onclick="changeImage(this)">
                         <img
-                            src="../../assets/logos/product-placeholder.png"
+                            src="../../assets/images/products/WhatsApp-Image-2025-08-29-at-4.48.26-PM-4.jpg"
                             alt="Vista 3"
                             class="product-detail__thumbnail"
-                            onclick="changeImage(this)"
-                        >
+                            onclick="changeImage(this)">
                     </div>
                 </div>
 
                 <div class="product-detail__info">
-                    <h1 class="product-detail__title">Nombre del Producto</h1>
+                    <h1 class="product-detail__title">Pijama Pantalón Mangas Moñito</h1>
                     <p class="product-detail__sku">Ref: SKU-001</p>
 
                     <div class="product-detail__pricing">
-                        <span class="product-detail__price">$150.000</span>
-                        <span class="product-detail__price-original">$200.000</span>
+                        <span class="product-detail__price">$60.000</span>
+                        <span class="product-detail__price-original">$80.000</span>
                         <span class="product-detail__discount">-25%</span>
                     </div>
 
                     <p class="product-detail__description">
-                        Descripción detallada del producto. Aquí se muestra información relevante sobre
-                        las características, materiales y beneficios del artículo seleccionado.
+                        Esta pijama ofrece una sensación de frescura y suavidad sobre la piel,
+                        permitiéndote disfrutar de un descanso reparador durante toda la noche.
+                        Su diseño elegante y fluido proporciona libertad de movimiento,
+                        mientras que la textura de la pijama refleja elegancia que aporta sofisticación.
                     </p>
 
                     <div class="product-detail__options">
@@ -85,25 +83,30 @@
                             <label for="product-color" class="product-detail__option-label">Color:</label>
                             <select id="product-color" name="color" class="product-detail__select">
                                 <option value="">Selecciona un color</option>
-                                <option value="rojo">Rojo</option>
-                                <option value="azul">Azul</option>
-                                <option value="verde">Verde</option>
-                                <option value="negro">Negro</option>
+                                <option value="rosado">Rosado</option>
+                                <option value="celeste">Celeste</option>
                                 <option value="blanco">Blanco</option>
                             </select>
                         </div>
 
                         <div class="product-detail__option-group">
-                            <label for="product-size" class="product-detail__option-label">Talla:</label>
-                            <select id="product-size" name="size" class="product-detail__select">
-                                <option value="">Selecciona una talla</option>
-                                <option value="xs">XS</option>
-                                <option value="s">S</option>
-                                <option value="m">M</option>
-                                <option value="l">L</option>
-                                <option value="xl">XL</option>
-                                <option value="xxl">XXL</option>
-                            </select>
+                            <ul class="product-detail__tabla">
+                                <li id="tab-title-tabla" class="product-detail__option-active">
+                                    <a href="#tabla" class="product-detail__option-link">Información de la Talla</a>
+                                </li>
+                            </ul>
+                            <div id="tab-additional_information" class="product-detail__panel">
+                                <table class="product-detail__attributes">
+                                    <tbody>
+                                        <tr class="product-detail__attributes-item">
+                                            <th class="producto-detail-item__label">Tallas de Pijamas</th>
+                                            <td class="product-detail-item__value">
+                                                <p>XS, S, M, L</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <div class="product-detail__option-group">
@@ -134,7 +137,7 @@
                     <div class="product-detail__meta">
                         <p class="product-detail__meta-item">
                             <span class="product-detail__meta-label">Categoría:</span>
-                            <a href="../catalog/category.html" class="product-detail__meta-link">Ropa</a>
+                            <a href="../catalog/category.html" class="product-detail__meta-link">Pijamas de Mujer</a>
                         </p>
                         <p class="product-detail__meta-item">
                             <span class="product-detail__meta-label">Envío:</span>
@@ -169,7 +172,7 @@
                         <tbody>
                             <tr class="product-detail__specs-row">
                                 <th class="product-detail__specs-key">Material</th>
-                                <td class="product-detail__specs-value">100% Algodón</td>
+                                <td class="product-detail__specs-value">100% Algodón</td>   
                             </tr>
                             <tr class="product-detail__specs-row">
                                 <th class="product-detail__specs-key">País de origen</th>
@@ -192,7 +195,7 @@
                     <div class="product-detail__rating-summary">
                         <span class="product-detail__rating-score">4.5</span>
                         <span class="product-detail__rating-stars">★★★★½</span>
-                        <span class="product-detail__rating-count">(24 reseñas)</span>
+                        <span class="product-detail__rating-count">(4 reseñas)</span>
                     </div>
                     <div class="product-detail__review">
                         <p class="product-detail__review-author">María G. — <span class="product-detail__review-stars">★★★★★</span></p>

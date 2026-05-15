@@ -1,111 +1,117 @@
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: bold;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-}
+/* =============================================
+    DidiStore — Botones (BEM)
+    Bloque: .btn
+   ============================================= */
 
-.btn--primary {
-    background-color: var(--primary-color);
-    color: #222;
-    border-color: var(--primary-color);
-}
-
-.btn--primary:hover {
-/* Button component styles */
+/* --- Bloque base --- */
 .btn {
-    display: inline-block;
-    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: 10px 22px;
+    font-family: var(--font-family-base);
     font-size: 0.95rem;
-    font-family: inherit;
     font-weight: 600;
     text-align: center;
     text-decoration: none;
     border: 2px solid transparent;
-    border-radius: 6px;
+    border-radius: var(--radius-md);
     cursor: pointer;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
+    transition:
+        background-color var(--transition-base),
+        color var(--transition-base),
+        border-color var(--transition-base),
+        opacity var(--transition-base);
+    white-space: nowrap;
 }
 
-.btn:disabled {
+.btn:disabled,
+.btn--disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    pointer-events: none;
 }
 
-/* Primary button */
+/* --- Modificador: primario (rosa marca) --- */
 .btn--primary {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    border-color: var(--primary-color);
+    background-color: var(--color-primary);
+    color: var(--color-text-heading);
+    border-color: var(--color-primary);
 }
 
 .btn--primary:hover:not(:disabled) {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: var(--color-white);
 }
 
-.btn--secondary {
-    background-color: var(--secondary-color);
-    color: #222;
-    border-color: var(--secondary-color);
-}
-
-.btn--secondary:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.btn--outline {
-    background-color: transparent;
-    color: #333;
-    border-color: #333;
-}
-
-.btn--outline:hover {
-    background-color: #333;
-    color: #fff;
-}
-
-.btn--sm {
-    padding: 8px 16px;
-    font-size: 0.85rem;
-}
-/* Secondary button */
+/* --- Modificador: secundario (contorno) --- */
 .btn--secondary {
     background-color: transparent;
-    color: var(--text-color);
-    border-color: var(--primary-color);
+    color: var(--color-text-heading);
+    border-color: var(--color-primary-dark);
 }
 
 .btn--secondary:hover:not(:disabled) {
-    background-color: var(--primary-color);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
-/* Danger button */
+/* --- Modificador: light (para fondos oscuros/coloridos) --- */
+.btn--light {
+    background-color: var(--color-white);
+    color: var(--color-primary-dark);
+    border-color: var(--color-white);
+}
+
+.btn--light:hover:not(:disabled) {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+/* --- Modificador: peligro --- */
 .btn--danger {
-    background-color: #e74c3c;
-    color: #fff;
-    border-color: #e74c3c;
+    background-color: var(--color-danger);
+    color: var(--color-danger-text);
+    border-color: var(--color-danger);
 }
 
 .btn--danger:hover:not(:disabled) {
-    background-color: #c0392b;
-    border-color: #c0392b;
+    background-color: var(--color-danger-dark);
+    border-color: var(--color-danger-dark);
 }
 
-/* Small and large variants */
+/* --- Modificador: outline neutro --- */
+.btn--outline {
+    background-color: transparent;
+    color: var(--color-text);
+    border-color: var(--color-neutral-dark);
+}
+
+.btn--outline:hover:not(:disabled) {
+    background-color: var(--color-neutral);
+    border-color: var(--color-neutral);
+}
+
+/* --- Modificadores de tamaño --- */
 .btn--sm {
     padding: 6px 14px;
     font-size: 0.85rem;
 }
 
 .btn--lg {
-    padding: 14px 28px;
-    font-size: 1.1rem;
+    padding: 14px 30px;
+    font-size: 1.05rem;
+}
+
+/* --- Modificador: ancho completo --- */
+.btn--block {
+    width: 100%;
+}
+
+/* --- Modificador: icono solo (cuadrado) --- */
+.btn--icon {
+    padding: var(--spacing-sm);
+    line-height: 1;
 }

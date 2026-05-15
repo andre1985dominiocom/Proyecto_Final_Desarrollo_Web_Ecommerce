@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto - DidiStore</title>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__logo">
+                <h2 class="header__title">
+                    <a href="../../index.html">DidiStore</a>
+                </h2>
+            </div>
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item">
+                        <a class="navigation__link" href="../../index.html">Inicio</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a class="navigation__link" href="../catalog/category.html">Categorías</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a class="navigation__link" href="../catalog/catalog.html">Catálogo</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a class="navigation__link" href="../promotions/promotions.html">Ofertas</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a class="navigation__link" href="../auth/login.html">Ingresar</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <ul class="breadcrumb__list">
+                    <li class="breadcrumb__item">
+                        <a class="breadcrumb__link" href="../../index.html">Inicio</a>
+                    </li>
+                    <li class="breadcrumb__item">
+                        <a class="breadcrumb__link" href="../catalog/catalog.html">Catálogo</a>
+                    </li>
+                    <li class="breadcrumb__item breadcrumb__item--active">Producto</li>
+                </ul>
+            </nav>
+
+            <section class="product-detail">
+                <div class="product-detail__gallery">
+                    <div class="product-detail__main-image">
+                        <img
+                            src="../../assets/images/products/WhatsApp-Image-2025-08-29-at-4.48.26-PM-4.jpg"
+                            alt="Pijama Pantalón Mangas Moñito"
+                            class="product-detail__image"
+                        >
+                    </div>
+                </div>
+
+                <div class="product-detail__info">
+                    <h1 class="product-detail__title">Pijama Pantalón Mangas Moñito</h1>
+                    <p class="product-detail__sku">Ref: SKU-001</p>
+
+                    <div class="product-detail__pricing">
+                        <span class="product-detail__price">$60.000</span>
+                        <span class="product-detail__price-original">$80.000</span>
+                        <span class="product-detail__discount">-25%</span>
+                    </div>
+
+                    <p class="product-detail__description">
+                        Pijama cómoda y elegante, elaborada con materiales suaves y frescos
+                        para brindar descanso, confort y estilo en cada uso.
+                    </p>
+
+                    <div class="product-detail__options">
+                        <div class="product-detail__option-group">
+                            <label for="product-size" class="product-detail__option-label">Talla:</label>
+                            <select id="product-size" class="product-detail__select">
+                                <option value="">Selecciona una talla</option>
+                                <option value="xs">XS</option>
+                                <option value="s">S</option>
+                                <option value="m">M</option>
+                                <option value="l">L</option>
+                            </select>
+                        </div>
+
+                        <div class="product-detail__option-group">
+                            <label for="product-color" class="product-detail__option-label">Color:</label>
+                            <select id="product-color" class="product-detail__select">
+                                <option value="">Selecciona un color</option>
+                                <option value="rosado">Rosado</option>
+                                <option value="celeste">Celeste</option>
+                                <option value="blanco">Blanco</option>
+                            </select>
+                        </div>
+
+                        <div class="product-detail__option-group">
+                            <label for="product-quantity" class="product-detail__option-label">Cantidad:</label>
+                            <div class="product-detail__quantity">
+                                <button type="button" class="product-detail__quantity-btn">−</button>
+                                <input
+                                    type="number"
+                                    id="product-quantity"
+                                    value="1"
+                                    min="1"
+                                    max="99"
+                                    class="product-detail__quantity-input"
+                                >
+                                <button type="button" class="product-detail__quantity-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="product-detail__stock product-detail__stock--available">
+                        ✓ En stock (15 unidades disponibles)
+                    </p>
+
+                    <div class="product-detail__actions">
+                        <button type="button" class="product-detail__btn-cart">Agregar al carrito</button>
+                        <button type="button" class="product-detail__btn-wishlist">♡ Lista de deseos</button>
+                    </div>
+
+                    <div class="product-detail__meta">
+                        <p class="product-detail__meta-item">
+                            <span class="product-detail__meta-label">Categoría:</span>
+                            <a href="../catalog/category.html" class="product-detail__meta-link">Pijamas de Mujer</a>
+                        </p>
+                        <p class="product-detail__meta-item">
+                            <span class="product-detail__meta-label">Envío:</span>
+                            Envío gratis a partir de $200.000
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <p class="footer__text">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

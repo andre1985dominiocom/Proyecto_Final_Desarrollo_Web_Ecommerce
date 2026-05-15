@@ -1,0 +1,47 @@
+/* =============================================
+    DidiStore — Badges / Etiquetas (BEM)
+    Bloque: .badge
+   ============================================= */
+
+/* --- Bloque base --- */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 9px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    border-radius: var(--radius-pill);
+    line-height: 1;
+    white-space: nowrap;
+    background-color: var(--color-primary);
+    color: var(--color-text-heading);
+}
+
+/* --- Modificador: nuevo producto --- */
+.badge--new {
+    background-color: var(--color-success);
+    color: var(--color-success-text);
+}
+
+/* --- Modificador: oferta/descuento --- */
+.badge--sale {
+    background-color: var(--color-danger);
+    color: var(--color-danger-text);
+}
+
+/* --- Modificador: carrito (contador numérico pequeño) --- */
+.badge--count {
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    font-size: 0.65rem;
+    background-color: var(--color-danger);
+    color: var(--color-danger-text);
+}
+
+/* --- Modificador: marca/primario --- */
+.badge--primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-heading);
+}

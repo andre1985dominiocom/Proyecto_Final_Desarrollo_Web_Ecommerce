@@ -1,131 +1,109 @@
-/* Filters styles */
-
+/* =============================================
+    DidiStore — Módulo: Filtros del catálogo (BEM)
+    Bloque: .filters
+   ============================================= */
 .filters {
     width: 240px;
     flex-shrink: 0;
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 1.25rem;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
 }
 
+/* --- Elemento: título del panel --- */
 .filters__title {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--primary-color);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--color-primary);
+    color: var(--color-text-heading);
 }
 
+/* --- Elemento: grupo de filtro --- */
 .filters__group {
-    margin-bottom: 1.25rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid #eee;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-secondary);
 }
 
-.filters__group:last-of-type {
-    border-bottom: none;
-}
+.filters__group:last-of-type { border-bottom: none; }
 
 .filters__group-title {
-    font-size: 0.95rem;
-    font-weight: bold;
-    margin-bottom: 0.75rem;
-    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
 }
 
+/* --- Elemento: lista de opciones --- */
 .filters__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
-}
-
-.filters__item {
-    display: flex;
-    align-items: center;
+    gap: 6px;
 }
 
 .filters__label {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
+    gap: var(--spacing-sm);
+    font-size: 0.88rem;
     cursor: pointer;
+    color: var(--color-text);
+    transition: color var(--transition-fast);
 }
 
-.filters__label:hover {
-    color: var(--primary-color);
-}
+.filters__label:hover { color: var(--color-primary-dark); }
 
 .filters__checkbox,
 .filters__radio {
-    accent-color: var(--primary-color);
+    accent-color: var(--color-primary-dark);
     cursor: pointer;
+    width: 15px;
+    height: 15px;
 }
 
-/* Price filter */
+/* --- Elemento: filtro de precio --- */
 .filters__price {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--spacing-sm);
 }
 
 .filters__price-inputs {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-sm);
 }
 
 .filters__price-input {
     width: 80px;
-    padding: 0.35rem 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 5px var(--spacing-sm);
+    border: 1px solid var(--color-neutral);
+    border-radius: var(--radius-sm);
     font-size: 0.85rem;
+    font-family: var(--font-family-base);
 }
 
-.filters__price-separator {
-    color: #999;
-}
+.filters__price-separator { color: var(--color-text-muted); }
 
-.filters__price-apply {
-    align-self: flex-start;
-    padding: 0.35rem 0.75rem;
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.filters__price-apply:hover {
-    background-color: var(--secondary-color);
-}
-
-/* Reset button */
+/* --- Elemento: botón reset --- */
 .filters__reset {
     width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
     background-color: transparent;
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    color: var(--text-color);
-    font-size: 0.9rem;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: 0.88rem;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color var(--transition-fast);
 }
 
-.filters__reset:hover {
-    background-color: var(--secondary-color);
-}
+.filters__reset:hover { background-color: var(--color-secondary); }
 
 @media (max-width: 768px) {
-    .filters {
-        width: 100%;
-    }
+    .filters { width: 100%; }
 }
