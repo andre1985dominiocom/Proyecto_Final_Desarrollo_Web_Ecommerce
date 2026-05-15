@@ -4,7 +4,7 @@
     Aquí solo van particularidades del contexto catálogo
    ============================================= */
 
-/* Altura de imagen fija en la vista catálogo */
+/* Ajuste fino para evitar recortes forzados en el catálogo */
 .catalog .product-card__image {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: auto;
 }
