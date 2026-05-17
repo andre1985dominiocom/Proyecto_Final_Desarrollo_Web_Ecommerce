@@ -152,77 +152,7 @@
         </div>
     </div>
 
-    <div class="admin-form-wrapper">
-    <h2>Registrar usuario</h2>
-
-    <form id="user-form">
-        <input type="hidden" id="idUsuario">
-
-        <div>
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" required>
-        </div>
-
-        <div>
-            <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" required>
-        </div>
-
-        <div>
-            <label for="email">Correo</label>
-            <input type="email" id="email" required>
-        </div>
-
-        <div>
-            <label for="contrasena">Contraseña</label>
-            <input type="password" id="contrasena" required>
-        </div>
-
-        <div>
-            <label for="documento">Documento</label>
-            <input type="text" id="documento" required>
-        </div>
-
-        <div>
-            <label for="tipoDocumento">Tipo documento</label>
-            <select id="tipoDocumento" required>
-                <option value="">Seleccione</option>
-                <option value="CC">CC</option>
-                <option value="TI">TI</option>
-                <option value="CE">CE</option>
-            </select>
-        </div>
-
-        <div>
-            <label for="perfilId">Perfil</label>
-            <select id="perfilId" required>
-                <option value="">Seleccione</option>
-                <option value="1">Administrador</option>
-                <option value="2">Empleado</option>
-                <option value="3">Cliente</option>
-            </select>
-        </div>
-
-        <div>
-            <label for="estado">Estado</label>
-            <select id="estado" required>
-                <option value="">Seleccione</option>
-                <option value="Activo">Activo</option>
-                <option value="Inactivo">Inactivo</option>
-            </select>
-        </div>
-
-        <div>
-            <label for="emailVerificado">Email verificado</label>
-            <select id="emailVerificado" required>
-                <option value="true">Sí</option>
-                <option value="false">No</option>
-            </select>
-        </div>
-
-        <button type="submit">Guardar usuario</button>
-    </form>
-</div>
+    <!-- Script JavaScript -->
     <script src="../../js/admin/users.js" type="module"></script>
 </body>
 </html>

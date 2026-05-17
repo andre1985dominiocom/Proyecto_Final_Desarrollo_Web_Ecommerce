@@ -4,19 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Archivo users.js cargado correctamente");
 
     const tableBody = document.getElementById("users-table-body");
-    const form = document.getElementById("user-form");
 
     if (!tableBody) {
         console.error("No se encontró el tbody con id users-table-body");
         return;
     }
-
-    if (!form) {
-        console.error("No se encontró el formulario user-form");
-        return;
-    }
-
-    form.addEventListener("submit", guardarUsuario);
 
     listarUsuarios();
 });
