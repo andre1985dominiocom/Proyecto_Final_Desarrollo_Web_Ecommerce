@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../css/main.css">
 </head>
 <body>
-    <div class="admin-layout">
+    <div class="admin-layout" id="admin-users">
         <!-- Sidebar -->
         <aside class="admin-sidebar">
             <div class="admin-sidebar__logo">DidiStore</div>
@@ -51,25 +51,24 @@
                     <table class="admin-table">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Usuario</th>
+                                <th>ID Usuario</th>
+                                <th>Email</th>
                                 <th>Nombre</th>
-                                <th>Correo</th>
-                                <th>Ciudad</th>
-                                <th>Rol</th>
+                                <th>Apellido</th>
+                                <th>Documento</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="users-table-body">
                             <tr>
-                                <td>001</td>
-                                <td><span class="admin-user-avatar">LG</span></td>
-                                <td>Laura Gómez</td>
-                                <td>laura@email.com</td>
-                                <td>Bogotá</td>
-                                <td><span class="admin-badge admin-badge--info">Cliente</span></td>
-                                <td><span class="admin-badge admin-badge--success">Activo</span></td>
+                                <td></td>
+                                <td><span class="admin-user-avatar"></span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><span class="admin-badge admin-badge--info"></span></td>
+                                <td><span class="admin-badge admin-badge--success"></span></td>
                                 <td>
                                     <div class="admin-table__actions">
                                         <button class="admin-btn admin-btn--primary admin-btn--small">Ver</button>
@@ -78,13 +77,13 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>002</td>
-                                <td><span class="admin-user-avatar">CR</span></td>
-                                <td>Carlos Ruiz</td>
-                                <td>carlos@email.com</td>
-                                <td>Medellín</td>
-                                <td><span class="admin-badge admin-badge--info">Cliente</span></td>
-                                <td><span class="admin-badge admin-badge--success">Activo</span></td>
+                                <td></td>
+                                <td><span class="admin-user-avatar"></span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><span class="admin-badge admin-badge--info"></span></td>
+                                <td><span class="admin-badge admin-badge--success"></span></td>
                                 <td>
                                     <div class="admin-table__actions">
                                         <button class="admin-btn admin-btn--primary admin-btn--small">Ver</button>
@@ -93,13 +92,13 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>003</td>
-                                <td><span class="admin-user-avatar">AT</span></td>
-                                <td>Ana Torres</td>
-                                <td>ana@email.com</td>
-                                <td>Cali</td>
-                                <td><span class="admin-badge admin-badge--info">Cliente</span></td>
-                                <td><span class="admin-badge admin-badge--warning">Inactivo</span></td>
+                                <td></td>
+                                <td><span class="admin-user-avatar"></span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><span class="admin-badge admin-badge--info"></span></td>
+                                <td><span class="admin-badge admin-badge--warning"></span></td>
                                 <td>
                                     <div class="admin-table__actions">
                                         <button class="admin-btn admin-btn--primary admin-btn--small">Ver</button>
@@ -108,13 +107,13 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>004</td>
-                                <td><span class="admin-user-avatar">PL</span></td>
-                                <td>Pedro López</td>
-                                <td>pedro@email.com</td>
-                                <td>Barranquilla</td>
-                                <td><span class="admin-badge admin-badge--info">Cliente</span></td>
-                                <td><span class="admin-badge admin-badge--success">Activo</span></td>
+                                <td></td>
+                                <td><span class="admin-user-avatar"></span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><span class="admin-badge admin-badge--info"></span></td>
+                                <td><span class="admin-badge admin-badge--success"></span></td>
                                 <td>
                                     <div class="admin-table__actions">
                                         <button class="admin-btn admin-btn--primary admin-btn--small">Ver</button>
@@ -123,21 +122,23 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>005</td>
-                                <td><span class="admin-user-avatar">AD</span></td>
-                                <td>Administrador</td>
-                                <td>admin@didistore.com</td>
-                                <td>Bogotá</td>
-                                <td><span class="admin-badge admin-badge--warning">Admin</span></td>
-                                <td><span class="admin-badge admin-badge--success">Activo</span></td>
+                                <td></td>
+                                <td><span class="admin-user-avatar"></span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><span class="admin-badge admin-badge--warning"></span></td>
+                                <td><span class="admin-badge admin-badge--success"></span></td>
                                 <td>
                                     <div class="admin-table__actions">
                                         <button class="admin-btn admin-btn--primary admin-btn--small">Ver</button>
+                                        <button class="admin-btn admin-btn--danger admin-btn--small">Desactivar</button>
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    <button class="admin-btn admin-btn--danger admin-btn--small">Desactivar</button>
                 </div>
 
                 <div class="admin-pagination">
@@ -149,5 +150,78 @@
             </div>
         </div>
     </div>
+
+    <div class="admin-form-wrapper">
+    <h2>Registrar usuario</h2>
+
+    <form id="user-form">
+        <input type="hidden" id="idUsuario">
+
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" required>
+        </div>
+
+        <div>
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" required>
+        </div>
+
+        <div>
+            <label for="email">Correo</label>
+            <input type="email" id="email" required>
+        </div>
+
+        <div>
+            <label for="contrasena">Contraseña</label>
+            <input type="password" id="contrasena" required>
+        </div>
+
+        <div>
+            <label for="documento">Documento</label>
+            <input type="text" id="documento" required>
+        </div>
+
+        <div>
+            <label for="tipoDocumento">Tipo documento</label>
+            <select id="tipoDocumento" required>
+                <option value="">Seleccione</option>
+                <option value="CC">CC</option>
+                <option value="TI">TI</option>
+                <option value="CE">CE</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="perfilId">Perfil</label>
+            <select id="perfilId" required>
+                <option value="">Seleccione</option>
+                <option value="1">Administrador</option>
+                <option value="2">Empleado</option>
+                <option value="3">Cliente</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="estado">Estado</label>
+            <select id="estado" required>
+                <option value="">Seleccione</option>
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="emailVerificado">Email verificado</label>
+            <select id="emailVerificado" required>
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+
+        <button type="submit">Guardar usuario</button>
+    </form>
+</div>
+    <script src="../../js/admin/users.js" type="module"></script>
 </body>
 </html>

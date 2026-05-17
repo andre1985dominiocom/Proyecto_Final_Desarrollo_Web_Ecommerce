@@ -3,183 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Registrar Cuenta</title>
-
     <link rel="stylesheet" href="../../CSS/main.css">
     <link rel="stylesheet" href="../../CSS/modules/auth/login.css">
 </head>
-
 <body>
 
     <main class="auth">
-
         <section class="auth__card auth__card--large">
 
             <header class="auth__header">
-
-                <h2 class="auth__title">
-                    Registrar Cuenta
-                </h2>
-
-                <p class="auth__subtitle">
-                    Completa tu información personal
-                </p>
-
+                <h2 class="auth__title">Registrar Cuenta</h2>
+                <p class="auth__subtitle">Completa tu información personal</p>
             </header>
 
-            <form class="auth__form" action="#" method="post">
+            <form id="register-form" class="auth__form">
 
-                <!-- Nombre -->
-                <label for="username" class="auth__label">
-                    Nombre
-                </label>
+                <label for="username" class="auth__label">Nombre</label>
+                <input type="text" id="username" name="username" class="auth__input" required>
 
-                <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    class="auth__input"
-                    required
-                >
+                <label for="lastname" class="auth__label">Apellido</label>
+                <input type="text" id="lastname" name="lastname" class="auth__input" required>
 
-                <!-- Apellido -->
-                <label for="lastname" class="auth__label">
-                    Apellido
-                </label>
-
-                <input
-                    type="text"
-                    id="lastname"
-                    name="lastname"
-                    class="auth__input"
-                    required
-                >
-
-                <!-- Tipo documento -->
-                <label for="type-document" class="auth__label">
-                    Tipo Documento
-                </label>
-
-                <select
-                    id="type-document"
-                    name="type-document"
-                    class="auth__input"
-                    required
-                >
-                    <option value="">
-                        Selecciona un tipo de documento
-                    </option>
-
-                    <option value="cc">CC</option>
-                    <option value="foreign_id">
-                        Cédula de Extranjería
-                    </option>
-
-                    <option value="card_id">
-                        Tarjeta de Identidad
-                    </option>
-
-                    <option value="passport">
-                        Pasaporte
-                    </option>
-
+                <label for="type-document" class="auth__label">Tipo Documento</label>
+                <select id="type-document" name="type-document" class="auth__input" required>
+                    <option value="">Selecciona un tipo de documento</option>
+                    <option value="CC">CC</option>
+                    <option value="CE">CE</option>
+                    <option value="TI">TI</option>
+                    <option value="PP">Pasaporte</option>
                 </select>
 
-                <!-- Documento -->
-                <label for="document" class="auth__label">
-                    Documento
-                </label>
+                <label for="document" class="auth__label">Documento</label>
+                <input type="text" id="document" name="document" class="auth__input" required>
 
-                <input
-                    type="text"
-                    id="document"
-                    name="document"
-                    class="auth__input"
-                    required
-                >
+                <label for="email" class="auth__label">Correo Electrónico</label>
+                <input type="email" id="email" name="email" class="auth__input" required>
 
-                <!-- Correo -->
-                <label for="email" class="auth__label">
-                    Correo Electrónico
-                </label>
+                <label for="password" class="auth__label">Contraseña</label>
+                <input type="password" id="password" name="password" class="auth__input" required>
 
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    class="auth__input"
-                    required
-                >
-
-                <!-- Contraseña -->
-                <label for="password" class="auth__label">
-                    Contraseña
-                </label>
-
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    class="auth__input"
-                    required
-                >
-
-                <!-- Dirección principal -->
                 <fieldset class="auth__fieldset">
-
-                    <legend class="auth__legend">
-                        Dirección Principal
-                    </legend>
+                    <legend class="auth__legend">Dirección Principal</legend>
 
                     <label class="auth__radio">
-
-                        <input
-                            type="radio"
-                            name="principal-address"
-                            value="yes"
-                        >
-
+                        <input type="radio" name="principal-address" value="yes">
                         Sí
-
                     </label>
 
                     <label class="auth__radio">
-
-                        <input
-                            type="radio"
-                            name="principal-address"
-                            value="no"
-                        >
-
+                        <input type="radio" name="principal-address" value="no">
                         No
-
                     </label>
-
                 </fieldset>
 
-                <!-- Botón -->
-                <button type="submit" class="auth__button">
-                    Registrar
-                </button>
-
+                <button type="submit" class="auth__button">Registrar</button>
             </form>
 
             <hr class="auth__divider">
 
             <footer class="auth__footer">
-
                 ¿Ya tienes una cuenta?
-
-                <a href="../auth/login.html" class="auth__link">
-                    Inicia sesión aquí
-                </a>
-
+                <a href="../auth/login.html" class="auth__link">Inicia sesión aquí</a>
             </footer>
 
         </section>
-
     </main>
 
+    <script src="../../js/admin/register.js" type="module"></script>
 </body>
 </html>
