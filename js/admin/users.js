@@ -94,7 +94,7 @@ function renderTable() {
 
   const rows = getCurrentPageRows().map((user) => {
     const id = user.idUsuario || user.id || '-';
-    const initials = `${(user.nombre || 'U')[0] || 'U'}${(user.apellido || 'N')[0] || 'N'}`.toUpperCase();
+    const initials = getUserInitials(user);
     const fullName = `${user.nombre || ''} ${user.apellido || ''}`.trim() || 'Sin nombre';
     const role = roleLabels[user.perfilId] || user.rol || 'Cliente';
     const stateClass = String(user.estado || '').toLowerCase() === 'activo' ? 'admin-badge--success' : 'admin-badge--warning';
@@ -125,6 +125,12 @@ function renderTable() {
   tbody.querySelectorAll('button[data-action]').forEach((button) => {
     button.addEventListener('click', handleAction);
   });
+}
+
+function getUserInitials(user) {
+  const firstNameInitial = (user?.nombre || 'U').charAt(0);
+  const lastNameInitial = (user?.apellido || 'N').charAt(0);
+  return `${firstNameInitial}${lastNameInitial}`.toUpperCase();
 }
 
 function renderPagination() {

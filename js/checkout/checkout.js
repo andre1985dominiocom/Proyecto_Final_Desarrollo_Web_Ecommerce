@@ -1,4 +1,4 @@
-import { API_ENDPOINTS, STORAGE_KEYS } from '../core/config.js';
+import { API_ENDPOINTS, COUPON_DISCOUNTS, STORAGE_KEYS } from '../core/config.js';
 import { request } from '../core/http.js';
 import { getJSON, setJSON } from '../core/storage.js';
 import { formatCurrency, setButtonLoading, showToast } from '../core/ui.js';
@@ -26,8 +26,8 @@ function hydrateSummary() {
 
   const subtotal = cart.reduce((acc, item) => acc + (item.price || 0) * (item.quantity || 1), 0);
   const shipping = subtotal > 0 ? 10000 : 0;
-  const couponCode = localStorage.getItem('didistore:coupon') || '';
-  const couponDiscount = { DIDI10: 0.1, DIDI15: 0.15, DIDI20: 0.2, LIQUID30: 0.3 }[couponCode] || 0;
+  const couponCode = localStorage.getItem(STORAGE_KEYS.coupon) || '';
+  const couponDiscount = COUPON_DISCOUNTS[couponCode] || 0;
   const discount = subtotal * couponDiscount;
   const total = subtotal + shipping - discount;
 
@@ -65,13 +65,21 @@ function bindCardFormatters() {
   const cardExpiry = document.getElementById('card-expiry');
 
   cardNumber?.addEventListener('input', () => {
-    cardNumber.value = cardNumber.value.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim();
+    cardNumber.value = cardNumber.value.replace(/\D/g, '').slice(0, 16);
+  });
+
+  cardNumber?.addEventListener('blur', () => {
+    cardNumber.value = formatCardNumber(cardNumber.value);
   });
 
   cardExpiry?.addEventListener('input', () => {
     const cleaned = cardExpiry.value.replace(/\D/g, '').slice(0, 4);
     cardExpiry.value = cleaned.length > 2 ? `${cleaned.slice(0, 2)}/${cleaned.slice(2)}` : cleaned;
   });
+}
+
+function formatCardNumber(rawValue = '') {
+  return rawValue.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim();
 }
 
 function persistDraft() {
@@ -108,6 +116,7 @@ async function submitCheckout(event) {
 
   const submitButton = form.querySelector('button[type="submit"]');
   const payload = Object.fromEntries(new FormData(form).entries());
+  payload['doc-type'] = normalizeDocumentType(payload['doc-type']);
   payload.items = getJSON(STORAGE_KEYS.cart, []);
 
   setButtonLoading(submitButton, true, 'Confirmando...');
@@ -118,9 +127,9 @@ async function submitCheckout(event) {
   });
 
   if (!result.ok) {
-    const localOrders = getJSON('didistore:orders', []);
+    const localOrders = getJSON(STORAGE_KEYS.orders, []);
     localOrders.push({ id: `LOCAL-${Date.now()}`, ...payload, status: 'Pendiente' });
-    setJSON('didistore:orders', localOrders);
+    setJSON(STORAGE_KEYS.orders, localOrders);
     showToast('Backend no disponible: pedido guardado localmente.', 'warning');
   } else {
     showToast('Pedido confirmado correctamente.', 'success');
@@ -133,4 +142,9 @@ async function submitCheckout(event) {
   setTimeout(() => {
     window.location.href = './confirmation.html';
   }, 1200);
+}
+
+function normalizeDocumentType(value) {
+  const map = { cc: 'CC', foreign_id: 'CE', passport: 'PP', card_id: 'TI' };
+  return map[value] || value;
 }

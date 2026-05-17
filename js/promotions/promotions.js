@@ -20,7 +20,7 @@ function bindCouponCards() {
 
     const applyCoupon = () => {
       const code = codeElement.textContent.trim().toUpperCase();
-      localStorage.setItem('didistore:coupon', code);
+      localStorage.setItem(STORAGE_KEYS.coupon, code);
       showToast(`Cupón ${code} listo para usar en el carrito.`, 'success');
     };
 
@@ -44,7 +44,7 @@ function bindPromoProducts() {
 
       const cart = getJSON(STORAGE_KEYS.cart, []);
       const name = card.querySelector('.promo-card__name')?.textContent?.trim() || 'Producto en oferta';
-      const price = toNumberFromCurrency(card.querySelector('.promo-card__price--discounted')?.textContent || 0);
+      const price = toNumberFromCurrency(card.querySelector('.promo-card__price--discounted')?.textContent || '0');
 
       const existing = cart.find((item) => item.name === name);
       if (existing) {

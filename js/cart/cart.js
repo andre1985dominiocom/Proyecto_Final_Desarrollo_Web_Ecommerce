@@ -1,4 +1,4 @@
-import { STORAGE_KEYS } from '../core/config.js';
+import { COUPON_DISCOUNTS, STORAGE_KEYS } from '../core/config.js';
 import { getJSON, setJSON } from '../core/storage.js';
 import { formatCurrency, showToast, toNumberFromCurrency } from '../core/ui.js';
 
@@ -56,14 +56,12 @@ function applyCoupon() {
     return;
   }
 
-  const validCoupons = { DIDI10: 0.1, DIDI15: 0.15, DIDI20: 0.2, LIQUID30: 0.3 };
-
-  if (!validCoupons[couponCode]) {
+  if (!COUPON_DISCOUNTS[couponCode]) {
     showToast('Cupón no válido.', 'error');
     return;
   }
 
-  localStorage.setItem('didistore:coupon', couponCode);
+  localStorage.setItem(STORAGE_KEYS.coupon, couponCode);
   renderCart();
   showToast(`Cupón ${couponCode} aplicado correctamente.`, 'success');
 }
@@ -71,8 +69,8 @@ function applyCoupon() {
 function updateSummary(cart) {
   const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const shipping = subtotal > 0 ? 10000 : 0;
-  const couponCode = localStorage.getItem('didistore:coupon') || '';
-  const couponDiscount = { DIDI10: 0.1, DIDI15: 0.15, DIDI20: 0.2, LIQUID30: 0.3 }[couponCode] || 0;
+  const couponCode = localStorage.getItem(STORAGE_KEYS.coupon) || '';
+  const couponDiscount = COUPON_DISCOUNTS[couponCode] || 0;
   const discount = subtotal * couponDiscount;
   const total = Math.max(subtotal + shipping - discount, 0);
 

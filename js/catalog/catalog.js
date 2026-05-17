@@ -2,6 +2,8 @@ import { STORAGE_KEYS } from '../core/config.js';
 import { getJSON, setJSON } from '../core/storage.js';
 import { showToast, toNumberFromCurrency } from '../core/ui.js';
 
+const DEFAULT_PRODUCT_STOCK = 1;
+
 const catalogGrid = document.querySelector('.catalog__grid');
 
 if (catalogGrid) {
@@ -88,7 +90,7 @@ function enrichCardData(card) {
   card.dataset.category = mappedCategory;
   card.dataset.rating = String((ratingText.match(/★/g) || []).length);
   card.dataset.price = String(toNumberFromCurrency(priceText));
-  card.dataset.stock = '10';
+  card.dataset.stock = String(Number(card.dataset.stock || DEFAULT_PRODUCT_STOCK));
   card.dataset.sale = saleBadge ? 'true' : 'false';
 }
 
@@ -102,7 +104,12 @@ function sortCards(cards, sortBy) {
     if (sortBy === 'price-asc') return priceA - priceB;
     if (sortBy === 'price-desc') return priceB - priceA;
     if (sortBy === 'popular') return ratingB - ratingA;
-    if (sortBy === 'newest') return Number(Boolean(b.querySelector('.product-card__badge--new'))) - Number(Boolean(a.querySelector('.product-card__badge--new')));
+    if (sortBy === 'newest') {
+      const isNewA = Boolean(a.querySelector('.product-card__badge--new'));
+      const isNewB = Boolean(b.querySelector('.product-card__badge--new'));
+      if (isNewA === isNewB) return 0;
+      return isNewB ? 1 : -1;
+    }
     return 0;
   });
 

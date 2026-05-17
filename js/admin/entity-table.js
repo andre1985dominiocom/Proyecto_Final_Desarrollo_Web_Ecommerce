@@ -37,15 +37,16 @@ async function initEntityPage(entity) {
   };
 
   const rowRenderer = renderers[entity];
+  const getRowId = (row) => getEntityId(entity, row);
 
   renderStateRow(tbody, 'Cargando información...', 'loading', columnsCount);
 
   const response = apiPath ? await request(apiPath) : { ok: false };
 
   if (response.ok && Array.isArray(response.data)) {
-    state.rows = response.data;
+    state.rows = ensureEntityIds(entity, response.data);
   } else {
-    state.rows = storage[entity] || ADMIN_MOCK_DATA[entity] || [];
+    state.rows = ensureEntityIds(entity, storage[entity] || ADMIN_MOCK_DATA[entity] || []);
     showToast('Modo local activo para esta sección del panel admin.', 'warning');
   }
 
@@ -83,7 +84,7 @@ async function initEntityPage(entity) {
     tbody.querySelectorAll('button[data-delete-id]').forEach((button) => {
       button.addEventListener('click', () => {
         const id = button.dataset.deleteId;
-        state.rows = state.rows.filter((item) => String(item.id || item.idCategoria || item.idPedido || item.codigo || item.code) !== id);
+        state.rows = state.rows.filter((item) => String(getRowId(item)) !== id);
         storage[entity] = state.rows;
         setJSON(STORAGE_KEYS.adminData, storage);
         applyFilters();
@@ -117,6 +118,29 @@ async function initEntityPage(entity) {
   applyFilters();
 }
 
+function getEntityId(entity, row) {
+  if (entity === 'orders' && (row.id || row.idPedido || row.code)) return row.id || row.idPedido || row.code;
+  if (entity === 'promotions' && (row.id || row.code || row.codigo)) return row.id || row.code || row.codigo;
+  if (entity === 'categories' && (row.id || row.idCategoria)) return row.id || row.idCategoria;
+  if (entity === 'products' && (row.id || row.idProducto || row.codigo)) return row.id || row.idProducto || row.codigo;
+  return row.__localId;
+}
+
+function ensureEntityIds(entity, rows) {
+  let localCounter = 0;
+
+  return rows.map((row) => {
+    const realId = getEntityId(entity, row);
+    if (realId) return row;
+
+    localCounter += 1;
+    return {
+      ...row,
+      __localId: `local-${entity}-${Date.now()}-${localCounter}`
+    };
+  });
+}
+
 function statusBadge(status) {
   const value = String(status || '').toLowerCase();
   if (value.includes('activo') || value.includes('disponible') || value.includes('entregado') || value.includes('enviado')) return 'admin-badge--success';
@@ -126,11 +150,11 @@ function statusBadge(status) {
 }
 
 function renderProductRow(product) {
-  const id = String(product.id || product.idProducto || product.codigo || product.name);
+  const id = String(getEntityId('products', product));
   return `
     <tr>
       <td>${product.id || '-'}</td>
-      <td><div class="admin-product-image">Sin img</div></td>
+      <td><div class="admin-product-image">Sin imagen</div></td>
       <td>${product.name || product.nombre || '-'}</td>
       <td>${product.category || product.categoria || '-'}</td>
       <td>${formatCurrency(product.price || product.precio)}</td>
@@ -142,7 +166,7 @@ function renderProductRow(product) {
 }
 
 function renderCategoryRow(category) {
-  const id = String(category.id || category.idCategoria || category.name);
+  const id = String(getEntityId('categories', category));
   return `
     <tr>
       <td>${category.id || '-'}</td>
@@ -156,7 +180,7 @@ function renderCategoryRow(category) {
 }
 
 function renderOrderRow(order) {
-  const id = String(order.id || order.idPedido || order.code || order.customer);
+  const id = String(getEntityId('orders', order));
   return `
     <tr>
       <td>${order.id || order.idPedido || '-'}</td>
@@ -171,7 +195,7 @@ function renderOrderRow(order) {
 }
 
 function renderPromotionRow(promotion) {
-  const id = String(promotion.id || promotion.code || promotion.codigo || promotion.name);
+  const id = String(getEntityId('promotions', promotion));
   return `
     <tr>
       <td>${promotion.id || '-'}</td>

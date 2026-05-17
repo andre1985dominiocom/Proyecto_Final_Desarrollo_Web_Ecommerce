@@ -50,7 +50,10 @@ function saveMockUser(userPayload) {
     return { ok: false, message: 'El usuario ya existe (mock local).' };
   }
 
-  const nextId = users.length ? Math.max(...users.map((item) => Number(item.idUsuario) || 0)) + 1 : 1;
+  const nextId = users.reduce((maxId, item) => {
+    const id = Number(item.idUsuario) || 0;
+    return id > maxId ? id : maxId;
+  }, 0) + 1;
   users.push({ ...userPayload, idUsuario: nextId });
   setJSON(STORAGE_KEYS.users, users);
   return { ok: true };
