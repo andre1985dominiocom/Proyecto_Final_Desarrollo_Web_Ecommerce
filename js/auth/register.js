@@ -1,64 +1,106 @@
-const API_URL = "http://localhost:8080/didistorebackend/admin/usuarios";
+import { API_ENDPOINTS, STORAGE_KEYS } from '../core/config.js';
+import { request } from '../core/http.js';
+import { getJSON, setJSON } from '../core/storage.js';
+import { setButtonLoading, setInputError, showToast } from '../core/ui.js';
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("register.js cargado correctamente");
+const form = document.getElementById('register-form');
 
-    const form = document.getElementById("register-form");
+if (form) {
+  form.addEventListener('submit', registerUser);
+}
 
-    if (!form) {
-        console.error("No se encontró el formulario con id register-form");
-        return;
-    }
+function validateRegisterData(user) {
+  const errors = {};
 
-    form.addEventListener("submit", registrarUsuario);
-});
+  if (!user.nombre || user.nombre.length < 2) errors.username = 'Nombre inválido';
+  if (!user.apellido || user.apellido.length < 2) errors.lastname = 'Apellido inválido';
+  if (!user.tipoDocumento) errors['type-document'] = 'Selecciona tipo de documento';
+  if (!user.documento || user.documento.length < 5) errors.document = 'Documento inválido';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(user.email)) errors.email = 'Correo inválido';
+  if (!user.contrasena || user.contrasena.length < 6) errors.password = 'Mínimo 6 caracteres';
 
-async function registrarUsuario(event) {
-    event.preventDefault();
+  return errors;
+}
 
-    const nombre = document.getElementById("username").value.trim();
-    const apellido = document.getElementById("lastname").value.trim();
-    const tipoDocumento = document.getElementById("type-document").value;
-    const documento = document.getElementById("document").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const contrasena = document.getElementById("password").value.trim();
+function applyFieldErrors(errors) {
+  ['username', 'lastname', 'type-document', 'document', 'email', 'password'].forEach((id) => {
+    setInputError(document.getElementById(id), Boolean(errors[id]));
+  });
+}
 
-    const usuario = {
-        nombre,
-        apellido,
-        email,
-        contrasena,
-        documento,
-        tipoDocumento,
-        perfilId: 3,
-        estado: "Activo",
-        emailVerificado: false
-    };
+function buildUserPayload() {
+  return {
+    nombre: document.getElementById('username')?.value.trim(),
+    apellido: document.getElementById('lastname')?.value.trim(),
+    tipoDocumento: document.getElementById('type-document')?.value,
+    documento: document.getElementById('document')?.value.trim(),
+    email: document.getElementById('email')?.value.trim().toLowerCase(),
+    contrasena: document.getElementById('password')?.value.trim(),
+    perfilId: 3,
+    estado: 'Activo',
+    emailVerificado: false
+  };
+}
 
-    console.log("Usuario a registrar:", usuario);
+function saveMockUser(userPayload) {
+  const users = getJSON(STORAGE_KEYS.users, []);
+  const duplicated = users.some((item) => item.email === userPayload.email || item.documento === userPayload.documento);
 
-    try {
-        const response = await fetch(API_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(usuario)
-        });
+  if (duplicated) {
+    return { ok: false, message: 'El usuario ya existe (mock local).' };
+  }
 
-        const data = await response.json();
+  const nextId = users.reduce((maxId, item) => {
+    const id = Number(item.idUsuario) || 0;
+    return id > maxId ? id : maxId;
+  }, 0) + 1;
+  users.push({ ...userPayload, idUsuario: nextId });
+  setJSON(STORAGE_KEYS.users, users);
+  return { ok: true };
+}
 
-        if (!response.ok) {
-            throw new Error(data.message || "No se pudo registrar el usuario");
-        }
+async function registerUser(event) {
+  event.preventDefault();
 
-        alert("Usuario registrado correctamente");
-        document.getElementById("register-form").reset();
+  const submitButton = form.querySelector('button[type="submit"]');
+  const payload = buildUserPayload();
+  const errors = validateRegisterData(payload);
 
-        window.location.href = "../auth/login.html";
+  applyFieldErrors(errors);
 
-    } catch (error) {
-        console.error("Error al registrar usuario:", error);
-        alert("No se pudo registrar el usuario");
-    }
+  if (Object.keys(errors).length) {
+    showToast('Revisa los campos resaltados para continuar.', 'error');
+    return;
+  }
+
+  setButtonLoading(submitButton, true, 'Registrando...');
+
+  const result = await request(API_ENDPOINTS.users, {
+    method: 'POST',
+    body: payload
+  });
+
+  if (result.ok) {
+    showToast('Usuario registrado correctamente.', 'success');
+    form.reset();
+    setTimeout(() => {
+      window.location.href = '../auth/login.html';
+    }, 1000);
+    setButtonLoading(submitButton, false);
+    return;
+  }
+
+  const fallback = saveMockUser(payload);
+
+  if (fallback.ok) {
+    showToast('Backend no disponible: usuario guardado localmente para pruebas.', 'warning');
+    form.reset();
+    setTimeout(() => {
+      window.location.href = '../auth/login.html';
+    }, 1200);
+  } else {
+    showToast(result.error || fallback.message || 'No se pudo registrar el usuario.', 'error');
+  }
+
+  setButtonLoading(submitButton, false);
 }

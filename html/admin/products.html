@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../css/main.css">
 </head>
 <body>
-    <div class="admin-layout">
+    <div class="admin-layout" data-admin-entity="products">
         <!-- Sidebar -->
         <aside class="admin-sidebar">
             <div class="admin-sidebar__logo">DidiStore</div>
@@ -20,7 +20,7 @@
                 <a href="promotions.html" class="admin-sidebar__link">🎉 Promociones</a>
             </nav>
             <div class="admin-sidebar__logout">
-                <a href="../../html/auth/login.html" class="admin-sidebar__logout-link">⬅ Cerrar sesión</a>
+                <a href="../../html/auth/login.html" class="admin-sidebar__logout-link" data-logout-link>⬅ Cerrar sesión</a>
             </div>
         </aside>
 
@@ -36,9 +36,14 @@
 
                 <div class="admin-action-bar">
                     <div class="admin-search">
-                        <input type="text" class="admin-search__input" placeholder="Buscar producto...">
-                        <button class="admin-search__button">Buscar</button>
+                        <input type="text" class="admin-search__input" id="admin-entity-search" placeholder="Buscar producto...">
+                        <button class="admin-search__button" type="button">Buscar</button>
                     </div>
+                    <select class="admin-search__input admin-filter-select" id="admin-entity-filter">
+                        <option value="">Todos los estados</option>
+                        <option value="disponible">Disponible</option>
+                        <option value="stock">Bajo stock</option>
+                    </select>
                     <a href="product-form.html" class="admin-btn admin-btn--primary">+ Agregar Producto</a>
                 </div>
 
@@ -56,95 +61,15 @@
                                 <th>Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>001</td>
-                                <td><div class="admin-product-image">Sin img</div></td>
-                                <td>Vestido Floral</td>
-                                <td>Ropa</td>
-                                <td>$89.900</td>
-                                <td>5</td>
-                                <td><span class="admin-badge admin-badge--warning">Bajo stock</span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <a href="product-form.html" class="admin-btn admin-btn--primary admin-btn--small">Editar</a>
-                                        <button class="admin-btn admin-btn--danger admin-btn--small">Eliminar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>002</td>
-                                <td><div class="admin-product-image">Sin img</div></td>
-                                <td>Bolso de Cuero</td>
-                                <td>Accesorios</td>
-                                <td>$125.000</td>
-                                <td>3</td>
-                                <td><span class="admin-badge admin-badge--danger">Bajo stock</span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <a href="product-form.html" class="admin-btn admin-btn--primary admin-btn--small">Editar</a>
-                                        <button class="admin-btn admin-btn--danger admin-btn--small">Eliminar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>003</td>
-                                <td><div class="admin-product-image">Sin img</div></td>
-                                <td>Zapatos Tacón</td>
-                                <td>Calzado</td>
-                                <td>$210.000</td>
-                                <td>2</td>
-                                <td><span class="admin-badge admin-badge--danger">Bajo stock</span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <a href="product-form.html" class="admin-btn admin-btn--primary admin-btn--small">Editar</a>
-                                        <button class="admin-btn admin-btn--danger admin-btn--small">Eliminar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>004</td>
-                                <td><div class="admin-product-image">Sin img</div></td>
-                                <td>Cinturón Marrón</td>
-                                <td>Accesorios</td>
-                                <td>$45.000</td>
-                                <td>18</td>
-                                <td><span class="admin-badge admin-badge--success">Disponible</span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <a href="product-form.html" class="admin-btn admin-btn--primary admin-btn--small">Editar</a>
-                                        <button class="admin-btn admin-btn--danger admin-btn--small">Eliminar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>005</td>
-                                <td><div class="admin-product-image">Sin img</div></td>
-                                <td>Camiseta Blanca</td>
-                                <td>Ropa</td>
-                                <td>$35.000</td>
-                                <td>42</td>
-                                <td><span class="admin-badge admin-badge--success">Disponible</span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <a href="product-form.html" class="admin-btn admin-btn--primary admin-btn--small">Editar</a>
-                                        <button class="admin-btn admin-btn--danger admin-btn--small">Eliminar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <tbody id="admin-entity-body"></tbody>
                     </table>
                 </div>
 
-                <div class="admin-pagination">
-                    <button class="admin-pagination__btn">‹ Anterior</button>
-                    <button class="admin-pagination__btn admin-pagination__btn--active">1</button>
-                    <button class="admin-pagination__btn">2</button>
-                    <button class="admin-pagination__btn">3</button>
-                    <button class="admin-pagination__btn">Siguiente ›</button>
-                </div>
+                <div class="admin-pagination" id="admin-entity-pagination"></div>
             </div>
         </div>
     </div>
+    <script src="../../js/main.js" type="module"></script>
+    <script src="../../js/admin/entity-table.js" type="module"></script>
 </body>
 </html>

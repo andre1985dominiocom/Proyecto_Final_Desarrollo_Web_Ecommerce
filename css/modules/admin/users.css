@@ -13,4 +13,5 @@
     font-weight: bold;
     font-size: 0.9rem;
     color: var(--color-text);
+    margin-right: 8px;
 }

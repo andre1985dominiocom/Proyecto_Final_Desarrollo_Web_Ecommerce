@@ -1,0 +1,78 @@
+.app-toast-root {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1200;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.app-toast {
+    min-width: 260px;
+    max-width: 360px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: #fff;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.app-toast.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.app-toast--success { background: #2f9e44; }
+.app-toast--error { background: #d6336c; }
+.app-toast--warning { background: #f08c00; }
+.app-toast--info { background: #495057; }
+
+.is-invalid {
+    border-color: var(--color-danger) !important;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.12);
+}
+
+.is-loading {
+    opacity: 0.8;
+    cursor: wait;
+}
+
+.ui-state-cell {
+    text-align: center;
+    padding: 18px;
+}
+
+.ui-state {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    color: #495057;
+}
+
+.ui-state--loading { background: #e7f5ff; color: #1864ab; }
+.ui-state--error { background: #fff5f5; color: #c92a2a; }
+.ui-state--empty { background: #f8f0fc; color: #862e9c; }
+
+.admin-pagination__status {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+
+.u-hidden {
+    display: none !important;
+}
+
+.coupon-card--interactive {
+    cursor: pointer;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.coupon-card--interactive:hover,
+.coupon-card--interactive:focus {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}

@@ -20,7 +20,7 @@
                 <a href="promotions.html" class="admin-sidebar__link">🎉 Promociones</a>
             </nav>
             <div class="admin-sidebar__logout">
-                <a href="../../html/auth/login.html" class="admin-sidebar__logout-link">⬅ Cerrar sesión</a>
+                <a href="../../html/auth/login.html" class="admin-sidebar__logout-link" data-logout-link>⬅ Cerrar sesión</a>
             </div>
         </aside>
 
@@ -36,10 +36,10 @@
 
                 <div class="admin-action-bar">
                     <div class="admin-search">
-                        <input type="text" class="admin-search__input" placeholder="Buscar por nombre o correo...">
-                        <button class="admin-search__button">Buscar</button>
+                        <input type="text" class="admin-search__input" id="users-search-input" placeholder="Buscar por nombre, correo o documento...">
+                        <button class="admin-search__button" type="button">Buscar</button>
                     </div>
-                    <select class="admin-search__input admin-filter-select">
+                    <select class="admin-search__input admin-filter-select" id="users-role-filter">
                         <option value="">Todos los roles</option>
                         <option value="admin">Administrador</option>
                         <option value="empl">Empleado</option>
@@ -61,98 +61,17 @@
                                 <th>Acciones</th>
                             </tr>
                         </thead>
-                        <tbody id="users-table-body">
-                            <tr>
-                                <td></td>
-                                <td><span class="admin-user-avatar"></span></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><span class="admin-badge admin-badge--info"></span></td>
-                                <td><span class="admin-badge admin-badge--success"></span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <button class="admin-btn admin-btn--primary admin-btn--small">Ver</button>
-                                        <button class="admin-btn admin-btn--danger admin-btn--small">Desactivar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><span class="admin-user-avatar"></span></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><span class="admin-badge admin-badge--info"></span></td>
-                                <td><span class="admin-badge admin-badge--success"></span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <button class="admin-btn admin-btn--primary admin-btn--small">Ver</button>
-                                        <button class="admin-btn admin-btn--danger admin-btn--small">Desactivar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><span class="admin-user-avatar"></span></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><span class="admin-badge admin-badge--info"></span></td>
-                                <td><span class="admin-badge admin-badge--warning"></span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <button class="admin-btn admin-btn--primary admin-btn--small">Ver</button>
-                                        <button class="admin-btn admin-btn--secondary admin-btn--small">Activar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><span class="admin-user-avatar"></span></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><span class="admin-badge admin-badge--info"></span></td>
-                                <td><span class="admin-badge admin-badge--success"></span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <button class="admin-btn admin-btn--primary admin-btn--small">Ver</button>
-                                        <button class="admin-btn admin-btn--danger admin-btn--small">Desactivar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><span class="admin-user-avatar"></span></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><span class="admin-badge admin-badge--warning"></span></td>
-                                <td><span class="admin-badge admin-badge--success"></span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <button class="admin-btn admin-btn--primary admin-btn--small">Ver</button>
-                                        <button class="admin-btn admin-btn--danger admin-btn--small">Desactivar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <tbody id="users-table-body"></tbody>
                     </table>
-                    <button class="admin-btn admin-btn--danger admin-btn--small">Desactivar</button>
                 </div>
 
-                <div class="admin-pagination">
-                    <button class="admin-pagination__btn">‹ Anterior</button>
-                    <button class="admin-pagination__btn admin-pagination__btn--active">1</button>
-                    <button class="admin-pagination__btn">2</button>
-                    <button class="admin-pagination__btn">Siguiente ›</button>
-                </div>
+                <div class="admin-pagination" id="users-pagination"></div>
             </div>
         </div>
     </div>
 
     <!-- Script JavaScript -->
+    <script src="../../js/main.js" type="module"></script>
     <script src="../../js/admin/users.js" type="module"></script>
 </body>
 </html>

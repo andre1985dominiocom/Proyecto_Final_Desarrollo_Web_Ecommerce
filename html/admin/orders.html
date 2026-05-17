@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../css/main.css">
 </head>
 <body>
-    <div class="admin-layout">
+    <div class="admin-layout" data-admin-entity="orders">
         <!-- Sidebar -->
         <aside class="admin-sidebar">
             <div class="admin-sidebar__logo">DidiStore</div>
@@ -20,7 +20,7 @@
                 <a href="promotions.html" class="admin-sidebar__link">🎉 Promociones</a>
             </nav>
             <div class="admin-sidebar__logout">
-                <a href="../../html/auth/login.html" class="admin-sidebar__logout-link">⬅ Cerrar sesión</a>
+                <a href="../../html/auth/login.html" class="admin-sidebar__logout-link" data-logout-link>⬅ Cerrar sesión</a>
             </div>
         </aside>
 
@@ -36,10 +36,10 @@
 
                 <div class="admin-action-bar">
                     <div class="admin-search">
-                        <input type="text" class="admin-search__input" placeholder="Buscar por cliente o #pedido...">
-                        <button class="admin-search__button">Buscar</button>
+                        <input type="text" class="admin-search__input" id="admin-entity-search" placeholder="Buscar por cliente o #pedido...">
+                        <button class="admin-search__button" type="button">Buscar</button>
                     </div>
-                    <select class="admin-search__input admin-filter-select">
+                    <select class="admin-search__input admin-filter-select" id="admin-entity-filter">
                         <option value="">Todos los estados</option>
                         <option value="pending">Pendiente</option>
                         <option value="processing">En proceso</option>
@@ -62,90 +62,15 @@
                                 <th>Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>#1042</td>
-                                <td>Laura Gómez</td>
-                                <td>24/03/2026</td>
-                                <td>3 productos</td>
-                                <td>$125.000</td>
-                                <td><span class="admin-badge admin-badge--warning">Pendiente</span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <button class="admin-btn admin-btn--primary admin-btn--small">Ver detalle</button>
-                                        <button class="admin-btn admin-btn--secondary admin-btn--small">Actualizar estado</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#1041</td>
-                                <td>Carlos Ruiz</td>
-                                <td>23/03/2026</td>
-                                <td>1 producto</td>
-                                <td>$89.900</td>
-                                <td><span class="admin-badge admin-badge--success">Enviado</span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <button class="admin-btn admin-btn--primary admin-btn--small">Ver detalle</button>
-                                        <button class="admin-btn admin-btn--secondary admin-btn--small">Actualizar estado</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#1040</td>
-                                <td>Ana Torres</td>
-                                <td>22/03/2026</td>
-                                <td>4 productos</td>
-                                <td>$210.000</td>
-                                <td><span class="admin-badge admin-badge--info">En proceso</span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <button class="admin-btn admin-btn--primary admin-btn--small">Ver detalle</button>
-                                        <button class="admin-btn admin-btn--secondary admin-btn--small">Actualizar estado</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#1039</td>
-                                <td>Pedro López</td>
-                                <td>21/03/2026</td>
-                                <td>2 productos</td>
-                                <td>$67.500</td>
-                                <td><span class="admin-badge admin-badge--success">Entregado</span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <button class="admin-btn admin-btn--primary admin-btn--small">Ver detalle</button>
-                                        <button class="admin-btn admin-btn--secondary admin-btn--small">Actualizar estado</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#1038</td>
-                                <td>María Sánchez</td>
-                                <td>20/03/2026</td>
-                                <td>2 productos</td>
-                                <td>$95.000</td>
-                                <td><span class="admin-badge admin-badge--danger">Cancelado</span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <button class="admin-btn admin-btn--primary admin-btn--small">Ver detalle</button>
-                                        <button class="admin-btn admin-btn--secondary admin-btn--small">Actualizar estado</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <tbody id="admin-entity-body"></tbody>
                     </table>
                 </div>
 
-                <div class="admin-pagination">
-                    <button class="admin-pagination__btn">‹ Anterior</button>
-                    <button class="admin-pagination__btn admin-pagination__btn--active">1</button>
-                    <button class="admin-pagination__btn">2</button>
-                    <button class="admin-pagination__btn">3</button>
-                    <button class="admin-pagination__btn">Siguiente ›</button>
-                </div>
+                <div class="admin-pagination" id="admin-entity-pagination"></div>
             </div>
         </div>
     </div>
+    <script src="../../js/main.js" type="module"></script>
+    <script src="../../js/admin/entity-table.js" type="module"></script>
 </body>
 </html>

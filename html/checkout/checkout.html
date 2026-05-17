@@ -18,7 +18,7 @@
                     <li class="navigation__item"><a class="navigation__link" href="../../index.html">Inicio</a></li>
                     <li class="navigation__item"><a class="navigation__link" href="../catalog/category.html">Categorías</a></li>
                     <li class="navigation__item"><a class="navigation__link" href="../promotions/promotions.html">Ofertas</a></li>
-                    <li class="navigation__item"><a class="navigation__link" href="../auth/login.html">Ingresar</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../auth/login.html" data-auth-link>Ingresar</a></li>
                 </ul>
             </nav>
         </div>
@@ -254,7 +254,7 @@
                     <aside class="checkout__order-summary">
                         <h2 class="checkout__summary-title">Resumen del Pedido</h2>
 
-                        <ul class="checkout__summary-items">
+                        <ul class="checkout__summary-items" id="checkout-summary-items">
                             <li class="checkout__summary-item">
                                 <span class="checkout__summary-item-name">Producto Ejemplo 1</span>
                                 <span class="checkout__summary-item-qty">x1</span>
@@ -269,19 +269,19 @@
 
                         <div class="checkout__summary-row">
                             <span class="checkout__summary-label">Subtotal:</span>
-                            <span class="checkout__summary-value">$290.000</span>
+                            <span class="checkout__summary-value" id="checkout-summary-subtotal">$290.000</span>
                         </div>
                         <div class="checkout__summary-row">
                             <span class="checkout__summary-label">Envío:</span>
-                            <span class="checkout__summary-value">$10.000</span>
+                            <span class="checkout__summary-value" id="checkout-summary-shipping">$10.000</span>
                         </div>
                         <div class="checkout__summary-row">
                             <span class="checkout__summary-label">Descuento:</span>
-                            <span class="checkout__summary-value checkout__summary-value--discount">-$0</span>
+                            <span class="checkout__summary-value checkout__summary-value--discount" id="checkout-summary-discount">-$0</span>
                         </div>
                         <div class="checkout__summary-row checkout__summary-row--total">
                             <span class="checkout__summary-label checkout__summary-label--total">Total:</span>
-                            <span class="checkout__summary-value checkout__summary-value--total">$300.000</span>
+                            <span class="checkout__summary-value checkout__summary-value--total" id="checkout-summary-total">$300.000</span>
                         </div>
 
                         <div class="checkout__secure-badge">
@@ -300,5 +300,7 @@
             <p class="footer__text">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script src="../../js/main.js" type="module"></script>
+    <script src="../../js/checkout/checkout.js" type="module"></script>
 </body>
 </html>

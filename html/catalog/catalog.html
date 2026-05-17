@@ -19,7 +19,7 @@
                     <li class="navigation__item"><a class="navigation__link" href="category.html">Categorías</a></li>
                     <li class="navigation__item"><a class="navigation__link navigation__link--active" href="catalog.html">Catálogo</a></li>
                     <li class="navigation__item"><a class="navigation__link" href="../promotions/promotions.html">Ofertas</a></li>
-                    <li class="navigation__item"><a class="navigation__link" href="../auth/login.html">Ingresar</a></li>
+                    <li class="navigation__item"><a class="navigation__link" href="../auth/login.html" data-auth-link>Ingresar</a></li>
                 </ul>
             </nav>
         </div>
@@ -31,7 +31,7 @@
                 <div class="catalog__header">
                     <h1 class="catalog__title">Catálogo de Productos</h1>
                     <div class="catalog__controls">
-                        <span class="catalog__count">Mostrando <strong>1</strong> de <strong>20</strong> productos</span>
+                        <span class="catalog__count">Mostrando <strong id="catalog-count-current">0</strong> de <strong id="catalog-count-total">0</strong> productos</span>
                         <div class="catalog__sort">
                             <label for="sort-select" class="catalog__sort-label">Ordenar por:</label>
                             <select id="sort-select" class="catalog__sort-select">
@@ -437,5 +437,7 @@
             <p class="footer__text">&copy; 2026 DidiStore. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script src="../../js/main.js" type="module"></script>
+    <script src="../../js/catalog/catalog.js" type="module"></script>
 </body>
 </html>

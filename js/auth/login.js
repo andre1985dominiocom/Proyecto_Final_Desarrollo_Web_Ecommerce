@@ -1,49 +1,61 @@
-function login() {
-    
-    const form = document.getElementById("login-form")
+import { API_ENDPOINTS, STORAGE_KEYS } from '../core/config.js';
+import { request } from '../core/http.js';
+import { getJSON } from '../core/storage.js';
+import { setSession } from '../core/session.js';
+import { setButtonLoading, showToast } from '../core/ui.js';
 
-    if (!form) {
-        console.error("No se encontró el formulario con id login-form")
-        return
-    }
+const form = document.getElementById('login-form');
 
-    form.addEventListener("submit", async function (event) {
-        event.preventDefault()
-        console.log("Submit interceptado correctamente")
-
-        const email = form.username.value.trim()
-        const contrasena = form.password.value.trim()
-
-        if (!email || !contrasena) {
-            alert("Debes completar todos los campos")
-            return
-        }
-
-        try {
-            const response = await fetch("http://localhost:8080/didistorebackend/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ email, contrasena })
-            })
-
-            const data = await response.json()
-            console.log("Respuesta del backend:", data)
-
-            if (response.ok) {
-                localStorage.setItem("token", data.token)
-                alert(data.message)
-                window.location.href = "../../index.html"
-            } else {
-                alert(data.message || "Credenciales incorrectas")
-            }
-
-        } catch (error) {
-            console.error("Error al iniciar sesión:", error)
-            alert("No se pudo conectar con el backend")
-        }
-    })
+if (form) {
+  form.addEventListener('submit', handleLogin);
 }
 
-document.addEventListener("DOMContentLoaded", login)
+function findLocalUser(email, password) {
+  const users = getJSON(STORAGE_KEYS.users, []);
+  return users.find((item) => item.email === email && item.contrasena === password) || null;
+}
+
+async function handleLogin(event) {
+  event.preventDefault();
+
+  const submitButton = form.querySelector('button[type="submit"]');
+  const email = (document.getElementById('username')?.value || '').trim().toLowerCase();
+  const contrasena = (document.getElementById('password')?.value || '').trim();
+
+  if (!email || !contrasena) {
+    showToast('Debes completar correo y contraseña.', 'error');
+    return;
+  }
+
+  setButtonLoading(submitButton, true, 'Ingresando...');
+
+  const result = await request(API_ENDPOINTS.login, {
+    method: 'POST',
+    body: { email, contrasena }
+  });
+
+  if (result.ok) {
+    const token = result.data?.token || `mock-token-${Date.now()}`;
+    setSession({ token, user: result.data?.usuario || { email } });
+    showToast(result.data?.message || 'Inicio de sesión exitoso.', 'success');
+    setTimeout(() => {
+      window.location.href = '../../index.html';
+    }, 900);
+    setButtonLoading(submitButton, false);
+    return;
+  }
+
+  const localUser = findLocalUser(email, contrasena);
+
+  if (localUser) {
+    setSession({ token: `local-token-${Date.now()}`, user: localUser });
+    showToast('Ingreso local exitoso (modo sin backend).', 'warning');
+    setTimeout(() => {
+      window.location.href = '../../index.html';
+    }, 900);
+  } else {
+    showToast(result.error || 'Credenciales inválidas.', 'error');
+  }
+
+  setButtonLoading(submitButton, false);
+}

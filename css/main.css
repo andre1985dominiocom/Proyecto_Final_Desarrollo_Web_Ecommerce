@@ -50,6 +50,7 @@
 @import url("./modules/product/product-detail.css");
 @import url("./modules/promotions/promotions.css");
 @import url("./modules/wishlist/wishlist.css");
+@import url("./modules/shared/ui.css");
 
 /* --- Pages --- */
 @import url("./pages/account.css");
