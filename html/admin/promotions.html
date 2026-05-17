@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../css/main.css">
 </head>
 <body>
-    <div class="admin-layout">
+    <div class="admin-layout" data-admin-entity="promotions">
         <!-- Sidebar -->
         <aside class="admin-sidebar">
             <div class="admin-sidebar__logo">DidiStore</div>
@@ -20,7 +20,7 @@
                 <a href="promotions.html" class="admin-sidebar__link admin-sidebar__link--active">🎉 Promociones</a>
             </nav>
             <div class="admin-sidebar__logout">
-                <a href="../../html/auth/login.html" class="admin-sidebar__logout-link">⬅ Cerrar sesión</a>
+                <a href="../../html/auth/login.html" class="admin-sidebar__logout-link" data-logout-link>⬅ Cerrar sesión</a>
             </div>
         </aside>
 
@@ -36,9 +36,14 @@
 
                 <div class="admin-action-bar">
                     <div class="admin-search">
-                        <input type="text" class="admin-search__input" placeholder="Buscar promoción...">
-                        <button class="admin-search__button">Buscar</button>
+                        <input type="text" class="admin-search__input" id="admin-entity-search" placeholder="Buscar promoción...">
+                        <button class="admin-search__button" type="button">Buscar</button>
                     </div>
+                    <select class="admin-search__input admin-filter-select" id="admin-entity-filter">
+                        <option value="">Todos los estados</option>
+                        <option value="activa">Activa</option>
+                        <option value="expirada">Expirada</option>
+                    </select>
                     <button class="admin-btn admin-btn--primary">+ Nueva Promoción</button>
                 </div>
 
@@ -105,60 +110,14 @@
                                 <th>Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>01</td>
-                                <td>Descuento de Temporada</td>
-                                <td>TEMP25</td>
-                                <td><span class="admin-promo-discount">25%</span></td>
-                                <td>Porcentaje</td>
-                                <td>01/03/2026</td>
-                                <td>31/03/2026</td>
-                                <td><span class="admin-badge admin-badge--success">Activa</span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <button class="admin-btn admin-btn--primary admin-btn--small">Editar</button>
-                                        <button class="admin-btn admin-btn--danger admin-btn--small">Eliminar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>02</td>
-                                <td>Envío Gratis Marzo</td>
-                                <td>ENVIO0</td>
-                                <td><span class="admin-promo-discount">100%</span></td>
-                                <td>Envío gratis</td>
-                                <td>15/03/2026</td>
-                                <td>30/03/2026</td>
-                                <td><span class="admin-badge admin-badge--success">Activa</span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <button class="admin-btn admin-btn--primary admin-btn--small">Editar</button>
-                                        <button class="admin-btn admin-btn--danger admin-btn--small">Eliminar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>03</td>
-                                <td>Navidad 2025</td>
-                                <td>XMAS30</td>
-                                <td><span class="admin-promo-discount">30%</span></td>
-                                <td>Porcentaje</td>
-                                <td>20/12/2025</td>
-                                <td>31/12/2025</td>
-                                <td><span class="admin-badge admin-badge--warning">Expirada</span></td>
-                                <td>
-                                    <div class="admin-table__actions">
-                                        <button class="admin-btn admin-btn--primary admin-btn--small">Editar</button>
-                                        <button class="admin-btn admin-btn--danger admin-btn--small">Eliminar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <tbody id="admin-entity-body"></tbody>
                     </table>
                 </div>
+                <div class="admin-pagination" id="admin-entity-pagination"></div>
             </div>
         </div>
     </div>
+    <script src="../../js/main.js" type="module"></script>
+    <script src="../../js/admin/entity-table.js" type="module"></script>
 </body>
 </html>

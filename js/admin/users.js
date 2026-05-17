@@ -1,154 +1,195 @@
-const API_URL = "http://localhost:8080/didistorebackend/admin/usuarios";
+import { API_ENDPOINTS, STORAGE_KEYS } from '../core/config.js';
+import { request } from '../core/http.js';
+import { getJSON, setJSON } from '../core/storage.js';
+import { renderStateRow, showToast } from '../core/ui.js';
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("Archivo users.js cargado correctamente");
+const tbody = document.getElementById('users-table-body');
+const searchInput = document.getElementById('users-search-input');
+const roleFilter = document.getElementById('users-role-filter');
+const pagination = document.getElementById('users-pagination');
+const pageSize = 6;
 
-    const tableBody = document.getElementById("users-table-body");
+const state = {
+  all: [],
+  filtered: [],
+  currentPage: 1
+};
 
-    if (!tableBody) {
-        console.error("No se encontró el tbody con id users-table-body");
-        return;
-    }
+const roleLabels = {
+  1: 'Administrador',
+  2: 'Empleado',
+  3: 'Cliente'
+};
 
-    listarUsuarios();
-});
-
-async function listarUsuarios() {
-    try {
-        const response = await fetch(API_URL);
-
-        if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-        }
-
-        const usuarios = await response.json();
-        console.log("Usuarios recibidos:", usuarios);
-
-        const tableBody = document.getElementById("users-table-body");
-        tableBody.innerHTML = "";
-
-        if (!usuarios || usuarios.length === 0) {
-            tableBody.innerHTML = `
-                <tr>
-                    <td colspan="8">No hay usuarios registrados</td>
-                </tr>
-            `;
-            return;
-        }
-
-        usuarios.forEach(usuario => {
-            const nombreCompleto = `${usuario.nombre ?? ""} ${usuario.apellido ?? ""}`.trim();
-            const iniciales = obtenerIniciales(usuario.nombre, usuario.apellido);
-
-            tableBody.innerHTML += `
-                <tr>
-                    <td>${usuario.idUsuario ?? ""}</td>
-                    <td><span class="admin-user-avatar">${iniciales}</span></td>
-                    <td>${nombreCompleto}</td>
-                    <td>${usuario.email ?? ""}</td>
-                    <td>${usuario.documento ?? ""}</td>
-                    <td>${obtenerRol(usuario.perfilId)}</td>
-                    <td>${usuario.estado ?? ""}</td>
-                    <td>
-                        <div class="admin-table__actions">
-                            <button class="admin-btn admin-btn--danger admin-btn--small" onclick="eliminarUsuario(${usuario.idUsuario})">
-                                Eliminar
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            `;
-        });
-
-    } catch (error) {
-        console.error("Error al listar usuarios:", error);
-    }
+if (tbody) {
+  init();
 }
 
-async function guardarUsuario(event) {
-    event.preventDefault();
+async function init() {
+  bindEvents();
+  await loadUsers();
+}
 
-    const usuario = {
-        nombre: document.getElementById("nombre").value.trim(),
-        apellido: document.getElementById("apellido").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        contrasena: document.getElementById("contrasena").value.trim(),
-        documento: document.getElementById("documento").value.trim(),
-        tipoDocumento: document.getElementById("tipoDocumento").value,
-        perfilId: parseInt(document.getElementById("perfilId").value),
-        estado: document.getElementById("estado").value,
-        emailVerificado: document.getElementById("emailVerificado").value === "true",
+function bindEvents() {
+  searchInput?.addEventListener('input', applyFilters);
+  roleFilter?.addEventListener('change', applyFilters);
+  pagination?.addEventListener('click', onPageClick);
+}
+
+async function loadUsers() {
+  renderStateRow(tbody, 'Cargando usuarios...', 'loading', 8);
+
+  const result = await request(API_ENDPOINTS.users);
+
+  if (result.ok && Array.isArray(result.data)) {
+    state.all = result.data;
+    setJSON(STORAGE_KEYS.users, result.data);
+  } else {
+    state.all = getJSON(STORAGE_KEYS.users, []);
+    if (!state.all.length) {
+      showToast('Backend no disponible. Mostrando lista local vacía.', 'warning');
+    }
+  }
+
+  applyFilters();
+}
+
+function normalizeRole(user) {
+  return String(user.perfilId || user.rol || '').toLowerCase();
+}
+
+function applyFilters() {
+  const query = (searchInput?.value || '').trim().toLowerCase();
+  const selectedRole = (roleFilter?.value || '').trim().toLowerCase();
+  const roleAliases = { admin: 'administrador', empl: 'empleado', customer: 'cliente' };
+  const expectedRole = roleAliases[selectedRole] || selectedRole;
+
+  state.filtered = state.all.filter((user) => {
+    const fullName = `${user.nombre || ''} ${user.apellido || ''}`.toLowerCase();
+    const email = (user.email || '').toLowerCase();
+    const role = normalizeRole(user);
+    const roleText = roleLabels[user.perfilId] || user.rol || '';
+
+    const matchesSearch = !query || fullName.includes(query) || email.includes(query) || String(user.documento || '').includes(query);
+    const matchesRole = !selectedRole || role === selectedRole || roleText.toLowerCase().includes(expectedRole);
+
+    return matchesSearch && matchesRole;
+  });
+
+  state.currentPage = 1;
+  renderTable();
+  renderPagination();
+}
+
+function getCurrentPageRows() {
+  const startIndex = (state.currentPage - 1) * pageSize;
+  return state.filtered.slice(startIndex, startIndex + pageSize);
+}
+
+function renderTable() {
+  if (!state.filtered.length) {
+    renderStateRow(tbody, 'No se encontraron usuarios para los filtros actuales.', 'empty', 8);
+    return;
+  }
+
+  const rows = getCurrentPageRows().map((user) => {
+    const id = user.idUsuario || user.id || '-';
+    const initials = `${(user.nombre || 'U')[0] || 'U'}${(user.apellido || 'N')[0] || 'N'}`.toUpperCase();
+    const fullName = `${user.nombre || ''} ${user.apellido || ''}`.trim() || 'Sin nombre';
+    const role = roleLabels[user.perfilId] || user.rol || 'Cliente';
+    const stateClass = String(user.estado || '').toLowerCase() === 'activo' ? 'admin-badge--success' : 'admin-badge--warning';
+
+    return `
+      <tr>
+        <td>${id}</td>
+        <td>${user.email || '-'}</td>
+        <td>
+          <span class="admin-user-avatar">${initials}</span>
+          <span>${fullName}</span>
+        </td>
+        <td>${user.tipoDocumento || '-'}</td>
+        <td>${user.documento || '-'}</td>
+        <td><span class="admin-badge admin-badge--info">${role}</span></td>
+        <td><span class="admin-badge ${stateClass}">${user.estado || 'Activo'}</span></td>
+        <td>
+          <div class="admin-table__actions">
+            <button class="admin-btn admin-btn--secondary admin-btn--small" data-action="toggle" data-id="${id}">Estado</button>
+            <button class="admin-btn admin-btn--danger admin-btn--small" data-action="delete" data-id="${id}">Eliminar</button>
+          </div>
+        </td>
+      </tr>
+    `;
+  });
+
+  tbody.innerHTML = rows.join('');
+  tbody.querySelectorAll('button[data-action]').forEach((button) => {
+    button.addEventListener('click', handleAction);
+  });
+}
+
+function renderPagination() {
+  if (!pagination) return;
+
+  const totalPages = Math.max(1, Math.ceil(state.filtered.length / pageSize));
+
+  pagination.innerHTML = `
+    <button class="admin-pagination__btn" data-page="prev" ${state.currentPage === 1 ? 'disabled' : ''}>‹ Anterior</button>
+    <span class="admin-pagination__status">Página ${state.currentPage} de ${totalPages}</span>
+    <button class="admin-pagination__btn" data-page="next" ${state.currentPage === totalPages ? 'disabled' : ''}>Siguiente ›</button>
+  `;
+}
+
+function onPageClick(event) {
+  const button = event.target.closest('button[data-page]');
+  if (!button) return;
+
+  const totalPages = Math.max(1, Math.ceil(state.filtered.length / pageSize));
+
+  if (button.dataset.page === 'prev' && state.currentPage > 1) {
+    state.currentPage -= 1;
+  }
+
+  if (button.dataset.page === 'next' && state.currentPage < totalPages) {
+    state.currentPage += 1;
+  }
+
+  renderTable();
+  renderPagination();
+}
+
+function persistUsers() {
+  setJSON(STORAGE_KEYS.users, state.all);
+}
+
+async function handleAction(event) {
+  const button = event.currentTarget;
+  const userId = button.dataset.id;
+  const action = button.dataset.action;
+
+  if (action === 'delete') {
+    if (!window.confirm('¿Deseas eliminar este usuario?')) return;
+
+    const result = await request(`${API_ENDPOINTS.users}?idUsuario=${encodeURIComponent(userId)}`, { method: 'DELETE' });
+
+    if (!result.ok) {
+      showToast('Backend no disponible: eliminando localmente.', 'warning');
+    }
+
+    state.all = state.all.filter((user) => String(user.idUsuario || user.id) !== String(userId));
+    persistUsers();
+    applyFilters();
+    return;
+  }
+
+  state.all = state.all.map((user) => {
+    if (String(user.idUsuario || user.id) !== String(userId)) return user;
+    return {
+      ...user,
+      estado: String(user.estado || 'Activo').toLowerCase() === 'activo' ? 'Inactivo' : 'Activo'
     };
+  });
 
-    console.log("Usuario a enviar:", usuario);
-
-    try {
-        const response = await fetch(API_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(usuario)
-        });
-
-        if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log("Respuesta del backend:", data);
-
-        alert("Usuario registrado correctamente");
-
-        document.getElementById("user-form").reset();
-        listarUsuarios();
-
-    } catch (error) {
-        console.error("Error al guardar usuario:", error);
-        alert("No se pudo registrar el usuario");
-    }
+  persistUsers();
+  applyFilters();
+  showToast('Estado de usuario actualizado localmente.', 'info');
 }
-
-function obtenerIniciales(nombre, apellido) {
-    const inicialNombre = nombre ? nombre.charAt(0).toUpperCase() : "";
-    const inicialApellido = apellido ? apellido.charAt(0).toUpperCase() : "";
-    return inicialNombre + inicialApellido;
-}
-
-function obtenerRol(perfilId) {
-    switch (perfilId) {
-        case 1:
-            return "Administrador";
-        case 2:
-            return "Empleado";
-        case 3:
-            return "Cliente";
-        default:
-            return "Sin rol";
-    }
-}
-
-async function eliminarUsuario(idUsuario) {
-    const confirmar = confirm("¿Seguro que deseas eliminar este usuario?");
-
-    if (!confirmar) {
-        return;
-    }
-
-    try {
-        const response = await fetch(`${API_URL}?idUsuario=${idUsuario}`, {
-            method: "DELETE"
-        });
-
-        if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-        }
-
-        listarUsuarios();
-
-    } catch (error) {
-        console.error("Error al eliminar usuario:", error);
-    }
-}
-
-window.eliminarUsuario = eliminarUsuario;
