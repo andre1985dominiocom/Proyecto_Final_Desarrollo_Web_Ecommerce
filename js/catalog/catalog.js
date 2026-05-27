@@ -239,7 +239,7 @@ function setupAddToCart(cards) {
       const price = Number(card.dataset.price || 0);
       const id = card.dataset.id || name;
 
-      const existingItem = cart.find((item) => item.id === id || item.name === name);
+      const existingItem = cart.find((item) => item.id === id);
       if (existingItem) {
         existingItem.quantity += 1;
       } else {

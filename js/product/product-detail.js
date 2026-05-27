@@ -133,7 +133,7 @@ function setupActions(product) {
       const quantity = Math.max(1, Number(quantityInput?.value || 1));
       const cart = getJSON(STORAGE_KEYS.cart, []);
 
-      const existingItem = cart.find((item) => item.id === String(id) || item.name === name);
+      const existingItem = cart.find((item) => item.id === String(id));
       if (existingItem) {
         existingItem.quantity += quantity;
       } else {
