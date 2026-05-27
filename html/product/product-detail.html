@@ -29,7 +29,7 @@
                 <ul class="breadcrumb__list">
                     <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">Inicio</a></li>
                     <li class="breadcrumb__item"><a class="breadcrumb__link" href="../catalog/catalog.html">Catálogo</a></li>
-                    <li class="breadcrumb__item breadcrumb__item--active">Detalle del Producto</li>
+                    <li class="breadcrumb__item breadcrumb__item--active" id="product-detail-breadcrumb-name">Detalle del Producto</li>
                 </ul>
             </nav>
 
@@ -62,21 +62,16 @@
                 </div>
 
                 <div class="product-detail__info">
-                    <h1 class="product-detail__title">Pijama Pantalón Mangas Moñito</h1>
-                    <p class="product-detail__sku">Ref: SKU-001</p>
+                    <h1 class="product-detail__title" id="product-detail-title">Cargando producto...</h1>
+                    <p class="product-detail__sku" id="product-detail-sku"></p>
 
                     <div class="product-detail__pricing">
-                        <span class="product-detail__price">$60.000</span>
-                        <span class="product-detail__price-original">$80.000</span>
-                        <span class="product-detail__discount">-25%</span>
+                        <span class="product-detail__price" id="product-detail-price"></span>
+                        <span class="product-detail__price-original" id="product-detail-price-original" style="display:none"></span>
+                        <span class="product-detail__discount" id="product-detail-discount" style="display:none"></span>
                     </div>
 
-                    <p class="product-detail__description">
-                        Esta pijama ofrece una sensación de frescura y suavidad sobre la piel,
-                        permitiéndote disfrutar de un descanso reparador durante toda la noche.
-                        Su diseño elegante y fluido proporciona libertad de movimiento,
-                        mientras que la textura de la pijama refleja elegancia que aporta sofisticación.
-                    </p>
+                    <p class="product-detail__description" id="product-detail-description"></p>
 
                     <div class="product-detail__options">
                         <div class="product-detail__option-group">
@@ -127,7 +122,7 @@
                         </div>
                     </div>
 
-                    <p class="product-detail__stock product-detail__stock--available">✓ En stock (15 unidades disponibles)</p>
+                    <p class="product-detail__stock" id="product-detail-stock"></p>
 
                     <div class="product-detail__actions">
                         <button type="button" class="product-detail__btn-cart">Agregar al carrito</button>
@@ -137,7 +132,7 @@
                     <div class="product-detail__meta">
                         <p class="product-detail__meta-item">
                             <span class="product-detail__meta-label">Categoría:</span>
-                            <a href="../catalog/category.html" class="product-detail__meta-link">Pijamas de Mujer</a>
+                            <a href="../catalog/category.html" class="product-detail__meta-link" id="product-detail-category-link">Ver categoría</a>
                         </p>
                         <p class="product-detail__meta-item">
                             <span class="product-detail__meta-label">Envío:</span>
@@ -156,14 +151,7 @@
 
                 <div id="description" class="product-detail__tab-content product-detail__tab-content--active">
                     <h3 class="product-detail__tab-title">Descripción del Producto</h3>
-                    <p>
-                        Este producto está fabricado con materiales de alta calidad, diseñado para brindar
-                        comodidad y durabilidad. Ideal para uso diario, combina estilo y funcionalidad.
-                    </p>
-                    <p>
-                        Disponible en múltiples colores y tallas para adaptarse a tus preferencias. Fácil
-                        de lavar y mantener, conserva su forma y color después de múltiples lavados.
-                    </p>
+                    <p id="product-detail-tab-description"></p>
                 </div>
 
                 <div id="specifications" class="product-detail__tab-content">
@@ -243,5 +231,6 @@
             event.currentTarget.classList.add('product-detail__tab-btn--active');
         }
     </script>
+    <script src="../../js/product/product-detail.js" type="module"></script>
 </body>
 </html>

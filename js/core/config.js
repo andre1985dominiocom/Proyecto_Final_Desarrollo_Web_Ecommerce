@@ -21,6 +21,11 @@ export const API_ENDPOINTS = {
   checkout: '/checkout'
 };
 
+export const CATALOG_ENDPOINTS = {
+  productos: '/catalog/productos',
+  categorias: '/catalog/categorias'
+};
+
 export const COUPON_DISCOUNTS = {
   DIDI10: 0.1,
   DIDI15: 0.15,
