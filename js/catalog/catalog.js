@@ -1,8 +1,7 @@
-import { STORAGE_KEYS } from '../core/config.js';
+import { CATALOG_ENDPOINTS, STORAGE_KEYS } from '../core/config.js';
+import { request } from '../core/http.js';
 import { getJSON, setJSON } from '../core/storage.js';
-import { showToast, toNumberFromCurrency } from '../core/ui.js';
-
-const DEFAULT_PRODUCT_STOCK = 1;
+import { formatCurrency, showToast } from '../core/ui.js';
 
 const catalogGrid = document.querySelector('.catalog__grid');
 
@@ -10,8 +9,7 @@ if (catalogGrid) {
   initCatalog();
 }
 
-function initCatalog() {
-  const cards = Array.from(document.querySelectorAll('.product-card'));
+async function initCatalog() {
   const sortSelect = document.getElementById('sort-select');
   const minPriceInput = document.getElementById('price-min');
   const maxPriceInput = document.getElementById('price-max');
@@ -20,8 +18,32 @@ function initCatalog() {
   const countCurrent = document.getElementById('catalog-count-current');
   const countTotal = document.getElementById('catalog-count-total');
 
-  cards.forEach((card) => enrichCardData(card));
+  catalogGrid.innerHTML = '<p class="catalog__loading">Cargando productos...</p>';
+
+  const [categoriesResponse, productsResponse] = await Promise.all([
+    request(CATALOG_ENDPOINTS.categorias),
+    request(CATALOG_ENDPOINTS.productos)
+  ]);
+
+  const categories = (categoriesResponse.ok && Array.isArray(categoriesResponse.data))
+    ? categoriesResponse.data
+    : [];
+
+  renderCategoryFilters(categories);
+
+  if (!productsResponse.ok || !Array.isArray(productsResponse.data)) {
+    catalogGrid.innerHTML = '<p class="catalog__empty">No se pudieron cargar los productos. Intente más tarde.</p>';
+    if (!productsResponse.ok) {
+      showToast('No se pudo conectar con el servidor.', 'warning');
+    }
+    return;
+  }
+
+  const products = productsResponse.data;
+  renderProducts(products, categories);
   preselectCategoryFromQuery();
+
+  const cards = Array.from(catalogGrid.querySelectorAll('.product-card'));
 
   const applyFilters = () => {
     const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map((input) => input.value);
@@ -54,7 +76,7 @@ function initCatalog() {
     updateCount(countCurrent, countTotal, cards);
   });
 
-  document.querySelectorAll('.filters input').forEach((input) => input.addEventListener('change', applyFilters));
+  document.querySelector('.filters')?.addEventListener('change', applyFilters);
   applyPriceButton?.addEventListener('click', applyFilters);
 
   resetButton?.addEventListener('click', () => {
@@ -62,36 +84,120 @@ function initCatalog() {
       if (input.type === 'checkbox' || input.type === 'radio') input.checked = false;
       if (input.type === 'number') input.value = '';
     });
-    sortSelect.value = 'relevance';
+    if (sortSelect) sortSelect.value = 'relevance';
     applyFilters();
   });
 
-  setupAddToCart();
+  setupAddToCart(cards);
   applyFilters();
 }
 
-function preselectCategoryFromQuery() {
-  const categoryFromUrl = new URLSearchParams(window.location.search).get('category');
-  if (!categoryFromUrl) return;
-  const checkbox = document.querySelector(`input[name=\"category\"][value=\"${categoryFromUrl}\"]`);
-  if (checkbox) checkbox.checked = true;
+function renderCategoryFilters(categories) {
+  const filtersList = document.getElementById('filters-category-list');
+  if (!filtersList || !categories.length) return;
+
+  filtersList.innerHTML = categories.map((cat) => {
+    const id = escapeAttr(String(cat.idCategoria || cat.id || ''));
+    const name = escapeHtml(cat.nombreCategoria || cat.nombre || cat.name || 'Sin nombre');
+    return `
+      <li class="filters__item">
+        <label class="filters__label">
+          <input type="checkbox" class="filters__checkbox" name="category" value="${id}"> ${name}
+        </label>
+      </li>`;
+  }).join('');
 }
 
-function enrichCardData(card) {
-  const categoryText = (card.querySelector('.product-card__category')?.textContent || '').toLowerCase();
-  const ratingText = card.querySelector('.product-card__rating')?.textContent || '';
-  const priceText = card.querySelector('.product-card__price')?.textContent || '0';
-  const saleBadge = card.querySelector('.product-card__badge--sale');
+function renderProducts(products, categories) {
+  if (!products.length) {
+    catalogGrid.innerHTML = '<p class="catalog__empty">No hay productos disponibles.</p>';
+    return;
+  }
 
-  let mappedCategory = 'hogar';
-  if (categoryText.includes('pijama') || categoryText.includes('ropa')) mappedCategory = 'ropa';
-  if (categoryText.includes('accesorio')) mappedCategory = 'accesorios';
+  const catMap = {};
+  categories.forEach((cat) => {
+    const id = String(cat.idCategoria || cat.id || '');
+    catMap[id] = cat.nombreCategoria || cat.nombre || cat.name || '';
+  });
 
-  card.dataset.category = mappedCategory;
-  card.dataset.rating = String((ratingText.match(/★/g) || []).length);
-  card.dataset.price = String(toNumberFromCurrency(priceText));
-  card.dataset.stock = String(Number(card.dataset.stock || DEFAULT_PRODUCT_STOCK));
-  card.dataset.sale = saleBadge ? 'true' : 'false';
+  catalogGrid.innerHTML = products.map((product) => buildProductCard(product, catMap)).join('');
+}
+
+function buildProductCard(product, catMap) {
+  const id = product.idProducto || product.id || product.codigo || '';
+  const name = product.nombreProducto || product.nombre || product.name || 'Producto';
+  const price = Number(product.precio || product.price || 0);
+  const stock = Number(product.stock ?? 1);
+  const categoryId = String(product.idCategoria || product.categoryId || '');
+  const categoryName = catMap[categoryId] || product.nombreCategoria || product.categoria || product.category || '';
+  const imageUrl = product.imagenUrl || product.imagen || product.image || '';
+  const isNew = Boolean(product.esNuevo || product.isNew);
+  const discountPct = Number(product.descuento || product.discount || 0);
+  const isSale = discountPct > 0 || Boolean(product.enOferta || product.onSale);
+  const originalPrice = isSale ? Number(product.precioOriginal || product.originalPrice || 0) : 0;
+
+  const badgeHtml = isNew
+    ? '<span class="product-card__badge product-card__badge--new">Nuevo</span>'
+    : isSale && discountPct > 0
+      ? `<span class="product-card__badge product-card__badge--sale">-${discountPct}%</span>`
+      : '';
+
+  const imgHtml = imageUrl
+    ? `<img src="${escapeAttr(imageUrl)}" alt="${escapeAttr(name)}" class="product-card__image">`
+    : '';
+
+  const priceHtml = isSale && originalPrice > 0
+    ? `<span class="product-card__price">${formatCurrency(price)}</span>
+       <span class="product-card__price-original">${formatCurrency(originalPrice)}</span>`
+    : `<span class="product-card__price">${formatCurrency(price)}</span>`;
+
+  const detailUrl = `../product/product-detail.html?idProducto=${encodeURIComponent(id)}`;
+
+  return `
+    <article class="product-card"
+      data-id="${escapeAttr(String(id))}"
+      data-category="${escapeAttr(categoryId)}"
+      data-price="${price}"
+      data-stock="${stock}"
+      data-sale="${isSale}"
+      data-rating="0">
+      <a href="${detailUrl}" class="product-card__link">
+        <div class="product-card__image-wrapper">
+          ${imgHtml}
+          <div class="product-card__image-placeholder"></div>
+          ${badgeHtml}
+        </div>
+        <div class="product-card__body">
+          <h3 class="product-card__name">${escapeHtml(name)}</h3>
+          <p class="product-card__category">${escapeHtml(categoryName)}</p>
+          <div class="product-card__rating"></div>
+          <div class="product-card__prices">${priceHtml}</div>
+        </div>
+      </a>
+      <div class="product-card__actions">
+        <button class="product-card__btn product-card__btn--cart">Agregar al carrito</button>
+        <button class="product-card__btn product-card__btn--wishlist" title="Añadir a lista de deseos">♡</button>
+      </div>
+    </article>`;
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function escapeAttr(str) {
+  return String(str).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function preselectCategoryFromQuery() {
+  const params = new URLSearchParams(window.location.search);
+  const idCategoria = params.get('idCategoria') || params.get('category');
+  if (!idCategoria) return;
+  const checkbox = document.querySelector(`input[name="category"][value="${idCategoria}"]`);
+  if (checkbox) checkbox.checked = true;
 }
 
 function sortCards(cards, sortBy) {
@@ -123,21 +229,21 @@ function updateCount(currentElement, totalElement, cards) {
   totalElement.textContent = String(cards.length);
 }
 
-function setupAddToCart() {
-  const buttons = document.querySelectorAll('.product-card__btn--cart');
-
-  buttons.forEach((button) => {
+function setupAddToCart(cards) {
+  cards.forEach((card) => {
+    const button = card.querySelector('.product-card__btn--cart');
+    if (!button) return;
     button.addEventListener('click', () => {
-      const card = button.closest('.product-card');
       const cart = getJSON(STORAGE_KEYS.cart, []);
       const name = card.querySelector('.product-card__name')?.textContent?.trim() || 'Producto';
       const price = Number(card.dataset.price || 0);
+      const id = card.dataset.id || name;
 
-      const existingItem = cart.find((item) => item.name === name);
+      const existingItem = cart.find((item) => item.id === id || item.name === name);
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        cart.push({ name, price, quantity: 1 });
+        cart.push({ id, name, price, quantity: 1 });
       }
 
       setJSON(STORAGE_KEYS.cart, cart);
