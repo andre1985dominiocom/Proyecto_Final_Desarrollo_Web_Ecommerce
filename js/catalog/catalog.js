@@ -148,7 +148,7 @@ function buildProductCard(product, catMap) {
 
   const priceHtml = isSale && originalPrice > 0
     ? `<span class="product-card__price">${formatCurrency(price)}</span>
-       <span class="product-card__price-original">${formatCurrency(originalPrice)}</span>`
+        <span class="product-card__price-original">${formatCurrency(originalPrice)}</span>`
     : `<span class="product-card__price">${formatCurrency(price)}</span>`;
 
   const detailUrl = `../product/product-detail.html?idProducto=${encodeURIComponent(id)}`;

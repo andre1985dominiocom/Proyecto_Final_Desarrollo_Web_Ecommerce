@@ -34,7 +34,7 @@
             <div class="admin-content">
                 <h1 class="admin-page-title">Agregar / Editar Producto</h1>
 
-                <form class="admin-form" action="#" method="post">
+                <form class="admin-form" id="admin-product-form">
                     <div class="admin-form__row">
                         <div class="admin-form__group">
                             <label for="product-name" class="admin-form__label">Nombre del Producto</label>
@@ -67,12 +67,9 @@
                             <label for="product-category" class="admin-form__label">Categoría</label>
                             <select id="product-category" name="product-category" class="admin-form__select" required>
                                 <option value="">Selecciona una categoría</option>
-                                <option value="ropa">Ropa</option>
-                                <option value="calzado">Calzado</option>
-                                <option value="accesorios">Accesorios</option>
-                                <option value="bolsos">Bolsos</option>
-                                <option value="joyeria">Joyería</option>
-                                <option value="otros">Otros</option>
+                                <option value="ropa">Pijamas de Mujer</option>
+                                <option value="calzado">Accesorios</option>
+                                <option value="accesorios">Complementos</option>
                             </select>
                         </div>
                         <div class="admin-form__group">
@@ -80,7 +77,7 @@
                             <select id="product-status" name="product-status" class="admin-form__select">
                                 <option value="active">Activo</option>
                                 <option value="inactive">Inactivo</option>
-                                <option value="draft">Borrador</option>
+                                <option value="draft">Agotado</option>
                             </select>
                         </div>
                     </div>
@@ -105,5 +102,6 @@
             </div>
         </div>
     </div>
+    <script src="../../js/product/admin-product.js" type="module"></script>
 </body>
 </html>

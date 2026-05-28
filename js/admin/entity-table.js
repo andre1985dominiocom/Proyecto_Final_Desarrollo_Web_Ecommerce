@@ -41,7 +41,7 @@ async function initEntityPage(entity) {
 
   renderStateRow(tbody, 'Cargando información...', 'loading', columnsCount);
 
-  const response = apiPath ? await request(apiPath) : { ok: false };
+  const response = apiPath ? await request(`/catalog/categorias`) : { ok: false };
 
   if (response.ok && Array.isArray(response.data)) {
     state.rows = ensureEntityIds(entity, response.data);
@@ -122,7 +122,7 @@ function getEntityId(entity, row) {
   if (entity === 'orders' && (row.id || row.idPedido || row.code)) return row.id || row.idPedido || row.code;
   if (entity === 'promotions' && (row.id || row.code || row.codigo)) return row.id || row.code || row.codigo;
   if (entity === 'categories' && (row.id || row.idCategoria)) return row.id || row.idCategoria;
-  if (entity === 'products' && (row.id || row.idProducto || row.codigo)) return row.id || row.idProducto || row.codigo;
+  if (entity === 'products' && (row.idProducto || row.idProducto || row.sku)) return row.idProducto || row.idProducto || row.sku;
   return row.__localId;
 }
 
@@ -153,13 +153,17 @@ function renderProductRow(product) {
   const id = String(getEntityId('products', product));
   return `
     <tr>
-      <td>${product.id || '-'}</td>
+      <td>${product.idProducto || '-'}</td>
       <td><div class="admin-product-image">Sin imagen</div></td>
-      <td>${product.name || product.nombre || '-'}</td>
-      <td>${product.category || product.categoria || '-'}</td>
-      <td>${formatCurrency(product.price || product.precio)}</td>
-      <td>${product.stock ?? '-'}</td>
-      <td><span class="admin-badge ${statusBadge(product.status || product.estado)}">${product.status || product.estado || '-'}</span></td>
+      <td>${product.nombreProducto || product.nombreProducto || '-'}</td>
+      <td>${product.categoriaId || product.categoriaId || '-'}</td>
+      <td>${formatCurrency(product.precio || product.precio)}</td>
+      <td>${product.sku || '-'}</td>
+      <td>
+        <span class="admin-badge ${statusBadge(product.estado)}">
+          ${product.estado || '-'}
+        </span>
+      </td>
       <td><div class="admin-table__actions"><button class="admin-btn admin-btn--danger admin-btn--small" data-delete-id="${id}">Eliminar</button></div></td>
     </tr>
   `;
@@ -169,11 +173,11 @@ function renderCategoryRow(category) {
   const id = String(getEntityId('categories', category));
   return `
     <tr>
-      <td>${category.id || '-'}</td>
-      <td>${category.name || category.nombre || '-'}</td>
+      <td>${category.idCategoria || '-'}</td>
+      <td>${category.nombreCategoria || category.nombreCategoria || '-'}</td>
       <td>${category.description || category.descripcion || '-'}</td>
       <td>${category.products || category.cantidadProductos || 0}</td>
-      <td><span class="admin-badge ${statusBadge(category.status || category.estado)}">${category.status || category.estado || '-'}</span></td>
+      <td><span class="admin-badge ${statusBadge(category.date || category.fechaCreacion)}">${category.date || category.fechaCreacion || '-'}</span></td>
       <td><div class="admin-table__actions"><button class="admin-btn admin-btn--danger admin-btn--small" data-delete-id="${id}">Eliminar</button></div></td>
     </tr>
   `;
